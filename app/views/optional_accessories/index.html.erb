@@ -1,0 +1,12 @@
+<h1>All Optional Accessories</h1>
+<ul class="optional_accessories">
+  <%= render @optional_accessories %>
+</ul>
+
+<%= link_to 'New Optional Accessory', new_optional_accessory_path %>
+
+<table >
+	<% ExerciseAccessory.all.each do |ea| %>
+		<tr><td><%= ea.exercise_id %></td><td><%= ea.accessory_id %></td></tr>
+	<% end %>
+</table>

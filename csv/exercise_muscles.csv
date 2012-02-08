@@ -1,0 +1,122 @@
+exercise_id,muscle_id,primary,name,target muscles,,,,,,name
+1,30,TRUE,Horizontal Extensions,triceps,,,,,1,abs
+2,29,FALSE,Lat-Band Pullown,traps,,,,,2,ankle
+2,18,TRUE,Lat-Band Pullown,lats,,,,,3,back (lower)
+2,4,FALSE,Lat-Band Pullown,back (mid),,,,,4,back (mid)
+2,5,FALSE,Lat-Band Pullown,back (upper),,,,,5,back (upper)
+3,18,TRUE,Seated Band Rows,Lats,,,,,6,bicep
+3,4,FALSE,Seated Band Rows,back (mid),,,,,7,calf
+3,3,FALSE,Seated Band Rows,back (lower),,,,,8,core
+4,18,TRUE,Bent Over Band-Rows,Lats,,,,,9,deltoids
+4,4,FALSE,Bent Over Band-Rows,back (mid),,,,,10,deltoids (front)
+5,18,TRUE,Straight Arm Pulldowns,lats,,,,,11,deltoids (medial)
+5,5,FALSE,Straight Arm Pulldowns,back (upper),,,,,12,deltoids (rear)
+5,9,FALSE,Straight Arm Pulldowns,deltoids,,,,,13,deltoids (rotator cuff)
+6,18,TRUE,Reverse Flyes,lats,,,,,14,glutes
+6,5,FALSE,Reverse Flyes,back (upper),,,,,15,groin
+6,12,TRUE,Reverse Flyes,deltoids (rear),,,,,16,hamstring
+7,18,TRUE,Deadlift,lats,,,,,17,hip
+7,3,FALSE,Deadlift,back (lower),,,,,18,lats
+7,16,FALSE,Deadlift,hamstring,,,,,19,lats (lower)
+7,14,FALSE,Deadlift,glutes,,,,,20,lats (mid)
+7,8,FALSE,Deadlift,core,,,,,21,lats (upper)
+8,30,TRUE,Kickbacks,triceps,,,,,22,neck
+9,30,TRUE,Tricep Pushdown,triceps,,,,,23,obliques
+10,30,TRUE,Dips,triceps,,,,,24,pecs
+10,24,FALSE,Dips,pecs,,,,,25,pecs (lower)
+11,30,TRUE,Animals,triceps,,,,,26,pecs (upper)
+12,30,TRUE,Close Grip Push-Up Press,triceps,,,,,27,quads
+12,24,FALSE,Close Grip Push-Up Press,pecs,,,,,28,thighs
+13,30,TRUE,Lateral Extension,triceps,,,,,29,traps
+14,30,TRUE,Vertical Extensions,triceps,,,,,30,triceps
+15,30,TRUE,Overhead Extensions,triceps,,,,,,
+16,30,TRUE,Wrapped Shoulder Extension,triceps,,,,,,
+17,17,FALSE,Resisted Kicks,hips,,,,,,
+17,14,TRUE,Resisted Kicks,glutes,,,,,,
+17,15,FALSE,Resisted Kicks,hams,,,,,,
+18,10,TRUE,Military Press,deltoids (front),,,,,,
+18,11,FALSE,Military Press,deltoids (medial),,,,,,
+18,29,FALSE,Military Press,traps,,,,,,
+19,10,TRUE,Front Raises,deltoids (front),,,,,,
+20,11,TRUE,Lateral Raises,deltoids (medial),,,,,,
+21,9,TRUE,Upright Rows,deltoids,,,,,,
+21,18,FALSE,Upright Rows,lats,,,,,,
+21,29,FALSE,Upright Rows,traps,,,,,,
+22,12,TRUE,Cableband Laterals,deltoids (rear),,,,,,
+23,12,TRUE,Skiers,deltoids (rear),,,,,,
+24,13,TRUE,Isolation Pulls,deltoids (rotator cuff),,,,,,
+25,29,TRUE,Shrugs,traps,,,,,,
+26,16,FALSE,Leg Liberator,hamstring,,,,,,
+26,17,FALSE,Leg Liberator,hips,,,,,,
+26,15,FALSE,Leg Liberator,groin,,,,,,
+26,14,FALSE,Leg Liberator,glutes,,,,,,
+27,9,FALSE,Back Lubricator,deltoids,,,,,,
+27,3,FALSE,Back Lubricator,back (lower),,,,,,
+27,5,FALSE,Back Lubricator,back (upper),,,,,,
+27,16,FALSE,Back Lubricator,hamstring,,,,,,
+28,24,FALSE,Loose Arm-ony,pecs,,,,,,
+28,13,FALSE,Loose Arm-ony,delts,,,,,,
+29,2,TRUE,Ankle Motionizer,ankle,,,,,,
+30,18,FALSE,Relaxalator,lats,,,,,,
+30,24,FALSE,Relaxalator,pecs,,,,,,
+30,9,FALSE,Relaxalator,deltoids,,,,,,
+31,22,TRUE,Neck Stup,neck,,,,,,
+32,27,TRUE,Quad-lity,quads,,,,,,
+33,30,FALSE,Wicked Chicken Wing,triceps,,,,,,
+33,9,FALSE,Wicked Chicken Wing,deltoids,,,,,,
+34,6,TRUE,Crossband Lateral Curls,biceps,,,,,,
+35,6,TRUE,Bandbell Curls,biceps,,,,,,
+36,6,TRUE,Reverse Curls,biceps,,,,,,
+37,6,TRUE,Cableband Curls,biceps,,,,,,
+38,27,TRUE,Squats,quads,,,,,,
+38,14,FALSE,Squats,glutes,,,,,,
+38,16,FALSE,Squats,hamstring,,,,,,
+39,27,TRUE,Leg Press,quads,,,,,,
+40,27,TRUE,Leg Extensions,quads,,,,,,
+41,16,TRUE,Good Mornings,hamstring,,,,,,
+41,17,FALSE,Good Mornings,hips,,,,,,
+41,14,FALSE,Good Mornings,glutes,,,,,,
+41,8,FALSE,Good Mornings,core,,,,,,
+42,16,TRUE,Straight Leg Deadlift,hamstrings,,,,,,
+42,14,FALSE,Straight Leg Deadlift,glutes,,,,,,
+42,17,FALSE,Straight Leg Deadlift,hips,,,,,,
+42,8,FALSE,Straight Leg Deadlift,core,,,,,,
+43,16,TRUE,Leg Curls,hamstrings,,,,,,
+44,7,TRUE,Calf Raises,calves,,,,,,
+45,17,TRUE,Hip Abductor/Adductor,hips,,,,,,
+45,28,FALSE,Hip Abductor/Adductor,thighs,,,,,,
+46,27,TRUE,Lunges,quads,,,,,,
+46,14,FALSE,Lunges,glutes,,,,,,
+46,16,FALSE,Lunges,hamstring,,,,,,
+47,6,TRUE,Hammer Curls,biceps,,,,,,
+48,6,TRUE,Alternate Bandbell Curls,biceps,,,,,,
+49,6,TRUE,Concentration Curls,biceps,,,,,,
+50,26,TRUE,Incline Bench Press,pecs (upper),,,,,,
+51,25,TRUE,Decline Bench Press,pecs (lower),,,,,,
+52,24,TRUE,Push Up Press,pecs,,,,,,
+53,24,TRUE,Flyes,pecs,,,,,,
+54,24,TRUE,Pull Over,pecs,,,,,,
+55,24,TRUE,Flat Bench Press,pecs,,,,,,
+56,3,FALSE,Superman,back (lower),,,,,,
+56,1,TRUE,Superman,abs,,,,,,
+57,23,FALSE,Twist,obliques,,,,,,
+57,1,TRUE,Twist,abs,,,,,,
+58,8,TRUE,Woodchopper,core,,,,,,
+59,3,FALSE,Side Bend,back (lower),,,,,,
+59,23,TRUE,Side Bend,obliques,,,,,,
+60,8,TRUE,Side Bridge,core,,,,,,
+61,1,FALSE,Obliquatory,abs,,,,,,
+61,23,TRUE,Obliquatory,obliques,,,,,,
+62,8,TRUE,Plank,core,,,,,,
+63,1,TRUE,Raise,abs,,,,,,
+63,3,FALSE,Raise,back (lower),,,,,,
+64,1,TRUE,Roll,abs,,,,,,
+64,3,FALSE,Roll,back (lower),,,,,,
+65,19,TRUE,Hyperextension,lats (lower),,,,,,
+66,24,FALSE,Aligner,pecs,,,,,,
+66,8,FALSE,Aligner,core,,,,,,
+66,18,FALSE,Aligner,lats,,,,,,
+67,1,FALSE,Bicycle,abs,,,,,,
+67,23,TRUE,Bicycle,obliques,,,,,,
+68,1,TRUE,Crunch,abs,,,,,,
+69,8,TRUE,Squeeze,core,,,,,,

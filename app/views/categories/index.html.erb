@@ -1,0 +1,13 @@
+<h1>All Categories</h1>
+<table class="all">
+	<tr>
+		<td>
+			<div class="categories"><%= render @categories %></div>
+		</td>
+		<td>
+		<div class="exercises">
+				<% @categories.each do |category| %><%= render category.exercises %><% end %></div>
+		</td>
+	</td>
+</table>
+

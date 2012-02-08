@@ -1,0 +1,55 @@
+<h1>New Exercise</h1>
+
+<%= form_for(@exercise) do |f| %>
+<div class="field">
+	<%= f.label :name %><br />
+	<%= f.text_field :name %>
+</div>
+<div class="field">
+	<%= f.label :description %><br />
+	<%= f.text_area :description, :size => "60x12" %>
+</div>
+<div class="field">
+	<%= f.label :video %><br />
+	<%= f.text_field :video %>
+</div>
+<div class="field">
+	<%= f.label :categories %><br />
+	<%= f.collection_select(:categories, Category.all, :id, :name, { :selected => "" }, 
+	{ :multiple => true, :size => 5 }) %>
+</div>
+<div class="field">
+	<%= f.label :accessories %><br />
+	<%= f.collection_select(:accessories, OptionalAccessory.all, :id, :name, { :selected => "" }, 
+	{ :multiple => true, :size => 5 }) %>
+</div>
+<div class="field">
+	<%= f.label :positions %><br />
+	<%= f.collection_select(:positions, Position.all, :id, :name, { :selected => "" }, 
+	{ :multiple => true, :size => 5 }) %>
+</div>
+<div class="field">
+	<%= f.label :heights %><br />
+	<%= f.collection_select(:heights, AnchorPointHeight.all, :id, :name, { :selected => "" }, 
+	{ :multiple => true, :size => 5 }) %>
+</div>
+<div class="field">
+	<%= f.label :muscles %><br />
+	<%= f.collection_select(:muscles, TargetMuscle.all, :id, :name, { :selected => "" }, 
+	{ :multiple => true, :size => 5 }) %>
+</div>
+<div class="field">
+	<%= f.label :forces %><br />
+	<%= f.collection_select(:forces, Force.all, :id, :name, { :selected => "" }, 
+	{ :multiple => true, :size => 5 }) %>
+</div>
+<div class="field">
+	<%= f.label :posts %><br />
+	<%= f.collection_select(:posts, Post.all, :id, :name, { :selected => "" }, 
+	{ :multiple => true, :size => 5 }) %>
+</div>
+<div class="actions">
+	<%= f.submit "Save" %>
+</div>
+<% end %>
+

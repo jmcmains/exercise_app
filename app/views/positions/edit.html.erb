@@ -1,0 +1,12 @@
+<h1>Edit Position</h1>
+
+<%= form_for(@position) do |f| %>
+<div class="field">
+	<%= f.label :name %><br />
+	<%= f.text_field :name %>
+</div>
+<div class="actions">
+	<%= f.submit "Save" %>
+</div>
+<% end %>
+

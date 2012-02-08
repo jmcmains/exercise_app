@@ -1,0 +1,4 @@
+<li>
+<%= target_muscle.name %> | <%= link_to 'Edit', edit_target_muscle_path(target_muscle) %> | <%= link_to "delete", target_muscle, :method => :delete, :confirm => "You sure?",
+                                :title => "Delete #{target_muscle.name}" %>
+</li>

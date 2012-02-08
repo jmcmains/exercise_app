@@ -1,0 +1,3 @@
+<li>
+<%= variation.content %> | <%= link_to 'Edit', edit_variation_path(variation) %> | <%= link_to "delete", variation, :method => :delete, :confirm => "You sure?", :title => "Delete #{variation.id}" %>
+</li>

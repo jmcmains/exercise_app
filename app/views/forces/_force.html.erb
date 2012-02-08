@@ -1,0 +1,4 @@
+<li>
+<%= force.name %> | <%= link_to 'Edit', edit_force_path(force) %> | <%= link_to "delete", force, :method => :delete, :confirm => "You sure?",
+                                :title => "Delete #{force.name}" %>
+</li>

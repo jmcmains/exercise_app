@@ -1,0 +1,4 @@
+<li>
+<%= post.name %> | <%= link_to 'Edit', edit_post_path(post) %> | <%= link_to "delete", post, :method => :delete, :confirm => "You sure?",
+                                :title => "Delete #{post.name}" %>
+</li>

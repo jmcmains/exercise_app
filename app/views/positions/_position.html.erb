@@ -1,0 +1,4 @@
+<li>
+<%= position.name %> | <%= link_to 'Edit', edit_position_path(position) %> | <%= link_to "delete", position, :method => :delete, :confirm => "You sure?",
+                                :title => "Delete #{position.name}" %>
+</li>

@@ -1,0 +1,4 @@
+<li>
+<%= tip.content %> | <%= link_to 'Edit', edit_tip_path(tip) %> | <%= link_to "delete", tip, :method => :delete, :confirm => "You sure?",
+                                :title => "Delete #{tip.id}" %>
+</li>

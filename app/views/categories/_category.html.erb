@@ -1,3 +1,7 @@
-	<div class="category"><%= category.name %></div>
-
+<div class="category" id="<%= category.name %>"><%= category.name %></div>
+<script>
+	$("div#<%= category.name %>").click(function () {
+	$("div.exercises").html("<%= escape_javascript(render(category.exercises)) %>");
+	}); 
+</script>
 

@@ -1,8 +1,9 @@
-<h1>All Categories</h1>
 <table class="all">
 	<tr>
 		<td>
-			<div class="categories"><%= render @categories %></div>
+			<div class="categories">
+			<div class="category" id="All">All</div>
+			<%= render @categories %></div>
 		</td>
 		<td>
 		<div class="exercises">
@@ -10,4 +11,10 @@
 		</td>
 	</td>
 </table>
+<script>
+	$("div#All").click(function () {
+	$("div.exercises").html("<%= escape_javascript(render(Exercise.all)) %>");
+	}); 
+</script>
+
 

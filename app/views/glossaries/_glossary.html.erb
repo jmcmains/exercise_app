@@ -1,0 +1,40 @@
+<tr>
+	<td class="exercise <%= glossary.id %>" id="<%= glossary.id %>">
+		<div class="expand" id="bu<%= glossary.id %>">
+			+
+		</div>
+		<div class="expand" id="bu<%= glossary.id %>" style="display:none">
+			-
+		</div>
+		<div class= "text">
+			<%= glossary.term %>
+		</div>
+		<script>
+			$("td.<%= glossary.id %>").click(function () {
+			if ($("div#ex<%= glossary.id %>").is(':visible')) {
+				$("#ex<%= glossary.id %>").hide('fast');
+			} else {
+				$("#ex<%= glossary.id %>").show('fast');
+			}
+			$("div#bu<%= glossary.id %>").toggle();
+			}); 
+		</script>
+		<div class="data" id="ex<%= glossary.id %>" style="display:none">
+			<table>
+				<tr>
+					<td>
+						<% if glossary.glossary_pictures.count > 0 %>
+							<% glossary.glossary_pictures.each do |pic| %>
+								<%= image_tag(pic.picture, :height => "100") %>
+							<% end %>
+						<% end %>
+					</td>
+					<td>
+						<%= glossary.description %>
+					</td>
+				</tr>
+			</table>
+
+		</div>
+	</td>
+</tr>

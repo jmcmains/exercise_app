@@ -102,6 +102,22 @@ CSV.foreach(Rails.root.join('csv/forces.csv'), headers: true) do |row|
   end
 end
 
+puts "Importing glossaries..."
+CSV.foreach(Rails.root.join('csv/glossaries.csv'), headers: true, col_sep: '|') do |row|
+  Glossary.create! do |glossary|
+    glossary.term = row[0]
+    glossary.description = row[1].force_encoding 'utf-8'
+  end
+end
+
+puts "Importing glossary pictures..."
+CSV.foreach(Rails.root.join('csv/glossary_pictures.csv'), headers: true) do |row|
+  GlossaryPicture.create! do |gp|
+    gp.glossary_id = row[0]
+    gp.picture = row[1]
+  end
+end
+
 puts "Importing positions..."
 CSV.foreach(Rails.root.join('csv/positions.csv'), headers: true) do |row|
   Position.create! do |position|

@@ -7,6 +7,8 @@
 			<%= render @categories %>
 			<h1> WORKOUT </h1>
 			<%= render Workout.all %>
+			<h1> Extra Info </h1>
+			<h2 class="sbbutton" id="Glossary">Glossary</h2>
 			</div>
 			
 		</td>
@@ -24,6 +26,11 @@
 	$("table.exercises").html("<%= escape_javascript(render(Exercise.all)) %>");
 	$("div.sidebar h2").removeClass("highlight");
 	$("h2#All").addClass("highlight");
+	}); 
+	$("h2#Glossary").click(function () {
+	$("table.exercises").html("<%= escape_javascript(render(Glossary.all)) %>");
+	$("div.sidebar h2").removeClass("highlight");
+	$("h2#Glossary").addClass("highlight");
 	}); 
 </script>
 

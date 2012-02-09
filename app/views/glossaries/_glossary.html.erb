@@ -20,15 +20,15 @@
 			}); 
 		</script>
 		<div class="data" id="ex<%= glossary.id %>" style="display:none">
-			<table>
+			<table class="allinfo">
 				<tr>
+					<% if glossary.glossary_pictures.count > 0 %>
 					<td>
-						<% if glossary.glossary_pictures.count > 0 %>
-							<% glossary.glossary_pictures.each do |pic| %>
-								<%= image_tag(pic.picture, :height => "100") %>
-							<% end %>
+						<% glossary.glossary_pictures.each do |pic| %>
+							<%= image_tag(pic.picture, :height => "100") %>
 						<% end %>
 					</td>
+					<% end %>
 					<td>
 						<%= glossary.description %>
 					</td>

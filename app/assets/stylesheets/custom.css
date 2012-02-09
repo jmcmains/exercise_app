@@ -16,16 +16,10 @@ td.exercise {
 
 tbody tr:nth-child(even) td, tbody tr.even td {background:#f2f5f9;}
 
-/*td.exercise:hover{
-	background: #4b95e5;
-}
-
-td.exercise:active{
-	background: #4b95e5;
-}*/
 
 span.category {
 	color: #888;
+	margin:20px;
 }
 
 table.allinfo tr td{
@@ -34,6 +28,7 @@ table.allinfo tr td{
 
 table.allinfo {
 	margin-bottom: 0px;
+	padding-left:20px;
 }
 
 div.scroll {
@@ -62,7 +57,7 @@ div.sidebar {
 	border:1px solid #bbb;
 	overflow:hidden;
 	white-space:nowrap;
-text-overflow: ellipsis-word;
+	text-overflow: ellipsis-word;
 	background: #fff;
 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#e7eaef', endColorstr='#d1d8df');
 	background: -webkit-gradient(linear, left top, left bottom, from(#e7eaef), to(#d1d8df));

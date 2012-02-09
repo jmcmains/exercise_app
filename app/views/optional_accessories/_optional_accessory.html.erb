@@ -1,4 +1,37 @@
-<li>
-<%= optional_accessory.name %> | <%= link_to 'Edit', edit_optional_accessory_path(optional_accessory) %> | <%= link_to "delete", optional_accessory, :method => :delete, :confirm => "You sure?",
-                                :title => "Delete #{optional_accessory.name}" %>
-</li>
+<tr>
+	<td class="exercise <%= optional_accessory.id %>" id="<%= optional_accessory.id %>">
+		<div class="expand" id="bu<%= optional_accessory.id %>">
+			+
+		</div>
+		<div class="expand" id="bu<%= optional_accessory.id %>" style="display:none">
+			-
+		</div>
+		<div class= "text">
+			<%= optional_accessory.name %>
+		</div>
+		<script>
+			$("td.<%= optional_accessory.id %>").click(function () {
+			if ($("div#ex<%= optional_accessory.id %>").is(':visible')) {
+				$("#ex<%= optional_accessory.id %>").hide('fast');
+			} else {
+				$("#ex<%= optional_accessory.id %>").show('fast');
+			}
+			$("div#bu<%= optional_accessory.id %>").toggle();
+			}); 
+		</script>
+		<div class="data" id="ex<%= optional_accessory.id %>" style="display:none">
+			<table class="allinfo">
+				<tr>
+					<td>
+							<%= image_tag(optional_accessory.picture, :height => "100") %>
+					</td>
+					<td>
+						<%= optional_accessory.description %><br />
+						For more information and purchasing details, please visit <a href="<%= optional_accessory.store_link %>">the store </a>
+					</td>
+				</tr>
+			</table>
+
+		</div>
+	</td>
+</tr>

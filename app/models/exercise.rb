@@ -74,6 +74,10 @@ class Exercise < ActiveRecord::Base
     exercise_accessories.find_by_accessory_id(accessory).destroy
   end
   
+  def primary_accessory?(accessory_id)
+  	exercise_accessories.find_by_accessory_id(accessory_id).primary
+  end  
+  
   #Positions
   def included_position?(position)
     exercise_positions.find_by_position_id(position)
@@ -129,7 +133,7 @@ class Exercise < ActiveRecord::Base
   	exercise_muscles.find_by_muscle_id(muscle_id).toggle!(:primary)
   end
   
-  def primary?(muscle_id)
+  def primary_muscle?(muscle_id)
   	exercise_muscles.find_by_muscle_id(muscle_id).primary
   end  
   

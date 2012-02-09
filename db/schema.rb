@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120209205956) do
+ActiveRecord::Schema.define(:version => 20120209215453) do
 
   create_table "anchor_point_heights", :force => true do |t|
     t.string   "name"
@@ -28,8 +28,9 @@ ActiveRecord::Schema.define(:version => 20120209205956) do
   create_table "exercise_accessories", :force => true do |t|
     t.integer  "exercise_id"
     t.integer  "accessory_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.boolean  "primary",      :default => false
   end
 
   add_index "exercise_accessories", ["accessory_id"], :name => "index_exercise_accessories_on_accessory_id"
@@ -142,8 +143,11 @@ ActiveRecord::Schema.define(:version => 20120209205956) do
 
   create_table "optional_accessories", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.text     "description"
+    t.string   "picture"
+    t.string   "store_link"
   end
 
   create_table "positions", :force => true do |t|

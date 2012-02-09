@@ -35,6 +35,7 @@ CSV.foreach(Rails.root.join('csv/exercise_accessories.csv'), headers: true) do |
   ExerciseAccessory.create! do |ea|
     ea.exercise_id = row[0]
     ea.accessory_id = row[1]
+    ea.primary = row[2]
   end
 end
 
@@ -133,9 +134,12 @@ CSV.foreach(Rails.root.join('csv/posts.csv'), headers: true) do |row|
 end
 
 puts "Importing optional accessories..."
-CSV.foreach(Rails.root.join('csv/optional_accessories.csv'), headers: true) do |row|
+CSV.foreach(Rails.root.join('csv/optional_accessories.csv'), headers: true, col_sep: '|') do |row|
   OptionalAccessory.create! do |accessory|
     accessory.name = row[0]
+    accessory.description = row[1].force_encoding 'utf-8'
+    accessory.picture = row[2]
+    accessory.store_link = row[3]
   end
 end
 

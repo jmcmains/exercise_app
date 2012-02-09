@@ -103,6 +103,14 @@ CSV.foreach(Rails.root.join('csv/forces.csv'), headers: true) do |row|
   end
 end
 
+puts "Importing general tips..."
+CSV.foreach(Rails.root.join('csv/general_tips.csv'), headers: true, col_sep: '|') do |row|
+  GeneralTip.create! do |gt|
+    gt.name = row[0]
+    gt.content = row[1].force_encoding 'utf-8'
+  end
+end
+
 puts "Importing glossaries..."
 CSV.foreach(Rails.root.join('csv/glossaries.csv'), headers: true, col_sep: '|') do |row|
   Glossary.create! do |glossary|

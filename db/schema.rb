@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120209215453) do
+ActiveRecord::Schema.define(:version => 20120209220930) do
 
   create_table "anchor_point_heights", :force => true do |t|
     t.string   "name"
@@ -123,6 +123,13 @@ ActiveRecord::Schema.define(:version => 20120209215453) do
 
   create_table "forces", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "general_tips", :force => true do |t|
+    t.string   "name"
+    t.text     "content"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

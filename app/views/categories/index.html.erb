@@ -10,6 +10,7 @@
 			<h1> EXTRA INFORMATION </h1>
 			<h2 class="sbbutton" id="Glossary">Glossary</h2>
 			<h2 class="sbbutton" id="Accessory">Accessory Descriptions</h2>
+			<h2 class="sbbutton" id="GT">General Tips</h2>
 			</div>
 			
 		</td>
@@ -37,6 +38,11 @@
 	$("table.exercises").html("<%= escape_javascript(render(OptionalAccessory.all)) %>");
 	$("div.sidebar h2").removeClass("highlight");
 	$("h2#Accessory").addClass("highlight");
+	}); 
+	$("h2#GT").click(function () {
+	$("table.exercises").html("<%= escape_javascript(render(GeneralTip.all)) %>");
+	$("div.sidebar h2").removeClass("highlight");
+	$("h2#GT").addClass("highlight");
 	}); 
 </script>
 

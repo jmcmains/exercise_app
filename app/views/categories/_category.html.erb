@@ -1,7 +1,9 @@
-<h1 class="sbbutton" id="<%= category.name %>"><%= category.name %></h1>
+<h2 class="sbbutton" id="<%= category.name %>"><%= category.name %></h2>
 <script>
-	$("h1#<%= category.name %>").click(function () {
+	$("h2#<%= category.name %>").click(function () {
 	$("div.exercises").html("<%= escape_javascript(render(category.exercises)) %>");
+	$("div.sidebar h2").removeClass("highlight");
+	$("h2#<%= category.name %>").addClass("highlight");
 	}); 
 </script>
 

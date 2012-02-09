@@ -2,23 +2,28 @@
 	<tr>
 		<td>
 			<div class="sidebar">
-			By Category:
-			<h1 class="sbbutton" id="All">All</h1>
+			<h1> CATEGORY </h1>
+			<h2 class="sbbutton" id="All">All</h2>
 			<%= render @categories %>
-			Workouts:
+			<h1> WORKOUT </h1>
 			<%= render Workout.all %>
 			</div>
 			
 		</td>
 		<td>
 		<div class="exercises">
-				<%= render Exercise.all %></div>
+			<table>
+				<%= render Exercise.all %>
+			</table>
+		</div>
 		</td>
 	</td>
 </table>
 <script>
-	$("div#All").click(function () {
+	$("h2#All").click(function () {
 	$("div.exercises").html("<%= escape_javascript(render(Exercise.all)) %>");
+	$("div.sidebar h2").removeClass("highlight");
+	$("h2#All").addClass("highlight");
 	}); 
 </script>
 

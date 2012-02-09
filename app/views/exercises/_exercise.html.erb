@@ -1,20 +1,23 @@
-<h1 class="exercise <%= exercise.id %>" id="<%= exercise.id %>">
-	<%= exercise.name %>
-	<span class="expand" id="bu<%= exercise.id %>">+</span>
-	<span class="expand" id="bu<%= exercise.id %>" style="display:none">-</span>
+<tr class="exercise <%= exercise.id %>" id="<%= exercise.id %>">
+<td>
+<%= exercise.name %>
+		<span class="expand" id="bu<%= exercise.id %>">+</span>
+		<span class="expand" id="bu<%= exercise.id %>" style="display:none">-</span>
 <script>
-	$("h1.<%= exercise.id %>").click(function () {
+	$("tr.<%= exercise.id %>").click(function () {
 	if ($("div#ex<%= exercise.id %>").is(':visible')) {
-		$("div#ex<%= exercise.id %>").hide('fast');
-		$("div#ex<%= exercise.id %>").html('');
+		$("#ex<%= exercise.id %>").hide('fast');
+		$("#ex<%= exercise.id %>").html('');
 	} else {
-		$("div#ex<%= exercise.id %>").html("<%= escape_javascript(render('exercises/data', :exercise => exercise)) %>");
-		$("div#ex<%= exercise.id %>").show('fast');
+		$("#ex<%= exercise.id %>").html("<%= escape_javascript(render('exercises/data', :exercise => exercise)) %>");
+		$("#ex<%= exercise.id %>").show('fast');
 	}
+	$("span.expand").toggle();
 	}); 
 </script>
-</h1>
 <div class="data" id="ex<%= exercise.id %>" style="display:none">
 	
 </div>
+</td>
+</tr>
 

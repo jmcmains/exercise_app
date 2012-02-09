@@ -1,6 +1,8 @@
-<h1 class="sbbutton" id="wo<%= workout.id %>" title="<%= workout.name %>"><%= workout.name %></h1>
+<h2 class="sbbutton" id="wo<%= workout.id %>" title="<%= workout.name %>"><%= workout.name %></h2>
 <script>
-	$("h1#wo<%= workout.id %>").click(function () {
+	$("h2#wo<%= workout.id %>").click(function () {
 	$("div.exercises").html("<%= escape_javascript(render(workout.exercises)) %>");
+	$("div.sidebar h2").removeClass("highlight");
+	$("h2#wo<%= workout.id %>").addClass("highlight");
 	}); 
 </script>

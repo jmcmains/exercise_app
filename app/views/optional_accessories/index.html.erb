@@ -5,8 +5,4 @@
 
 <%= link_to 'New Optional Accessory', new_optional_accessory_path %>
 
-<table >
-	<% ExerciseAccessory.all.each do |ea| %>
-		<tr><td><%= ea.exercise_id %></td><td><%= ea.accessory_id %></td></tr>
-	<% end %>
-</table>
+<%= image_tag("itunes.png", :alt => "Sample App") %>

@@ -4,58 +4,17 @@
 	<span class="expand" id="bu<%= exercise.id %>" style="display:none">-</span>
 <script>
 	$("h1.<%= exercise.id %>").click(function () {
-	$("div#ex<%= exercise.id %>").toggle("slow");
-	$("span#bu<%= exercise.id %>").toggle();
+	if ($("div#ex<%= exercise.id %>").is(':visible')) {
+		$("div#ex<%= exercise.id %>").hide('fast');
+		$("div#ex<%= exercise.id %>").html('');
+	} else {
+		$("div#ex<%= exercise.id %>").html("<%= escape_javascript(render('exercises/data', :exercise => exercise)) %>");
+		$("div#ex<%= exercise.id %>").show('fast');
+	}
 	}); 
 </script>
 </h1>
 <div class="data" id="ex<%= exercise.id %>" style="display:none">
-	<span class="category">
-		<% exercise.categories.each do |category| %>
-			Category: <%= category.name %>
-		<% end %>
-	</span>
-<table class="allinfo">
-	<tr>
-		<td>
-			<span class="description">Description:<br /><%= exercise.description %></span><br /><br />
-			<span class="tips">Tips:<ul><% exercise.tips.each do |tip| %><li><%= tip.content %></li><% end %></ul></span>
-			<span class="variations">Variations:
-			<ol><% exercise.variations.each do |variations| %><li><%= variations.content %></li><% end %></ol></span>
-		</td>
-		<td>
-			<iframe width="350" height="267" src="http://www.youtube.com/embed/<%= exercise.videos.first.get_number(exercise.videos.first) %>" frameborder="0" allowfullscreen></iframe><br />
-			Other media:</br>
-			<div class="scroll">
-				<% 8.times do %>
-				<%= image_tag("rails.png", :alt => "Sample App", :class => "round", :height => "60") %>
-				<% end %>
-			</div>
-			Info:
-			<table class="information">
-				<tr class="titles">
-					<td>Target Muscles</td>
-					<td>Post</td>
-					<td>A.P. Height</td>
-				</tr>
-				<tr class="values">
-					<td><% exercise.muscles.each do |muscle| %><%= muscle.name %><br /><% end %></td>
-					<td><% exercise.posts.each do |post| %><%= post.name %><br /><% end %></td>
-					<td><% exercise.heights.each do |height| %><%= height.name %><br /><% end %></td>
-				</tr>
-				<tr class="titles">
-					<td>Force</td>
-					<td>Postions</td>
-					<td>Grip Options</td>
-				</tr>
-				<tr class="values">
-					<td><% exercise.forces.each do |force| %><%= force.name %><br /><% end %></td>
-					<td><% exercise.positions.each do |position| %><%= position.name %><br /><% end %></td>
-					<td><% exercise.accessories.each do |accessory| %><%= accessory.name %><br /><% end %></td>
-				</tr>
-			</table>
-		</td>
-	</tr>
-</table>
+	
 </div>
 

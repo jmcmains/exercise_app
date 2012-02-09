@@ -9,7 +9,7 @@
 require 'csv'
 
 puts "Importing anchor point heights..."
-CSV.foreach(Rails.root.join('csv/anchor_point_height.csv'), headers: true) do |row|
+CSV.foreach(Rails.root.join('csv/anchor_point_heights.csv'), headers: true) do |row|
   AnchorPointHeight.create! do |height|
     height.name = row[0]
   end
@@ -22,69 +22,19 @@ CSV.foreach(Rails.root.join('csv/categories.csv'), headers: true) do |row|
   end
 end
 
-puts "Importing optional accessories..."
-CSV.foreach(Rails.root.join('csv/optional_accessories.csv'), headers: true) do |row|
-  OptionalAccessory.create! do |accessory|
-    accessory.name = row[0]
-  end
-end
-
-puts "Importing positions..."
-CSV.foreach(Rails.root.join('csv/position.csv'), headers: true) do |row|
-  Position.create! do |position|
-    position.name = row[0]
-  end
-end
-
-puts "Importing posts..."
-CSV.foreach(Rails.root.join('csv/post.csv'), headers: true) do |row|
-  Post.create! do |post|
-    post.name = row[0]
-  end
-end
-
-puts "Importing target muscles..."
-CSV.foreach(Rails.root.join('csv/target_muscles.csv'), headers: true) do |row|
-  TargetMuscle.create! do |muscle|
-    muscle.name = row[0]
-  end
-end
-
 puts "Importing exercises..."
 CSV.foreach(Rails.root.join('csv/exercises.csv'), headers: true, col_sep: ';') do |row|
   Exercise.create! do |exercise|
     exercise.name = row[0]
-    exercise.description = row[1]
+    exercise.description = row[1].force_encoding 'utf-8'
   end
 end
 
-puts "Importing variations..."
-CSV.foreach(Rails.root.join('csv/variation.csv'), headers: true, col_sep: ';') do |row|
-  Variation.create! do |variation|
-    variation.exercise_id = row[0]
-    variation.content = row[2]
-  end
-end
-
-puts "Importing tips..."
-CSV.foreach(Rails.root.join('csv/tip.csv'), headers: true, col_sep: ';') do |row|
-  Tip.create! do |tip|
-    tip.exercise_id = row[0]
-    tip.content = row[2]
-  end
-end
-puts "Importing forces..."
-CSV.foreach(Rails.root.join('csv/forces.csv'), headers: true) do |row|
-  Force.create! do |force|
-    force.name = row[0]
-  end
-end
-
-puts "Importing videos..."
-CSV.foreach(Rails.root.join('csv/videos.csv'), headers: true) do |row|
-  Video.create! do |video|
-    video.exercise_id = row[0]
-    video.location = row[1]
+puts "Importing exercise accessories..."
+CSV.foreach(Rails.root.join('csv/exercise_accessories.csv'), headers: true) do |row|
+  ExerciseAccessory.create! do |ea|
+    ea.exercise_id = row[0]
+    ea.accessory_id = row[1]
   end
 end
 
@@ -93,6 +43,22 @@ CSV.foreach(Rails.root.join('csv/exercise_categories.csv'), headers: true) do |r
   ExerciseCategory.create! do |ec|
     ec.exercise_id = row[0]
     ec.category_id = row[1]
+  end
+end
+
+puts "Importing exercise forces..."
+CSV.foreach(Rails.root.join('csv/exercise_forces.csv'), headers: true) do |row|
+  ExerciseForce.create! do |ef|
+    ef.exercise_id = row[0]
+    ef.force_id = row[1]
+  end
+end
+
+puts "Importing exercise heights..."
+CSV.foreach(Rails.root.join('csv/exercise_heights.csv'), headers: true) do |row|
+  ExerciseHeight.create! do |eh|
+    eh.exercise_id = row[0]
+    eh.height_id = row[1]
   end
 end
 
@@ -105,32 +71,8 @@ CSV.foreach(Rails.root.join('csv/exercise_muscles.csv'), headers: true) do |row|
   end
 end
 
-puts "Importing exercise forces..."
-CSV.foreach(Rails.root.join('csv/exercise_forces.csv'), headers: true) do |row|
-  ExerciseForce.create! do |ef|
-    ef.exercise_id = row[0]
-    ef.force_id = row[1]
-  end
-end
-
-puts "Importing exercise accessory..."
-CSV.foreach(Rails.root.join('csv/exercise_accessory.csv'), headers: true) do |row|
-  ExerciseAccessory.create! do |ea|
-    ea.exercise_id = row[0]
-    ea.accessory_id = row[1]
-  end
-end
-
-puts "Importing exercise heights..."
-CSV.foreach(Rails.root.join('csv/exercise_heights.csv'), headers: true) do |row|
-  ExerciseHeight.create! do |eh|
-    eh.exercise_id = row[0]
-    eh.height_id = row[1]
-  end
-end
-
 puts "Importing exercise positions..."
-CSV.foreach(Rails.root.join('csv/exercise_position.csv'), headers: true) do |row|
+CSV.foreach(Rails.root.join('csv/exercise_positions.csv'), headers: true) do |row|
   ExercisePosition.create! do |ep|
     ep.exercise_id = row[0]
     ep.position_id = row[1]
@@ -138,9 +80,89 @@ CSV.foreach(Rails.root.join('csv/exercise_position.csv'), headers: true) do |row
 end
 
 puts "Importing exercise posts..."
-CSV.foreach(Rails.root.join('csv/exercise_post.csv'), headers: true) do |row|
+CSV.foreach(Rails.root.join('csv/exercise_posts.csv'), headers: true) do |row|
   ExercisePost.create! do |ep|
     ep.exercise_id = row[0]
     ep.post_id = row[1]
   end
 end
+
+puts "Importing exercise workouts..."
+CSV.foreach(Rails.root.join('csv/exercise_workouts.csv'), headers: true) do |row|
+  ExerciseWorkout.create! do |ew|
+    ew.exercise_id = row[0]
+    ew.workout_id = row[1]
+  end
+end
+
+puts "Importing forces..."
+CSV.foreach(Rails.root.join('csv/forces.csv'), headers: true) do |row|
+  Force.create! do |force|
+    force.name = row[0]
+  end
+end
+
+puts "Importing positions..."
+CSV.foreach(Rails.root.join('csv/positions.csv'), headers: true) do |row|
+  Position.create! do |position|
+    position.name = row[0]
+  end
+end
+
+puts "Importing posts..."
+CSV.foreach(Rails.root.join('csv/posts.csv'), headers: true) do |row|
+  Post.create! do |post|
+    post.name = row[0]
+  end
+end
+
+puts "Importing optional accessories..."
+CSV.foreach(Rails.root.join('csv/optional_accessories.csv'), headers: true) do |row|
+  OptionalAccessory.create! do |accessory|
+    accessory.name = row[0]
+  end
+end
+
+puts "Importing target muscles..."
+CSV.foreach(Rails.root.join('csv/target_muscles.csv'), headers: true) do |row|
+  TargetMuscle.create! do |muscle|
+    muscle.name = row[0]
+  end
+end
+
+puts "Importing tips..."
+CSV.foreach(Rails.root.join('csv/tips.csv'), headers: true, col_sep: ';') do |row|
+  Tip.create! do |tip|
+    tip.exercise_id = row[0]
+    tip.content = row[2].force_encoding 'utf-8'
+  end
+end
+
+puts "Importing variations..."
+CSV.foreach(Rails.root.join('csv/variations.csv'), headers: true, col_sep: ';') do |row|
+  Variation.create! do |variation|
+    variation.exercise_id = row[0]
+    variation.content = row[2].force_encoding 'utf-8'
+  end
+end
+
+puts "Importing videos..."
+CSV.foreach(Rails.root.join('csv/videos.csv'), headers: true) do |row|
+  Video.create! do |video|
+    video.exercise_id = row[0]
+    video.location = row[1]
+  end
+end
+
+puts "Importing workouts..."
+CSV.foreach(Rails.root.join('csv/workouts.csv'), headers: true) do |row|
+  Workout.create! do |workout|
+    workout.name = row[0]
+    workout.sets = row[1]
+    workout.reps = row[2]
+    workout.per_week = row[3]
+    workout.duration = row[4]
+    workout.tempo = row[5]
+  end
+end
+

@@ -23,6 +23,8 @@ ExerciseApp::Application.routes.draw do
 		
 	resources :variations
 
+	resources :workouts
+	
   get "pages/home"
 
   get "pages/help"

@@ -1,13 +1,18 @@
 <table class="all">
 	<tr>
 		<td>
-			<div class="categories">
-			<div class="category" id="All">All</div>
-			<%= render @categories %></div>
+			<div class="sidebar">
+			By Category:
+			<h1 class="sbbutton" id="All">All</h1>
+			<%= render @categories %>
+			Workouts:
+			<%= render Workout.all %>
+			</div>
+			
 		</td>
 		<td>
 		<div class="exercises">
-				<% @categories.each do |category| %><%= render category.exercises %><% end %></div>
+				<%= render Exercise.all %></div>
 		</td>
 	</td>
 </table>

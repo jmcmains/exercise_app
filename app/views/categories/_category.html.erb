@@ -1,6 +1,6 @@
-<div class="category" id="<%= category.name %>"><%= category.name %></div>
+<h1 class="sbbutton" id="<%= category.name %>"><%= category.name %></h1>
 <script>
-	$("div#<%= category.name %>").click(function () {
+	$("h1#<%= category.name %>").click(function () {
 	$("div.exercises").html("<%= escape_javascript(render(category.exercises)) %>");
 	}); 
 </script>

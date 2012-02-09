@@ -1,3 +1,4 @@
+<br/>
 <span class="category">
 	<% exercise.categories.each do |category| %>
 		Category: <%= category.name %>
@@ -6,14 +7,29 @@
 <table class="allinfo">
 	<tr>
 		<td>
-			<span class="description">Description:<br /><%= exercise.description %></span><br /><br />
-			<span class="tips">Tips:<ul><% exercise.tips.each do |tip| %><li><%= tip.content %></li><% end %></ul></span>
-			<span class="variations">Variations:
-			<ol><% exercise.variations.each do |variations| %><li><%= variations.content %></li><% end %></ol></span>
+			<span class="description">Description:<br />
+			<%= exercise.description %></span><br />
+			<br />
+			<% if exercise.tips.count > 0 %>
+				<span class="tips">Tips:
+				<ul>
+					<% exercise.tips.each do |tip| %>
+						<li><%= tip.content %></li>
+					<% end %>
+				</ul></span>
+			<% end %>
+			<% if exercise.variations.count > 0 %>
+				<span class="variations">Variations:
+				<ol>
+					<% exercise.variations.each do |variations| %>
+						<li><%= variations.content %></li>
+					<% end %>
+				</ol></span>
+			<% end %>
 		</td>
 		<td>
 			<% if exercise.videos.count > 0 %>
-			<iframe width="350" height="267" src="http://www.youtube.com/embed/<%= exercise.videos.first.get_number(exercise.videos.first) %>" frameborder="0" allowfullscreen></iframe><br />
+				<iframe width="350" height="267" src="http://www.youtube.com/embed/<%= exercise.videos.first.get_number(exercise.videos.first) %>" frameborder="0" allowfullscreen></iframe><br />
 			<% end %>
 			Other media:</br>
 			<div class="scroll">
@@ -24,19 +40,28 @@
 			Info:
 			<table class="information">
 				<tr class="titles">
-					<td>Target Muscles</td>
-					<td>Post</td>
-					<td>A.P. Height</td>
+					<td>TARGET MUSCLES</td>
+					<td>POST</td>
+					<td>A.P. HEIGHT</td>
 				</tr>
 				<tr class="values">
-					<td><% exercise.muscles.each do |muscle| %><%= muscle.name %><br /><% end %></td>
+					<td>
+						<% exercise.muscles.each do |muscle| %>
+							<% if exercise.primary?(muscle) %>
+								<strong><%= muscle.name %></strong>
+							<% else %>
+								<%= muscle.name %>
+							<% end %>
+							<br />
+						<% end %>
+					</td>
 					<td><% exercise.posts.each do |post| %><%= post.name %><br /><% end %></td>
 					<td><% exercise.heights.each do |height| %><%= height.name %><br /><% end %></td>
 				</tr>
 				<tr class="titles">
-					<td>Force</td>
-					<td>Postions</td>
-					<td>Grip Options</td>
+					<td>FORCE</td>
+					<td>POSITIONS</td>
+					<td>GRIP OPTIONS</td>
 				</tr>
 				<tr class="values">
 					<td><% exercise.forces.each do |force| %><%= force.name %><br /><% end %></td>

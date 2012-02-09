@@ -1,23 +1,28 @@
-<tr class="exercise <%= exercise.id %>" id="<%= exercise.id %>">
-<td>
-<%= exercise.name %>
-		<span class="expand" id="bu<%= exercise.id %>">+</span>
-		<span class="expand" id="bu<%= exercise.id %>" style="display:none">-</span>
-<script>
-	$("tr.<%= exercise.id %>").click(function () {
-	if ($("div#ex<%= exercise.id %>").is(':visible')) {
-		$("#ex<%= exercise.id %>").hide('fast');
-		$("#ex<%= exercise.id %>").html('');
-	} else {
-		$("#ex<%= exercise.id %>").html("<%= escape_javascript(render('exercises/data', :exercise => exercise)) %>");
-		$("#ex<%= exercise.id %>").show('fast');
-	}
-	$("span.expand").toggle();
-	}); 
-</script>
-<div class="data" id="ex<%= exercise.id %>" style="display:none">
-	
-</div>
-</td>
+<tr>
+	<td class="exercise <%= exercise.id %>" id="<%= exercise.id %>">
+		<div class="expand" id="bu<%= exercise.id %>">
+			+
+		</div>
+		<div class="expand" id="bu<%= exercise.id %>" style="display:none">
+			-
+		</div>
+		<div class= "text">
+			<%= exercise.name %>
+		</div>
+		<script>
+			$("td.<%= exercise.id %>").click(function () {
+			if ($("div#ex<%= exercise.id %>").is(':visible')) {
+				$("#ex<%= exercise.id %>").hide('fast');
+				$("#ex<%= exercise.id %>").html('');
+			} else {
+				$("#ex<%= exercise.id %>").html("<%= escape_javascript(render('exercises/data', :exercise => exercise)) %>");
+				$("#ex<%= exercise.id %>").show('fast');
+			}
+			$("div#bu<%= exercise.id %>").toggle();
+			}); 
+		</script>
+		<div class="data" id="ex<%= exercise.id %>" style="display:none">
+		</div>
+	</td>
 </tr>
 

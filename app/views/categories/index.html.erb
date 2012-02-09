@@ -12,7 +12,7 @@
 		</td>
 		<td>
 		<div class="exercises">
-			<table>
+			<table class="exercises">
 				<%= render Exercise.all %>
 			</table>
 		</div>
@@ -21,7 +21,7 @@
 </table>
 <script>
 	$("h2#All").click(function () {
-	$("div.exercises").html("<%= escape_javascript(render(Exercise.all)) %>");
+	$("table.exercises").html("<%= escape_javascript(render(Exercise.all)) %>");
 	$("div.sidebar h2").removeClass("highlight");
 	$("h2#All").addClass("highlight");
 	}); 

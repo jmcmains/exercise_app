@@ -1,27 +1,20 @@
 class ExercisesController < ApplicationController
   def index
-    @title = "All Exercises"
-    @exercises = Exercise.all
+    @title = "All Categories"
+		@sel="All"
+		@clickex=false
+		render 'categories/index'
   end
   
   def show
-  	@expand=true
-  	@exercise = Exercise.find(params[:id])
-  	@title = @exercise.name;
+  	@title = "All Categories"
+  	exercise = Exercise.find(params[:id])
+		@id = exercise.id;
+		@sel=	exercise.categories.first.name
+		@clickex=true
+		render 'categories/index'
   end
-  
- 	def expand
-		@expand=false
-  	@exercise = Exercise.find(params[:id])
-  	@title = "expand";
-  	render exercise_path
-	end
-	
-	def collapse
-		
-	end
 
-  
   def edit
   	@exercise = Exercise.find(params[:id])
   	@title = "Edit Exercise"

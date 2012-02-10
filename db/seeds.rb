@@ -16,11 +16,22 @@ CSV.foreach(Rails.root.join('csv/anchor_point_heights.csv'), headers: true) do |
 end
 
 puts "Importing categories..."
-CSV.foreach(Rails.root.join('csv/categories.csv'), headers: true) do |row|
+CSV.foreach(Rails.root.join('csv/categories.csv'), headers: true, col_sep: '|') do |row|
   Category.create! do |category|
     category.name = row[0]
+    category.sci_name = row[1]
+    category.description = row[2].force_encoding 'utf-8'
   end
 end
+
+puts "Importing category pictures..."
+CSV.foreach(Rails.root.join('csv/category_pictures.csv'), headers: true) do |row|
+  CategoryPicture.create! do |cp|
+    cp.category_id = row[0]
+    cp.picture = row[1]
+  end
+end
+
 
 puts "Importing exercises..."
 CSV.foreach(Rails.root.join('csv/exercises.csv'), headers: true, col_sep: ';') do |row|

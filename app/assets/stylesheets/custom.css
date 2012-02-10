@@ -1,17 +1,49 @@
-container {
-	width: 710px;
-}
-
-section.back {
+/*div.container {
+	width: 960px;
 	background: #e6eaef;
-}
+	min-height:100%
+}*/
 
 body {
-	background: #e6eaef;
+	background: #fff;
+	height:100%
 }
+
+html {
+	height: 100%;
+}
+
+div.exercises {
+	border:1px solid #bbb;
+	background: #fff;
+	overflow: auto;
+	position:absolute;
+	top:0px;
+	bottom:0px;
+	left:230px;
+	right:0px;
+}
+
+div.sidebar {
+	width: 230px;
+	border:1px solid #bbb;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow: ellipsis-word;
+	background: #fff;
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#e7eaef', endColorstr='#d1d8df');
+	background: -webkit-gradient(linear, left top, left bottom, from(#e7eaef), to(#d1d8df));
+	background: -moz-linear-gradient(top,  #e7eaef,  #d1d8df);
+	position:absolute;
+	top:0px;
+	bottom:0px;
+	left:0px;
+}
+
 
 td.exercise {
 	padding:0px;
+	color: #000;
 }
 
 tbody tr:nth-child(even) td, tbody tr.even td {background:#f2f5f9;}
@@ -32,48 +64,22 @@ table.allinfo {
 }
 
 div.scroll {
-height: 80px;
-width: 350px;
-overflow: auto;
-white-space: nowrap;
-}
-
-
-div.exercises {
-	width: 705px;	
-	padding: 0px;
-	margin: 0px;
-	margin-left: -18px;
-	border:1px solid #bbb;
-	background: #fff;
-	height: 610px;
+	height: 80px;
+	width: 350px;
 	overflow: auto;
-}
-
-div.sidebar {
-	width: 230px;
-	padding: 5px;
-	margin: 0px;
-	border:1px solid #bbb;
-	overflow:hidden;
-	white-space:nowrap;
-	text-overflow: ellipsis-word;
-	background: #fff;
-	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#e7eaef', endColorstr='#d1d8df');
-	background: -webkit-gradient(linear, left top, left bottom, from(#e7eaef), to(#d1d8df));
-	background: -moz-linear-gradient(top,  #e7eaef,  #d1d8df);
-	height: 600px;
+	white-space: nowrap;
 }
 
 .sidebar h1 {
 	font-size: 100%;
 	font-weight:bold;
-	color: #a1a1a1;
+	color: #717171;
 	margin: 2px;
 	margin-top:10px;
 	text-shadow: rgba(255,255,255,0.5) 0 1px
 
 }
+
 h2.sbbutton {
 	font-size: 100%;
 	margin: 2px;
@@ -84,7 +90,6 @@ h2.sbbutton {
 	-o-text-overflow:ellipsis;
 	-ms-text-overflow:ellipsis;
 	-moz-binding:url(/ellipsis-xbl.xml#ellipsis)
-		 
 }
 
 h2.sbbutton:hover{
@@ -126,10 +131,6 @@ h2.sbbutton:active{
 	background: -webkit-gradient(linear, left top, left bottom, from(#93a1bd), to(#c4cdcf));
 }
 
-table.all tr td{
-	vertical-align: top;
-}
-
 table tr td.exercise div.expand {
 	width: 10px;
 	height: 10px;
@@ -162,9 +163,12 @@ table.information {
 table.information tr.titles td {
 	text-align: center;
 	font-weight: bold;
-	color: #fff;
-	text-shadow: rgba(0,0,0,0.5) 0 1px;
-	background: #184F83;
+		color: #717171;
+	text-shadow: rgba(255,255,255,0.5) 0 1px
+	background: #fff;
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#e7eaef', endColorstr='#d1d8df');
+	background: -webkit-gradient(linear, left top, left bottom, from(#e7eaef), to(#d1d8df));
+	background: -moz-linear-gradient(top,  #e7eaef,  #d1d8df);
 }
 
 table.information tr.values td {
@@ -173,39 +177,62 @@ table.information tr.values td {
 	margin-right: 5px;
 	border-right: 5px solid white;
 	border-left:  5px solid white;
-	color: #fff;
-	background: #3D403C;
-	
+	color: #000;
+	background: #f2f5f9;
 }
-
 /*
+
 ::-webkit-scrollbar {
-width: 10px;
-height: 10px;
+width: 14px;
+height: 14px;
+border: 1px solid #bbb;
+arrow-color #000;
 }
 
-::-webkit-scrollbar-button:start:decrement,
-::-webkit-scrollbar-button:end:increment  {
-height: 30px;
+::-webkit-scrollbar-button:start:decrement:vertical,
+::-webkit-scrollbar-button:end:increment:vertical  {
+height: 20px;
 display: block;
-background-color: transparent;
+background: -webkit-linear-gradient(left, #f7f7f7, #c6c6c6);
+border-left: 1px solid #bbb;
+border-right: 1px solid #bbb;
+arrow-color:black;
 }
 
-::-webkit-scrollbar-track-piece  {
+::-webkit-scrollbar-track-piece:vertical  {
 background-color: #3b3b3b;
--webkit-border-radius: 6px;
-}
+background: -webkit-linear-gradient(left, #c6c6c6, #f7f7f7, #c6c6c6);
+-webkit-border-radius: 7px;
+border: 1px solid #bbb;
+}/*from(#c4cdcf), to(#93a1bd));*/
+
 
 ::-webkit-scrollbar-thumb:vertical {
 height: 50px;
-background-color: #666;
-border: 1px solid #eee;
--webkit-border-radius: 6px;
+background: -webkit-linear-gradient(left, #B0BBCB, #8A98B3);
+border: 2px solid #8A98B3;
+-webkit-border-radius: 7px;
 }
+
+::-webkit-scrollbar-button:start:decrement:horizontal,
+::-webkit-scrollbar-button:end:increment:horizontal  {
+height: 30px;
+display: block;
+background: -webkit-linear-gradient(top, #f7f7f7, #c6c6c6);
+border-top: 1px solid #bbb;
+border-bottom: 1px solid #bbb;
+}
+
+::-webkit-scrollbar-track-piece:horizontal  {
+background-color: #3b3b3b;
+background: -webkit-linear-gradient(top, #c6c6c6, #f7f7f7, #c6c6c6);
+-webkit-border-radius: 7px;
+border: 1px solid #bbb;
+}/*from(#c4cdcf), to(#93a1bd));*/
 
 ::-webkit-scrollbar-thumb:horizontal {
 width: 50px;
-background-color: #666;
-border: 1px solid #eee;
--webkit-border-radius: 6px;
+background: -webkit-linear-gradient(top, #B0BBCB, #8A98B3);
+border: 2px solid #8A98B3;
+-webkit-border-radius: 7px;
 }

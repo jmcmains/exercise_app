@@ -6,7 +6,12 @@ class WorkoutsController < ApplicationController
   end
   
   def show
-  	@workout = Workout.find(params[:id])
+		@title = "All Categories"
+		workout = Workout.find(params[:id])
+		id= workout.id;
+		@sel="wo#{id}"
+		@clickex=false
+		render 'categories/index'
   end
   
   def edit

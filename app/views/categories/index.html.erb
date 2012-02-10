@@ -1,28 +1,19 @@
-<table class="all">
-	<tr>
-		<td>
-			<div class="sidebar">
-			<h1> CATEGORY </h1>
-			<h2 class="sbbutton" id="All">All</h2>
-			<%= render @categories %>
-			<h1> WORKOUT </h1>
-			<%= render Workout.all %>
-			<h1> EXTRA INFORMATION </h1>
-			<h2 class="sbbutton" id="Glossary">Glossary</h2>
-			<h2 class="sbbutton" id="Accessory">Accessory Descriptions</h2>
-			<h2 class="sbbutton" id="GT">General Tips</h2>
-			</div>
-			
-		</td>
-		<td>
-		<div class="exercises">
-			<table class="exercises">
-				<%= render Exercise.all %>
-			</table>
-		</div>
-		</td>
-	</td>
-</table>
+<div class="sidebar">
+	<h1> CATEGORY </h1>
+	<h2 class="sbbutton" id="All">All</h2>
+	<%= render Category.all %>
+	<h1> WORKOUT </h1>
+	<%= render Workout.all %>
+	<h1> EXTRA INFORMATION </h1>
+	<h2 class="sbbutton" id="Glossary">Glossary</h2>
+	<h2 class="sbbutton" id="Accessory">Accessory Descriptions</h2>
+	<h2 class="sbbutton" id="GT">General Tips</h2>
+</div>
+<div class="exercises">
+	<table class="exercises">
+		<%= render Exercise.all %>
+	</table>
+</div>
 <script>
 	$("h2#All").click(function () {
 	$("table.exercises").html("<%= escape_javascript(render(Exercise.all)) %>");
@@ -43,6 +34,13 @@
 	$("table.exercises").html("<%= escape_javascript(render(GeneralTip.all)) %>");
 	$("div.sidebar h2").removeClass("highlight");
 	$("h2#GT").addClass("highlight");
+	}); 
+	$(function() {
+		$("h2#<%= @sel %>").click();
+		if ("<%= @clickex %>" == "true") {
+					$("td.<%= @id %>").click();
+					document.getElementById("<%= @id %>").scrollIntoView();
+			}
 	}); 
 </script>
 

@@ -4,6 +4,10 @@ class Category < ActiveRecord::Base
                                    			 :class_name => "ExerciseCategory",
                                    			 :dependent => :destroy
   has_many :exercises, :through => :category_exercises
+  
+ 	has_many :category_pictures, :foreign_key => "category_id",
+                           		 :dependent => :destroy
+                           		 
 	
   def included_exercise?(exercise)
     category_exercises.find_by_exercise_id(exercise)

@@ -12,11 +12,11 @@
 		<script>
 			$("td.<%= exercise.id %>").click(function () {
 			if ($("div#ex<%= exercise.id %>").is(':visible')) {
-				$("#ex<%= exercise.id %>").hide('fast');
+				$("#ex<%= exercise.id %>").hide('slow');
 				$("#ex<%= exercise.id %>").html('');
 			} else {
 				$("#ex<%= exercise.id %>").html("<%= escape_javascript(render('exercises/data', :exercise => exercise)) %>");
-				$("#ex<%= exercise.id %>").show('fast');
+				$("#ex<%= exercise.id %>").show('slow');
 			}
 			$("div#bu<%= exercise.id %>").toggle();
 			}); 

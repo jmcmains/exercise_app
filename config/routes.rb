@@ -1,5 +1,9 @@
 ExerciseApp::Application.routes.draw do
-  resources :categories
+	resources :categories do
+		collection do
+			get :search
+		end
+	end
 	
 	resources :optional_accessories
  	

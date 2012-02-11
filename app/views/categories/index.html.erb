@@ -1,9 +1,14 @@
+
 <div class="sidebar">
+	<h1> SEARCH </h1>
+			<%= form_tag search_categories_path, :method => :get, :remote => true do %>
+					<%= text_field_tag :query, params[:query], :class => "search_bar", :value => "Search", :onfocus => "value='', color='#000'" %>
+			<% end %>
 	<h1> CATEGORY </h1>
 	<h2 class="sbbutton" id="All">All</h2>
-	<%= render Category.all %>
+		<%= render Category.all %>
 	<h1> WORKOUT </h1>
-	<%= render Workout.all %>
+		<%= render Workout.all %>
 	<h1> EXTRA INFORMATION </h1>
 	<h2 class="sbbutton" id="Glossary">Glossary</h2>
 	<h2 class="sbbutton" id="Accessory">Accessory Descriptions</h2>
@@ -16,31 +21,37 @@
 </div>
 <script>
 	$("h2#All").click(function () {
-	$("table.exercises").html("<%= escape_javascript(render(Exercise.all)) %>");
-	$("div.sidebar h2").removeClass("highlight");
-	$("h2#All").addClass("highlight");
+		$("table.exercises").html("<%= escape_javascript(render(Exercise.all)) %>");
+		$("div.sidebar h2").removeClass("highlight");
+		$(this).addClass("highlight");
 	}); 
 	$("h2#Glossary").click(function () {
-	$("table.exercises").html("<%= escape_javascript(render(Glossary.all)) %>");
-	$("div.sidebar h2").removeClass("highlight");
-	$("h2#Glossary").addClass("highlight");
+		$("table.exercises").html("<%= escape_javascript(render(Glossary.all)) %>");
+		$("div.sidebar h2").removeClass("highlight");
+		$(this).addClass("highlight");
 	}); 
 	$("h2#Accessory").click(function () {
-	$("table.exercises").html("<%= escape_javascript(render(OptionalAccessory.all)) %>");
-	$("div.sidebar h2").removeClass("highlight");
-	$("h2#Accessory").addClass("highlight");
+		$("table.exercises").html("<%= escape_javascript(render(OptionalAccessory.all)) %>");
+		$("div.sidebar h2").removeClass("highlight");
+		$("h2#Accessory").addClass("highlight");
 	}); 
 	$("h2#GT").click(function () {
-	$("table.exercises").html("<%= escape_javascript(render(GeneralTip.all)) %>");
-	$("div.sidebar h2").removeClass("highlight");
-	$("h2#GT").addClass("highlight");
+		$("table.exercises").html("<%= escape_javascript(render(GeneralTip.all)) %>");
+		$("div.sidebar h2").removeClass("highlight");
+		$(this).addClass("highlight");
+	}); 
+	$("input.search_bar").click(function () {
+		$(this).css("color","#000");
+		$(this).css("font-style","normal");
 	}); 
 	$(function() {
-		$("h2#<%= @sel %>").click();
-		if ("<%= @clickex %>" == "true") {
-					$("td.<%= @id %>").click();
-					document.getElementById("<%= @id %>").scrollIntoView();
+		if ("<%= @clickcat %>" == "true") {
+			$("h2#<%= @sel %>").click();
+			if ("<%= @clickex %>" == "true") {
+				$("td.<%= @id %>").click();
+				document.getElementById("<%= @id %>").scrollIntoView();
 			}
+		}
 	}); 
 </script>
 

@@ -34,4 +34,7 @@ ExerciseApp::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  
+  config.gem 'sunspot', :lib => 'sunspot'
+	config.gem 'sunspot_rails', :lib => 'sunspot/rails'
 end

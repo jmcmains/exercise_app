@@ -1,7 +1,10 @@
 <h1>All Optional Accessories</h1>
-<ul class="optional_accessories">
+<%= form_tag search_categories_path, :method => :get, :remote => true do %>
+					<%= text_field_tag :query, params[:query], :class => "search_bar", :value => "Search", :onfocus => "value=''" %>
+			<% end %>
+<table>
   <%= render @optional_accessories %>
-</ul>
+</table>
 
 <%= link_to 'New Optional Accessory', new_optional_accessory_path %>
 

@@ -1,4 +1,6 @@
 class Category < ActiveRecord::Base
+
+	
 	attr_accessible :name
 	has_many :category_exercises, :foreign_key => "category_id",
                                    			 :class_name => "ExerciseCategory",
@@ -24,4 +26,8 @@ class Category < ActiveRecord::Base
 	def exclude_exercise!(exercise)
     category_exercises.find_by_exercise_id(exercise).destroy
   end
+	  
+	searchable do
+		text :name, :description
+	end
 end

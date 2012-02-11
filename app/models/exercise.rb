@@ -40,6 +40,37 @@ class Exercise < ActiveRecord::Base
   
   has_many :variations, :dependent => :destroy
   
+  searchable do
+		text :name, :description, :boost => 5.0
+		text :category_names do
+			categories.map { |category| category.name }
+		end
+		text :accessory_names do
+			accessories.map { |accessory| accessory.name}
+		end
+		text :position_names do
+			positions.map { |position| position.name }
+		end
+		text :height_names do
+			heights.map { |height| height.name }
+		end
+		text :muscle_names do
+			muscles.map { |muscle| muscle.name}
+		end
+		text :force_names do
+			forces.map { |force| force.name }
+		end
+		text :post_names do
+			posts.map { |post| post.name }
+		end
+		text :tips_content do
+			tips.map { |tip| tip.content }
+		end
+		text :variation_content do
+			variations.map { |variation| variation.content }
+		end
+	end
+  
   #Categories
   def included_category?(category)
     exercise_categories.find_by_category_id(category)

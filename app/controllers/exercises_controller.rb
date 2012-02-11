@@ -3,6 +3,8 @@ class ExercisesController < ApplicationController
     @title = "All Categories"
 		@sel="All"
 		@clickex=false
+		@clickcat=true
+		@results=Exercise.all
 		render 'categories/index'
   end
   
@@ -12,6 +14,8 @@ class ExercisesController < ApplicationController
 		@id = exercise.id;
 		@sel=	exercise.categories.first.name
 		@clickex=true
+		@clickcat=true
+		@results=Exercise.all
 		render 'categories/index'
   end
 

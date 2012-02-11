@@ -1,1 +1,12 @@
-<%= @category.name %>
+<%= form_tag search_categories_path, :method => :get do %>
+<p>
+  <%= text_field_tag :query, params[:query] %> <%= submit_tag "Search!" %>
+</p>
+<% end %>
+	<table class="exercises">
+	<% if @results.count > 0 %>
+		<%= render @results %>			
+	<% end %>
+</table>
+
+

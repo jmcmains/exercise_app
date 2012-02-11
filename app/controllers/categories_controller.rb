@@ -3,45 +3,11 @@ class CategoriesController < ApplicationController
   def index
     @title = "All Categories"
     @sel="All"
-    @clickex=false
-    @clickcat=true
-    @results=Category.all
   end
-  
-  def search
-		ex = Exercise.search do
-		  keywords params[:query]
-		end
-		exercises=ex.results
-		gl = Glossary.search do
-		  keywords params[:query]
-		end
-		glossary=gl.results
-		glossary.each do |g|
-			exercises << g
-		end
-		@results = exercises
-		@clickex=false
-    @clickcat=false
-		respond_to do |format|
-		  format.html { render :action => "index" }
-		  format.xml  { render :xml => @results }
-		  format.js
-		end
-	end
   
   def show
   	@title = "All Categories"
   	@sel=Category.find(params[:id]).name
-  	@results=Category.all
-  	@clickex=false
-  	@clickcat=true
-  	render 'index'
-  	respond_to do |format|
-  		format.html { render :action => "index" }
-		  format.xml  { render :xml => @results }
-		  format.js
-  	end
   end
   
   def edit

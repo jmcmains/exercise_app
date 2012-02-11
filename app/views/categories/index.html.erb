@@ -1,9 +1,5 @@
 
 <div class="sidebar">
-	<h1> SEARCH </h1>
-			<%= form_tag search_categories_path, :method => :get, :remote => true do %>
-					<%= text_field_tag :query, params[:query], :class => "search_bar", :value => "Search", :onfocus => "value='', color='#000'" %>
-			<% end %>
 	<h1> CATEGORY </h1>
 	<h2 class="sbbutton" id="All">All</h2>
 		<%= render Category.all %>

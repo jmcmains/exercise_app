@@ -3,11 +3,14 @@ class CategoriesController < ApplicationController
   def index
     @title = "All Categories"
     @sel="All"
+    @clickex=false
   end
   
   def show
   	@title = "All Categories"
   	@sel=Category.find(params[:id]).name
+  	@clickex=false
+		render 'index'
   end
   
   def edit

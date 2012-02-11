@@ -41,12 +41,10 @@
 		$(this).css("font-style","normal");
 	}); 
 	$(function() {
-		if ("<%= @clickcat %>" == "true") {
-			$("h2#<%= @sel %>").click();
-			if ("<%= @clickex %>" == "true") {
-				$("td.<%= @id %>").click();
-				document.getElementById("<%= @id %>").scrollIntoView();
-			}
+		$("h2#<%= @sel %>").click();
+		if ("<%= @clickex %>" == "true") {
+			$("td.<%= @id %>").click();
+			document.getElementById("<%= @id %>").scrollIntoView();
 		}
 	}); 
 </script>

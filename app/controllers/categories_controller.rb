@@ -49,6 +49,4 @@ class CategoriesController < ApplicationController
       render 'new'
     end
   end
-  
-  
 end

@@ -1,7 +1,7 @@
 ExerciseApp::Application.routes.draw do
 	resources :categories do
 		collection do
-			get :search
+			get :picture
 		end
 	end
 	

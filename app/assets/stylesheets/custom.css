@@ -1,28 +1,36 @@
-/*div.container {
-	width: 960px;
-	background: #e6eaef;
-	min-height:100%
-}*/
+/* From Blueprint */
+html {
+margin:0;
+padding:0;
+border:0;}
+
+body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, nav, section {margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
 
 body {
 	background: #fff;
 	height:100%;
+	font-size:75%;
+	color:#222;
+	background:#fff;
+	font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
-html {
-	height: 100%;
+table {
+	width:100%;border-collapse:separate;border-spacing:0;
 }
 
-div.exercises {
-	border:1px solid #bbb;
-	background: #fff;
-	overflow: auto;
-	position:absolute;
-	top:0px;
-	bottom:0px;
-	left:230px;
-	right:0px;
+li ul, li ol {margin:0;}
+
+ul, ol {margin:0 1.5em 1.5em 0;padding-left:1.5em;}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight:normal;
+	color:#111;
 }
+
+tbody tr:nth-child(even) td, tbody tr.even td {background:#f2f5f9;}
+
+/* Sidebar */
 
 div.sidebar {
 	width: 230px;
@@ -41,49 +49,6 @@ div.sidebar {
 }
 
 
-td.exercise {
-	padding:0px;
-	color: #000;
-}
-
-tbody tr:nth-child(even) td, tbody tr.even td {background:#f2f5f9;}
-
-span.category {
-	color: #888;
-	margin:20px;
-}
-
-table.allinfo tr td{
-	vertical-align: top;
-}
-
-table.allinfo {
-	margin-bottom: 0px;
-	padding-left:20px;
-}
-
-input.search_bar {
-	background: #eee;
-	border-radius:10px;
-	padding-left:7px;
-	background: -webkit-linear-gradient(top,#eee,#fff,#eee);
-	border:1px inset #bbb;
-	color:#888;
-	font-style:italic;
-	margin:0;
-	margin-left:5px;
-}
-
-input.search_bar:hover {
-	color #000;	
-}
-
-div.scroll {
-	height: 80px;
-	width: 350px;
-	overflow: auto;
-	white-space: nowrap;
-}
 
 .sidebar h1 {
 	font-size: 100%;
@@ -94,7 +59,7 @@ div.scroll {
 	text-shadow: rgba(255,255,255,0.5) 0 1px;
 }
 
-h2.sbbutton {
+.sidebar h2.sbbutton {
 	font-size: 100%;
 	margin: 2px;
 	padding: 0px 0px 0px 5px;
@@ -106,7 +71,7 @@ h2.sbbutton {
 	-moz-binding:url(/ellipsis-xbl.xml#ellipsis);
 }
 
-h2.sbbutton:hover{
+.sidebar h2.sbbutton:hover{
 	background: #0d0;
 	background: -webkit-gradient(linear, left top, left bottom, from(#c4cdcf), to(#93a1bd));
 	border:1px solid #93a1bd;
@@ -121,7 +86,11 @@ h2.sbbutton:hover{
 	cursor: pointer;
 }
 
-h2.highlight{
+.sidebar h2.sbbutton:active{
+	background: -webkit-gradient(linear, left top, left bottom, from(#93a1bd), to(#c4cdcf));
+}
+
+.sidebar h2.highlight{
 	background: #0d0;
 	background: -webkit-gradient(linear, left top, left bottom, from(#c4cdcf), to(#93a1bd));
 	border:1px solid #93a1bd;
@@ -141,8 +110,125 @@ h2.highlight{
 	-moz-binding:url(/ellipsis-xbl.xml#ellipsis);
 }
 
-h2.sbbutton:active{
-	background: -webkit-gradient(linear, left top, left bottom, from(#93a1bd), to(#c4cdcf));
+/* Description Bar */
+
+div.descbar {
+	position:absolute;
+	top:0px;
+	height:150px;
+	left:230px;
+	right:0px;
+	border:1px solid #bbb;
+	background: -webkit-linear-gradient(top,#e3e3e3,#b2b2b2);
+		margin:0;
+	padding:0;
+}
+
+div.descbar h1 {
+	font-size: 100%;
+	font-weight:bold;
+	color: #000;
+	margin: 0;
+	text-shadow: rgba(255,255,255,0.5) 0 1px;
+}
+
+
+div.catimage {
+	background: -webkit-linear-gradient(top, #edf0e1, #dfe4c8,#edf1d5);
+	border:1px inset #bbb;
+	border-radius: 5px;
+	width:200px;
+	height: 140px;
+	margin:3px;
+	overflow:hidden;
+	position:relative;
+}
+
+.catimage img {
+	height:140px;
+	z-index:0;
+	display:block;
+	margin-left:auto; 
+	margin-right:auto; 
+}
+.catimage table {
+	position:absolute;
+	table-layout:fixed;
+}
+.catimage table.img tr td {
+	width:200px;
+}
+div.im {
+	background:none;
+	width:40px;
+	display:table;
+	z-index:2;
+	top:0px;
+	height:140px;
+	position:absolute;
+		display:block;
+}
+
+div.im div.text{
+	display:table-cell; 
+	vertical-align:middle;
+	font-weight:bold;
+	text-align:center;
+	
+	height:140px;
+	width:40px;
+}
+
+div.im:hover {
+	background: #666;
+	opacity:0.4;
+}
+
+div.forward {
+	position:absolute;
+	float:right;
+	left:165px;
+	top:4px;
+}
+
+div.back {
+	position:absolute;
+	left:4px;
+	top:4px;
+}
+
+div.dright {
+	position:absolute;
+	top:5px;
+	bottom:5px;
+	left:210px;
+	right:5px;
+	overflow:auto;
+}
+
+/* Exercise List */
+
+div.exercises {
+	border:1px solid #bbb;
+	background: #fff;
+	overflow: auto;
+	position:absolute;
+	top:150px;
+	bottom:0px;
+	left:230px;
+	right:0px;
+}
+
+td.exercise {
+	padding:0px;
+	color: #000;
+	position:relative;
+}
+
+
+span.category {
+	color: #888;
+	margin:35px;
 }
 
 table tr td.exercise div.expand {
@@ -168,6 +254,7 @@ table tr td.exercise div.text {
 	margin-left: 10px;
 }
 
+/* Info table in exercise list */
 
 table.information {
 	width: 350px;
@@ -194,3 +281,38 @@ table.information tr.values td {
 	color: #000;
 	background: #f2f5f9;
 }
+
+/* Exercise Media */
+div.scroll {
+	height: 80px;
+	width: 350px;
+	overflow: auto;
+	white-space: nowrap;
+}
+
+div.inforight {
+	position:absolute;
+	right:10px;
+	bottom:5px;
+	top:5px;
+	left:360px;
+}
+/* Exercise display table */
+
+table.allinfo tr td{
+	vertical-align: top;
+}
+
+table.allinfo {
+	width:100%;
+	margin-bottom: 5px;
+	padding-left:40px;
+}
+
+td.tright {
+	width:350px;
+	margin:0;
+	padding:0;
+	padding-right:10px;
+}
+

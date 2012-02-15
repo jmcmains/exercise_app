@@ -1,25 +1,22 @@
 <% if category.category_pictures.count > 0 %>
-<div class="catimage">
-	<table class="img">
-		<tr>
-			<% category.category_pictures.each do |cp| %>
-			<td>
-			<%= image_tag cp.picture %>
-			</td>
-			<% end %>
-		</tr>
-	</table>
-	
-</div>
-<div class="im back">
-	<div class="text">&lt</div>
-</div>
-<div class="im forward">
-	<div class="text">&gt</div>
-</div>
+	<div class="catimage">
+		<table class="img">
+			<tr>
+				<% category.category_pictures.each do |cp| %>
+					<td><%= image_tag cp.picture %>	</td>
+				<% end %>
+			</tr>
+		</table>
+	</div>
+	<div class="im back">
+		<div class="text">&lt</div>
+	</div>
+	<div class="im forward">
+		<div class="text">&gt</div>
+	</div>
 <% end %>
 <div class="dright">
-	<h1><%= category.name %></h1>
+	<h1><%= category.name.upcase %></h1>
 	<%= category.sci_name %><br />
 	<%= category.description %><br />
 </div>
@@ -86,5 +83,8 @@ $("div.forward").hover(
 );
 $(function() {
 	changeColors()
+	if (parseInt("<%= category.category_pictures.count %>") > 0) {
+		$("div.dright").css("left","210px");
+	}
 }); 
 </script>

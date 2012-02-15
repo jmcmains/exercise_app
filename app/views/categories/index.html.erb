@@ -17,29 +17,27 @@
 	</table>
 </div>
 <script>
+function modHighlight() {
+  $("div.sidebar h2").removeClass("highlight");
+	$("div.descbar").hide();
+	$("div.exercises").css("top","0px");
+	$(this).addClass("highlight");
+};
 	$("h2#All").click(function () {
 		$("table.exercises").html("<%= escape_javascript(render(Exercise.all)) %>");
-		$("div.sidebar h2").removeClass("highlight");
-		$(this).addClass("highlight");
+		modHighlight()
 	}); 
 	$("h2#Glossary").click(function () {
 		$("table.exercises").html("<%= escape_javascript(render(Glossary.all)) %>");
-		$("div.sidebar h2").removeClass("highlight");
-		$(this).addClass("highlight");
+		modHighlight()
 	}); 
 	$("h2#Accessory").click(function () {
 		$("table.exercises").html("<%= escape_javascript(render(OptionalAccessory.all)) %>");
-		$("div.sidebar h2").removeClass("highlight");
-		$("h2#Accessory").addClass("highlight");
+		modHighlight()
 	}); 
 	$("h2#GT").click(function () {
 		$("table.exercises").html("<%= escape_javascript(render(GeneralTip.all)) %>");
-		$("div.sidebar h2").removeClass("highlight");
-		$(this).addClass("highlight");
-	}); 
-	$("input.search_bar").click(function () {
-		$(this).css("color","#000");
-		$(this).css("font-style","normal");
+		modHighlight()
 	}); 
 	$(function() {
 		$("h2#<%= @sel %>").click();

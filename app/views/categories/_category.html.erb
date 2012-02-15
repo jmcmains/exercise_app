@@ -1,9 +1,10 @@
 <h2 class="sbbutton" id="<%= category.name %>"><%= category.name %></h2>
 <script>
 	$("h2#<%= category.name %>").click(function () {
-
 		$("table.exercises").html("<%= escape_javascript(render(category.exercises)) %>");
 		$("div.descbar").html("<%= escape_javascript(render('categories/title', :category => category)) %>");
+		$("div.descbar").show();
+		$("div.exercises").css("top","150px");
 		$("div.sidebar h2").removeClass("highlight");
 		$("h2#<%= category.name %>").addClass("highlight");
 	}); 

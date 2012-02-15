@@ -166,7 +166,9 @@ div.im {
 	top:0px;
 	height:140px;
 	position:absolute;
-		display:block;
+	display:block;
+	font-size:200%;
+	font-weight:bold;
 }
 
 div.im div.text{
@@ -174,20 +176,14 @@ div.im div.text{
 	vertical-align:middle;
 	font-weight:bold;
 	text-align:center;
-	
 	height:140px;
 	width:40px;
-}
-
-div.im:hover {
-	background: #666;
-	opacity:0.4;
 }
 
 div.forward {
 	position:absolute;
 	float:right;
-	left:165px;
+	left:164px;
 	top:4px;
 }
 
@@ -283,11 +279,31 @@ table.information tr.values td {
 }
 
 /* Exercise Media */
+div.mainplayer {
+	height:267px;
+	width:350px;
+	text-align:center;
+}
+
+div.mainplayer img {
+	max-height:267px;
+	max-width:350px;
+	text-align:center;
+}
 div.scroll {
 	height: 80px;
 	width: 350px;
 	overflow: auto;
 	white-space: nowrap;
+}
+
+div.scroll img{
+		height: 60px;
+}
+
+div.scroll img:hover{
+		height: 60px;
+		cursor:pointer;
 }
 
 div.inforight {

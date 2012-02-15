@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120210022654) do
+ActiveRecord::Schema.define(:version => 20120214231555) do
 
   create_table "anchor_point_heights", :force => true do |t|
     t.string   "name"
@@ -92,6 +92,15 @@ ActiveRecord::Schema.define(:version => 20120210022654) do
   add_index "exercise_muscles", ["exercise_id", "muscle_id"], :name => "index_exercise_muscles_on_exercise_id_and_muscle_id", :unique => true
   add_index "exercise_muscles", ["exercise_id"], :name => "index_exercise_muscles_on_exercise_id"
   add_index "exercise_muscles", ["muscle_id"], :name => "index_exercise_muscles_on_muscle_id"
+
+  create_table "exercise_pictures", :force => true do |t|
+    t.integer  "exercise_id"
+    t.string   "picture"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "exercise_pictures", ["exercise_id"], :name => "index_exercise_pictures_on_exercise_id"
 
   create_table "exercise_positions", :force => true do |t|
     t.integer  "exercise_id"

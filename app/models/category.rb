@@ -26,5 +26,8 @@ class Category < ActiveRecord::Base
 	def exclude_exercise!(exercise)
     category_exercises.find_by_exercise_id(exercise).destroy
   end
-
+  
+  def width
+  	(category_pictures.count-1)*200
+  end
 end

@@ -22,18 +22,69 @@
 	<h1><%= category.name %></h1>
 	<%= category.sci_name %><br />
 	<%= category.description %><br />
-	<div class="disp"></div>
 </div>
 <script>
+function changeColors() {
+  if ($("div.catimage").scrollLeft() == 0) {
+		$("div.back").css("color","#ccc");
+		$("div.back").css("background","none");
+		$("div.back").css("cursor","default");
+	} else {
+		$("div.back").css("color","#000");
+	}
+	if ($("div.catimage").scrollLeft() >= parseInt("<%= category.width %>")) {
+		$("div.forward").css("color","#ccc");
+		$("div.forward").css("background","none");
+		$("div.forward").css("cursor","default");
+	} else {
+		$("div.forward").css("color","#000");
+	}
+};
 $("div.back").click(function () {
 		$("div.catimage").scrollLeft($("div.catimage").scrollLeft()-200);
-	}); 
+		changeColors()
+}); 
 $("div.forward").click(function () {
-		$("div.catimage").scrollLeft($("div.catimage").scrollLeft()+200);
-	}); 
+	$("div.catimage").scrollLeft($("div.catimage").scrollLeft()+200);
+	changeColors()
+}); 
+$("div.back").hover(
+  function () {
+    if ($("div.catimage").scrollLeft() == 0) {
+			$("div.back").css("background","none");
+			$("div.back").css("cursor","default");
+			$("div.back").css("opacity","1.0");
+		} else {
+			$("div.back").css("background","#666");
+			$("div.back").css("cursor","pointer");
+			$("div.back").css("opacity","0.4");
+		}
+  }, 
+  function () {
+			$("div.back").css("background","none");
+			$("div.back").css("cursor","default");
+			$("div.back").css("opacity","1.0");
+  }
+);
+$("div.forward").hover(
+  function () {
+    if ($("div.catimage").scrollLeft() >= parseInt("<%= category.width %>")) {
+			$("div.forward").css("background","none");
+			$("div.forward").css("cursor","default");
+			$("div.forward").css("opacity","1.0");
+		} else {
+			$("div.forward").css("background","#666");
+			$("div.forward").css("cursor","pointer");
+			$("div.forward").css("opacity","0.4");
+		}
+  }, 
+  function () {
+    	$("div.forward").css("background","none");
+			$("div.forward").css("cursor","default");
+			$("div.forward").css("opacity","1.0");
+  }
+);
 $(function() {
-	if (parseInt("<%= category.category_pictures.count %>") == 0) {
-	$('div.dright').css("left","5px");
-	}
+	changeColors()
 }); 
 </script>

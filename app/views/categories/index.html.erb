@@ -44,7 +44,7 @@
 	$(function() {
 		$("h2#<%= @sel %>").click();
 		if ("<%= @clickex %>" == "true") {
-			$("td.<%= @id %>").click();
+			$("#bu<%= @id %>").click();
 			document.getElementById("<%= @id %>").scrollIntoView();
 		}
 	}); 

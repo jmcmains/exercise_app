@@ -83,6 +83,14 @@ CSV.foreach(Rails.root.join('csv/exercise_muscles.csv'), headers: true) do |row|
   end
 end
 
+puts "Importing exercise pictures..."
+CSV.foreach(Rails.root.join('csv/exercise_pictures.csv'), headers: true) do |row|
+  ExercisePicture.create! do |ep|
+    ep.exercise_id = row[0]
+    ep.picture = row[1]
+  end
+end
+
 puts "Importing exercise positions..."
 CSV.foreach(Rails.root.join('csv/exercise_positions.csv'), headers: true) do |row|
   ExercisePosition.create! do |ep|
@@ -189,7 +197,7 @@ puts "Importing videos..."
 CSV.foreach(Rails.root.join('csv/videos.csv'), headers: true) do |row|
   Video.create! do |video|
     video.exercise_id = row[0]
-    video.location = row[1]
+    video.location = row[3]
   end
 end
 

@@ -39,6 +39,9 @@ class Exercise < ActiveRecord::Base
   has_many :tips, :dependent => :destroy
   
   has_many :variations, :dependent => :destroy
+  
+  has_many :exercise_pictures, :foreign_key => "exercise_id",
+                           		 :dependent => :destroy
  
   #Categories
   def included_category?(category)

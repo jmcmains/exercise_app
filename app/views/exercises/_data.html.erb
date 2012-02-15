@@ -4,7 +4,7 @@
 		Category: <%= category.name %>
 	<% end %>
 </span>
-<table class="allinfo">
+<table class="allinfo" color="white">
 	<tr>
 		<td>
 			<span class="description">Description:<br />
@@ -28,15 +28,7 @@
 			<% end %>
 		</td>
 		<td class="tright">
-			<% if exercise.videos.count > 0 %>
-				<iframe width="350" height="267" src="http://www.youtube.com/embed/<%= exercise.videos.first.get_number(exercise.videos.first) %>" frameborder="0" allowfullscreen></iframe><br />
-			<% end %>
-			Other media:</br>
-			<div class="scroll">
-				<% 8.times do %>
-				<%= image_tag("rails.png", :alt => "Sample App", :class => "round", :height => "60") %>
-				<% end %>
-			</div>
+			<%= render('exercises/media', :exercise => exercise) %>
 			Info:
 			<table class="information">
 				<tr class="titles">

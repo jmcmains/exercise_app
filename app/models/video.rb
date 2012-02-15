@@ -4,7 +4,11 @@ class Video < ActiveRecord::Base
   
   validates :exercise_id, :presence => true
   
-  def get_number(video)
-  	video.location[video.location.index("=")+1..-1]
+  def get_image
+  	"http://img.youtube.com/vi/" + self.location + "/default.jpg"
+  end
+  
+  def get_embed
+  	"http://www.youtube.com/embed/" + self.location
   end
 end

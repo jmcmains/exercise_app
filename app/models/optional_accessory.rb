@@ -20,4 +20,8 @@ class OptionalAccessory < ActiveRecord::Base
 	def exclude_exercise!(exercise)
     accessory_exercises.find_by_exercise_id(exercise).destroy
   end
+  
+  def get_site
+  	"https://s3.amazonaws.com/ExerciseApp/images/" + self.picture
+  end
 end

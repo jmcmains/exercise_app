@@ -3,7 +3,7 @@
 		<table class="img">
 			<tr>
 				<% category.category_pictures.each do |cp| %>
-					<td><%= image_tag cp.picture %>	</td>
+					<td><%= image_tag cp.get_site %>	</td>
 				<% end %>
 			</tr>
 		</table>

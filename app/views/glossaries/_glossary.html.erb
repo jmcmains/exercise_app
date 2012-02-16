@@ -25,7 +25,7 @@
 					<% if glossary.glossary_pictures.count > 0 %>
 					<td>
 						<% glossary.glossary_pictures.each do |pic| %>
-							<%= image_tag(pic.picture, :height => "100") %>
+							<%= image_tag(pic.get_site, :height => "100") %>
 						<% end %>
 					</td>
 					<% end %>

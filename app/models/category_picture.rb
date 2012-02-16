@@ -5,4 +5,7 @@ class CategoryPicture < ActiveRecord::Base
   
   validates :category_id, :presence => true
   
+  def get_site
+  	"https://s3.amazonaws.com/ExerciseApp/images/" + self.picture
+  end
 end

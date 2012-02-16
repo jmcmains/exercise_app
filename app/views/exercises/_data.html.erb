@@ -25,7 +25,9 @@
 						<li><%= variations.content %></li>
 					<% end %>
 				</ol></span>
-			<% end %>
+			<% end %><br/>
+			<div class="fb-like" data-href="<%= exercise_path(exercise) %>" data-send="true" data-show-faces="true"></div><br/>
+			<div class="fb-comments" data-href="<%= exercise_path(exercise) %>" data-num-posts="3"></div>
 		</td>
 		<td class="tright">
 			<%= render('exercises/media', :exercise => exercise) %>

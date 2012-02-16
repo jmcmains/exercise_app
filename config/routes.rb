@@ -27,7 +27,11 @@ ExerciseApp::Application.routes.draw do
 		
 	resources :variations
 
-	resources :workouts
+	resources :workouts do
+		member do
+      get :likepage
+    end
+	end
 	
   get "pages/home"
 

@@ -19,6 +19,7 @@
 	<h1><%= category.name.upcase %></h1>
 	<%= category.sci_name %><br />
 	<%= category.description %><br />
+	<div class="fb-like" data-href="<%= category_path(category) %>" data-send="true" data-width="450" data-show-faces="true"></div>
 </div>
 <script>
 function changeColors() {

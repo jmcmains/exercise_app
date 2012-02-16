@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:og="http://ogp.me/ns#">
   <head>
-    <title>Rubberbanditz Exercise App</title>
+    <title><%= @title %></title>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tag %>
     <!--[if lt IE 9]>
@@ -10,7 +10,15 @@
     <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
     <%= stylesheet_link_tag 'blueprint/print',  :media => 'print' %>
     <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
-    <%= stylesheet_link_tag 'custom', :media => 'screen' %>
+		<%= stylesheet_link_tag 'custom', :media => 'screen' %>
+		<meta property="fb:app_id" content="299584876770579"/>
+		<meta property="fb:admins" content="JasonMcMains"/ > 
+		<meta property="og:title" content="<%= @title %>"/>
+		<meta property="og:type" content="website"/>
+		<meta property="og:site_name" content="Rubberbanditz Exercise App"/ >
+		<meta property="og:url" content="<%= workout_path(@workout) %>"/>
+		<meta property="og:image" content="Vectoredlogo.png"/>
+		<meta property="og:description" content="This is one of Rubberbanditz great workouts!"/>
   </head>
   <body>
   <div id="fb-root"></div>
@@ -23,9 +31,8 @@
   fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));
 	</script>
-  	<div class="container">
-    		<%= yield %>
-    </div>
   </body>
 </html>
+
+
 

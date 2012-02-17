@@ -12,38 +12,32 @@
 <div class="descbar">
 </div>
 <div class="exercises">
-	<table class="exercises">
-		<%= render Exercise.all %>
-	</table>
+	<table class="exercises"></table>
 </div>
 <script>
-function modHighlight() {
+function modHighlight(s) {
   $("div.sidebar h2").removeClass("highlight");
 	$("div.descbar").hide();
 	$("div.exercises").css("top","0px");
 	$(this).addClass("highlight");
+	$("table.exercises").html(s);
 };
 	$("h2#All").click(function () {
-		$("table.exercises").html("<%= escape_javascript(render(Exercise.all)) %>");
-		modHighlight()
+		modHighlight("<%= escape_javascript(render(Exercise.all)) %>")
 	}); 
 	$("h2#Glossary").click(function () {
-		$("table.exercises").html("<%= escape_javascript(render(Glossary.all)) %>");
-		modHighlight()
+		modHighlight("<%= escape_javascript(render(Glossary.all)) %>")
 	}); 
 	$("h2#Accessory").click(function () {
-		$("table.exercises").html("<%= escape_javascript(render(OptionalAccessory.all)) %>");
-		modHighlight()
+		modHighlight("<%= escape_javascript(render(OptionalAccessory.all)) %>")
 	}); 
 	$("h2#GT").click(function () {
-		$("table.exercises").html("<%= escape_javascript(render(GeneralTip.all)) %>");
-		modHighlight()
+		modHighlight("<%= escape_javascript(render(GeneralTip.all)) %>")
 	}); 
 	$(function() {
 		$("h2#<%= @sel %>").click();
 		if ("<%= @clickex %>" == "true") {
 			$("#bu<%= @id %>").click();
-			document.getElementById("<%= @id %>").scrollIntoView();
 		}
 	}); 
 </script>

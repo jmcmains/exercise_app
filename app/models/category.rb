@@ -28,4 +28,23 @@ class Category < ActiveRecord::Base
   def width
   	(category_pictures.count-1)*200
   end
+  
+  include Tanker
+  scope :awesome, :conditions => {:title => 'Awesome'}
+  after_save :update_tank_indexes
+  after_destroy :delete_tank_indexes
+  tankit 'ExerciseApp' do
+    indexes :name
+ # you may also dynamically retrieve field data
+    indexes :exercise_names do
+      exercises.map {|ex| ex.name }
+    end
+    functions do
+      {
+        1 => "-age",
+        2 => "relevance / miles(d[0], d[1], q[0], q[1])"
+      }
+    end
+
+  end
 end

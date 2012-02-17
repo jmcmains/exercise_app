@@ -1,1 +1,3 @@
-$("#ctrlbutton").html("<%= escape_javascript(render('expand')) %>")
+$("#ex<%= @exercise.id %>").hide();
+$("#ex<%= @exercise.id %>").html('');
+$("div#bu<%= @exercise.id %>").toggle();

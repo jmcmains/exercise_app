@@ -7,6 +7,22 @@ class ExercisesController < ApplicationController
 		render 'categories/index'
   end
   
+  def expand
+  	@exercise = Exercise.find(params[:id])
+  	respond_to do |format|
+			format.html { redirect_to @exercise }
+			format.js
+		end
+  end
+  
+   def collapse
+  	@exercise = Exercise.find(params[:id])
+  	respond_to do |format|
+			format.html { redirect_to @exercise }
+			format.js
+		end
+  end
+  
   def show
   	@title = "All Categories"
   	exercise = Exercise.find(params[:id])

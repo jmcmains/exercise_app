@@ -252,8 +252,9 @@ table tr td.exercise div.expand {
 	float:left;
 	border-radius:2px;
 	
-	&:hover {
-		cursor:pointer;
+	a{
+		color: #000;
+		text-decoration: none;
 	}
 }
 

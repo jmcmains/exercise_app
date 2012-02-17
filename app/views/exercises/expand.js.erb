@@ -1,1 +1,3 @@
-$("#ctrlbutton").html("<%= escape_javascript(render('collapse')) %>")
+$("#ex<%= @exercise.id %>").html("<%= escape_javascript(render('exercises/data', :exercise => @exercise)) %>");
+$("#ex<%= @exercise.id %>").show();
+$("div#bu<%= @exercise.id %>").toggle();

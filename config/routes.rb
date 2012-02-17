@@ -19,7 +19,12 @@ ExerciseApp::Application.routes.draw do
 	
 	resources :posts
 	
-	resources :exercises
+	resources :exercises do
+		member do
+			get :expand
+			get :collapse
+		end
+	end
 
 	resources :videos
 	

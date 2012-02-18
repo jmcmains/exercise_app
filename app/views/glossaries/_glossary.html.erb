@@ -1,25 +1,8 @@
 <tr>
-	<td class="exercise <%= glossary.id %>" id="gl<%= glossary.id %>">
-		<div class="expand" id="glbu<%= glossary.id %>">
-			+
-		</div>
-		<div class="expand" id="glbu<%= glossary.id %>" style="display:none">
-			-
-		</div>
-		<div class= "text">
-			<%= glossary.term %>
-		</div>
-		<script>
-			$("td#gl<%= glossary.id %>").click(function () {
-				if ($("div#gldata<%= glossary.id %>").is(':visible')) {
-					$("div#gldata<%= glossary.id %>").hide('fast');
-				} else {
-					$("div#gldata<%= glossary.id %>").show('fast');
-				}
-				$("div#glbu<%= glossary.id %>").toggle();
-			}); 
-		</script>
-		<div class="data" id="gldata<%= glossary.id %>" style="display:none">
+	<td class="exercise <%= glossary.id %>" id="<%= glossary.id %>">
+		<%= link_to "+", expand_glossary_path(glossary), :remote => true, :class => "expand", :id => "bu#{glossary.id}" %></div>
+		<%= link_to glossary.term, expand_glossary_path(glossary), :remote => true, :class => "text", :id => "txt#{glossary.id}"  %></div>
+		<div class="data" id="ex<%= glossary.id %>" style="display:none">
 			<table class="allinfo">
 				<tr>
 					<% if glossary.glossary_pictures.count > 0 %>
@@ -34,7 +17,6 @@
 					</td>
 				</tr>
 			</table>
-
 		</div>
 	</td>
 </tr>

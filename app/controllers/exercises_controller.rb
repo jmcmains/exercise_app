@@ -10,7 +10,6 @@ class ExercisesController < ApplicationController
   def expand
   	@exercise = Exercise.find(params[:id])
   	respond_to do |format|
-			format.html { redirect_to @exercise }
 			format.js
 		end
   end

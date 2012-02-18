@@ -1,4 +1,3 @@
-<br/>
 <span class="category">
 	<% exercise.categories.each do |category| %>
 		Category: <%= category.name %>
@@ -29,47 +28,7 @@
 		</td>
 		<td class="tright">
 			<%= render('exercises/media', :exercise => exercise) %>
-			Info:
-			<table class="information">
-				<tr class="titles">
-					<td title="bold signifies primary muscle(s) used; others signify secondary muscle(s) used">TARGET MUSCLES</td>
-					<td>POST</td>
-					<td title="Roughly, how high the band should be fixed relative to your body A.P. = Anchor Point)">A.P. HEIGHT</td>
-				</tr>
-				<tr class="values">
-					<td title="bold signifies primary muscle(s) used; others signify secondary muscle(s) used">
-						<% exercise.muscles.each do |muscle| %>
-							<% if exercise.primary_muscle?(muscle) %>
-								<strong><%= muscle.name.upcase %></strong>
-							<% else %>
-								<%= muscle.name %>
-							<% end %>
-							<br />
-						<% end %>
-					</td>
-					<td>
-						<% exercise.posts.each do |post| %><%= post.name %><br /><% end %></td>
-					<td title="Roughly, how high the band should be fixed relative to your body A.P. = Anchor Point (Please note that many glossary terms are italicized.)"><% exercise.heights.each do |height| %><%= height.name %><br /><% end %></td>
-				</tr>
-				<tr class="titles">
-					<td>FORCE</td>
-					<td>POSITIONS</td>
-					<td title="BOLD GRIP OPTIONS signify our recommendation, ALL = any grip option can function">GRIP OPTIONS</td>
-				</tr>
-				<tr class="values">
-					<td><% exercise.forces.each do |force| %><%= force.name %><br /><% end %></td>
-					<td><% exercise.positions.each do |position| %><%= position.name %><br /><% end %></td>
-					<td title="BOLD GRIP OPTIONS signify our recommendation, ALL = any grip option can function">
-					<% exercise.accessories.each do |accessory| %>
-							<% if exercise.primary_accessory?(accessory) %>
-								<strong><%= accessory.name.upcase %></strong>
-							<% else %>
-								<%= accessory.name %>
-							<% end %>
-							<br />
-						<% end %>
-				</tr>
-			</table>
+			<%= render('exercises/information', :exercise => exercise) %>
 		</td>
 	</tr>
 </table>

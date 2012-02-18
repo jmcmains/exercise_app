@@ -1,24 +1,7 @@
 <tr>
 	<td class="exercise <%= general_tip.id %>" id="<%= general_tip.id %>">
-		<div class="expand" id="bu<%= general_tip.id %>">
-			+
-		</div>
-		<div class="expand" id="bu<%= general_tip.id %>" style="display:none">
-			-
-		</div>
-		<div class= "text">
-			<%= general_tip.name %>
-		</div>
-		<script>
-			$("td.<%= general_tip.id %>").click(function () {
-			if ($("div#ex<%= general_tip.id %>").is(':visible')) {
-				$("#ex<%= general_tip.id %>").hide('fast');
-			} else {
-				$("#ex<%= general_tip.id %>").show('fast');
-			}
-			$("div#bu<%= general_tip.id %>").toggle();
-			}); 
-		</script>
+		<%= link_to "+", expand_general_tip_path(general_tip), :remote => true, :class => "expand", :id => "bu#{general_tip.id}" %></div>
+		<%= link_to general_tip.name, expand_general_tip_path(general_tip), :remote => true, :class => "text", :id => "txt#{general_tip.id}"  %></div>
 		<div class="data" id="ex<%= general_tip.id %>" style="display:none">
 			<table class="allinfo">
 				<tr>

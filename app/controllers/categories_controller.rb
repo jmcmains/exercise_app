@@ -3,14 +3,36 @@ class CategoriesController < ApplicationController
   def index
     @title = "All Categories"
     @sel="All"
-    @clickex=false
+    @exercises=Exercise.all;
+  end
+  
+  def display
+		@category = Category.find(params[:id])
+		@exercises = @category.exercises
+		@name = @category.name
+		@showDesc = true
+		respond_to do |format|
+			format.js
+		end
+  end
+  
+  def displayall
+		@name = "All"
+		@category = Category.find(1)
+		@exercises = Exercise.all
+		@showDesc = false
+		respond_to do |format|
+			format.js { render 'display' }
+		end
   end
   
   def show
+  	@category = Category.find(params[:id])
+  	@sel = @category.name
   	@title = "All Categories"
-  	@sel=Category.find(params[:id]).name
-  	@clickex=false
-		render 'index'
+    @clickex=false
+    render categories_path
+    redirect_to display_category_path
   end
   
   def edit

@@ -5,6 +5,13 @@ class VideosController < ApplicationController
     @videos = Video.all
   end
   
+  def display
+		@video = Video.find(params[:id])
+  	respond_to do |format|
+			format.js
+		end
+	end
+    
   def show
   	@video = Video.find(params[:id])
   end

@@ -1,9 +1,4 @@
 ExerciseApp::Application.configure do
-	
-	require 'new_relic/rack/developer_mode'
-	config.middleware.use NewRelic::Rack::DeveloperMode
-	ENV['NEWRELIC_ENABLE'] = 'true'
-  
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on

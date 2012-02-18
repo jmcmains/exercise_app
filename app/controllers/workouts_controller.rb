@@ -14,15 +14,23 @@ class WorkoutsController < ApplicationController
 		render 'categories/index'
   end
   
+  def display
+		@workout = Workout.find(params[:id])
+		@exercises = @workout.exercises
+		@name = @workout.name
+		@showDesc = true
+		respond_to do |format|
+			format.js
+		end
+  end
+  
   def likepage
 		@workout = Workout.find(params[:id])
 		@title = @workout.name
 		render :action => 'likepage', :layout => false
-
   end
   
   def edit
-  
   	@workout = Workout.find(params[:id])
   	@title = "Edit Workout"
   end

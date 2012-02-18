@@ -1,24 +1,7 @@
 <tr>
 	<td class="exercise <%= optional_accessory.id %>" id="<%= optional_accessory.id %>">
-		<div class="expand" id="bu<%= optional_accessory.id %>">
-			+
-		</div>
-		<div class="expand" id="bu<%= optional_accessory.id %>" style="display:none">
-			-
-		</div>
-		<div class= "text">
-			<%= optional_accessory.name %>
-		</div>
-		<script>
-			$("td.<%= optional_accessory.id %>").click(function () {
-			if ($("div#ex<%= optional_accessory.id %>").is(':visible')) {
-				$("#ex<%= optional_accessory.id %>").hide('fast');
-			} else {
-				$("#ex<%= optional_accessory.id %>").show('fast');
-			}
-			$("div#bu<%= optional_accessory.id %>").toggle();
-			}); 
-		</script>
+		<%= link_to "+", expand_optional_accessory_path(optional_accessory), :remote => true, :class => "expand", :id => "bu#{optional_accessory.id}" %></div>
+		<%= link_to optional_accessory.name, expand_optional_accessory_path(optional_accessory), :remote => true, :class => "text", :id => "txt#{optional_accessory.id}"  %></div>
 		<div class="data" id="ex<%= optional_accessory.id %>" style="display:none">
 			<table class="allinfo">
 				<tr>
@@ -31,7 +14,7 @@
 					</td>
 				</tr>
 			</table>
-
 		</div>
 	</td>
 </tr>
+

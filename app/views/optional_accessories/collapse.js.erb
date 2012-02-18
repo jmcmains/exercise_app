@@ -1,0 +1,4 @@
+$("#ex<%= @optional_accessory.id %>").toggle('fast');
+$("#bu<%= @optional_accessory.id %>").attr("href","<%= expand_optional_accessory_path(@optional_accessory) %>");
+$("#bu<%= @optional_accessory.id %>").html("+");
+$("#txt<%= @optional_accessory.id %>").attr("href","<%= expand_optional_accessory_path(@optional_accessory) %>");

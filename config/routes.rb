@@ -2,11 +2,42 @@ ExerciseApp::Application.routes.draw do
 	resources :categories do
 		collection do
 			get :picture
+			get :displayall
+		end
+		member do
+			get :display
 		end
 	end
 	
-	resources :optional_accessories
+	resources :glossaries do
+		collection do
+			get :display
+		end
+		member do
+			get :expand
+			get :collapse
+		end
+	end
+	
+	resources :optional_accessories do
+		collection do
+			get :display
+		end
+		member do
+			get :expand
+			get :collapse
+		end
+	end
  	
+ 	resources :general_tips do
+		collection do
+			get :display
+		end
+		member do
+			get :expand
+			get :collapse
+		end
+	end
  	resources :positions
 
 	resources :anchor_point_heights
@@ -26,7 +57,17 @@ ExerciseApp::Application.routes.draw do
 		end
 	end
 
-	resources :videos
+	resources :videos do
+		member do
+			get :display
+		end
+	end
+	
+	resources :exercise_pictures  do
+		member do
+			get :display
+		end
+	end
 	
 	resources :tips
 		
@@ -35,6 +76,7 @@ ExerciseApp::Application.routes.draw do
 	resources :workouts do
 		member do
       get :likepage
+      get :display
     end
 	end
 	

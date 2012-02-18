@@ -1,0 +1,4 @@
+$("#ex<%= @glossary.id %>").toggle('fast');
+$("#bu<%= @glossary.id %>").attr("href","<%= expand_glossary_path(@glossary) %>");
+$("#bu<%= @glossary.id %>").html("+");
+$("#txt<%= @glossary.id %>").attr("href","<%= expand_glossary_path(@glossary) %>");

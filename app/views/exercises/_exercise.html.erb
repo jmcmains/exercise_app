@@ -1,10 +1,7 @@
 <tr>
 	<td class="exercise <%= exercise.id %>" id="<%= exercise.id %>">
-		<div class="expand" id="bu<%= exercise.id %>"><%= link_to "+", expand_exercise_path(exercise), :remote => true %></div>
-		<div class="expand" id="bu<%= exercise.id %>" style="display:none"><%= link_to "-", collapse_exercise_path(exercise), :remote => true %></div>
-		<div class= "text">
-			<%= exercise.name %>
-		</div>
+		<%= link_to "+", expand_exercise_path(exercise), :remote => true, :class => "expand", :id => "bu#{exercise.id}" %></div>
+		<%= link_to exercise.name, expand_exercise_path(exercise), :remote => true, :class => "text", :id => "txt#{exercise.id}"  %></div>
 		<div class="data" id="ex<%= exercise.id %>" style="display:none">
 		</div>
 	</td>

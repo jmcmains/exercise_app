@@ -1,3 +1,5 @@
-$("#ex<%= @exercise.id %>").hide();
+$("#ex<%= @exercise.id %>").hide('fast');
 $("#ex<%= @exercise.id %>").html('');
-$("div#bu<%= @exercise.id %>").toggle();
+$("#bu<%= @exercise.id %>").attr("href","<%= expand_exercise_path(@exercise) %>");
+$("#bu<%= @exercise.id %>").html("+");
+$("#txt<%= @exercise.id %>").attr("href","<%= expand_exercise_path(@exercise) %>");

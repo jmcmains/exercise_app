@@ -1,0 +1,5 @@
+$("div.sidebar h2").removeClass("highlight");
+$("h2#<%= @name %>").addClass("highlight");
+$("div.descbar").hide();
+$("div.exercises").css("top","0px");
+$("table.exercises").html("<%= escape_javascript(render(Exercises.all)) %>");

@@ -9,6 +9,20 @@ class OptionalAccessoriesController < ApplicationController
   	@title = "exercise accessory"
   end
   
+  def expand
+  	@optional_accessory = OptionalAccessory.find(params[:id])
+  	respond_to do |format|
+			format.js
+		end
+  end
+  
+   def collapse
+  	@optional_accessory = OptionalAccessory.find(params[:id])
+  	respond_to do |format|
+			format.js
+		end
+  end
+  
   def show
   	@optional_accessory = OptionalAccessory.find(params[:id])
   end

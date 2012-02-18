@@ -55,16 +55,19 @@ div.sidebar {
 		text-shadow: rgba(255,255,255,0.5) 0 1px;
 	}
 	
-	h2.sbbutton {
+	a {
 		font-size: 100%;
 		margin: 2px;
 		padding: 0px 0px 0px 5px;
+		padding-right: 300px;
 		overflow:hidden;
 		white-space:nowrap;
 		text-overflow:ellipsis;
 		-o-text-overflow:ellipsis;
 		-ms-text-overflow:ellipsis;
 		-moz-binding:url(/ellipsis-xbl.xml#ellipsis);
+		color: #000;
+		text-decoration: none;
 		
 		&:hover {
 			background: #c4cdcf;
@@ -75,6 +78,7 @@ div.sidebar {
 			width:230px;
 			margin-left: -6px;
 			padding-left: 12px;
+			padding-right: 300px;
 			margin-top:-1px;
 			margin-bottom:-1px;
 			font-weight:bold;
@@ -91,7 +95,7 @@ div.sidebar {
 		}
 	}
 	
-	h2.highlight{
+	a.highlight {
 		background: #93a1bd;
 		filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#c4cdcf', endColorstr='#93a1bd');
 		background: -webkit-linear-gradient(top, #c4cdcf, #93a1bd);
@@ -100,6 +104,7 @@ div.sidebar {
 		width:230px;
 		margin-left: -6px;
 		padding-left: 12px;
+		padding-right: 300px;
 		margin-top:-1px;
 		margin-bottom:-1px;
 		font-weight:bold;
@@ -111,6 +116,7 @@ div.sidebar {
 		-o-text-overflow:ellipsis;
 		-ms-text-overflow:ellipsis;
 		-moz-binding:url(/ellipsis-xbl.xml#ellipsis);
+		text-decoration: none;
 	}
 }
 
@@ -239,22 +245,27 @@ span.category {
 	margin:35px;
 }
 
-table tr td.exercise div.expand {
-	width: 10px;
-	height: 10px;
-	margin-left:10px;
-	margin-top:2px;
-	line-height:10px;
-	vertical-align:middle;
-	text-align:center;
-	padding:0px;
-	background-color: #d9ece0;
-	float:left;
-	border-radius:2px;
-	
-	a{
+table tr td.exercise {
+	a.text {
 		color: #000;
 		text-decoration: none;
+		right:0px;
+	}
+	
+	a.expand {
+		color: #000;
+		text-decoration: none;
+		width: 10px;
+		height: 10px;
+		margin-left:10px;
+		margin-top:2px;
+		line-height:10px;
+		vertical-align:middle;
+		text-align:center;
+		padding:0px;
+		background-color: #d9ece0;
+		float:left;
+		border-radius:2px;
 	}
 }
 
@@ -292,33 +303,39 @@ table.information {
 }
 
 /* Exercise Media */
-div.mainplayer {
-	height:267px;
-	width:350px;
-	text-align:center;
-	
-	img {
-		max-height:267px;
-		max-width:350px;
+div.mediadisplay {
+	div.enlarge {
+		height:267px;
+		width:350px;
 		text-align:center;
+		position:relative;
+		img {
+			max-height:267px;
+			max-width:350px;
+			text-align:center;
+			vertical-align:middle;
+		}
 	}
-}
-
-div.scroll {
-	height: 80px;
-	width: 350px;
-	overflow: auto;
-	white-space: nowrap;
 	
-	img{
-		height: 60px;
-		
-		&:hover {
+	div.scroll {
+		height: 80px;
+		width: 350px;
+		overflow: auto;
+		white-space: nowrap;
+		vertical-align:middle;
+		img{
 			height: 60px;
-		cursor:pointer;
+			padding-top:1px;
+		}
+		img.highlight {
+			border:1px solid #000;
+			margin:-1px;
+			margin-top:0;
 		}
 	}
 }
+
+
 
 div.inforight {
 	position:absolute;

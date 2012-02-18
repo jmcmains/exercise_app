@@ -1,0 +1,3 @@
+$("div.enlarged<%= @video.exercise.id %>").html("<iframe class='youtube' width='350' height='267' src='<%= @video.get_embed %>' frameborder='0' allowfullscreen></iframe>")
+$("div.scroll img").removeClass("highlight");
+$("div.scroll img.v<%= @video.id %>").addClass("highlight");

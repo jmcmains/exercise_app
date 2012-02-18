@@ -1,0 +1,12 @@
+$("div.sidebar a").removeClass("highlight");
+$("a#<%= @name %>").addClass("highlight");
+if ("<%= @showDesc %>" === "true") {
+	$("div.descbar").show();
+	$("div.exercises").css("top","150px");
+	$("div.descbar").html("<%= escape_javascript(render('categories/title', :category => @category)) %>");
+} else {
+	$("div.descbar").hide();
+	$("div.exercises").css("top","0px");
+	$("div.descbar").html("");
+}
+$("table.exercises").html("<%= escape_javascript(render(@exercises)) %>");

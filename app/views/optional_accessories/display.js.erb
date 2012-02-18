@@ -1,0 +1,5 @@
+$("div.sidebar a").removeClass("highlight");
+$("#Accessory").addClass("highlight");
+$("div.descbar").hide();
+$("div.exercises").css("top","0px");
+$("table.exercises").html("<%= escape_javascript(render(OptionalAccessory.all)) %>");

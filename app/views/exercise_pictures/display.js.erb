@@ -1,0 +1,4 @@
+$("div.enlarged<%= @exercise_picture.exercise.id %>").html("<%= escape_javascript(image_tag(@exercise_picture.get_site)) %>")
+$("div.scroll img").removeClass("highlight");
+$("div.scroll img.i<%= @exercise_picture.id %>").addClass("highlight");
+

@@ -2,11 +2,6 @@
 <html xmlns:og="http://ogp.me/ns#">
   <head>
     <title>Rubberbanditz Exercise App</title>
-    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js' type='text/javascript'></script>
-		<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js' type='text/javascript'></script>
-		<script src='https://raw.github.com/flaptor/indextank-jquery/master/jquery.indextank.ize.js' type='text/javascript'></script>
-		<script src='https://raw.github.com/flaptor/indextank-jquery/master/jquery.indextank.autocomplete.js' type='text/javascript'></script> 
-		<link href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/themes/flick/jquery-ui.css' rel='stylesheet'> 
     <%= javascript_include_tag "application" %>
     
     <%= csrf_meta_tag %>
@@ -45,15 +40,7 @@
     	$("input.search").css("color","#000");
     	$("input.search").css("font-style","normal");
     });
-		var publicApiUrl = "http://d7rbf.api.searchify.com";
-		var indexName = "ExerciseApp";
-		$(document).ready(function(){
-		  // let the form be 'indextank-aware'
-		  $("#myform").indextank_Ize(publicApiUrl, indexName);
-		  // let the query box have autocomplete
-		  $("#query").indextank_Autocomplete();
-});
-    </script>
+		</script>
   </body>
 </html>
 

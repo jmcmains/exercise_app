@@ -52,5 +52,6 @@ ExerciseApp::Application.routes.draw do
     end
 	end
 	
+  match '/home', :to => 'pages#home'
 	root :to => 'categories#index'
 end

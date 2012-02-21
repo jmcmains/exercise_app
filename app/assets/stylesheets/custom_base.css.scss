@@ -9,10 +9,10 @@ body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, 
 body {
 	background: #fff;
 	height:100%;
-	font-size:85%;
+	/*font-size:100%;*/
 	color:#222;
 	background:#fff;
-	font-family: Helvetica,Arial,sans-serif;;
+	font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
 table {
@@ -28,32 +28,41 @@ h1, h2, h3, h4, h5, h6 {
 	color:#111;
 }
 
-tbody tr:nth-child(even) td, tbody tr.even td {background:#fff;}
+tbody tr:nth-child(even) td, tbody tr.even td {background:#f2f5f9;}
 
 /* Sidebar */
 
 div.sidebar {
-	width: 270px;
-	border:0;
+	width: 300px;
+	border:1px solid #bbb;
 	overflow:hidden;
 	white-space:nowrap;
 	text-overflow: ellipsis-word;
-	background: #f6f2e3;
-		position:absolute;
+	background: #fff;
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#e7eaef', endColorstr='#d1d8df');
+	background: -webkit-linear-gradient(top, #e7eaef, #d1d8df);
+	background: -moz-linear-gradient(top,  #e7eaef,  #d1d8df);
+	position:absolute;
 	top:0px;
 	bottom:0px;
 	left:0px;
 	.search {
-		border: 1px solid #DCDCDC;
+		background: #e3e3e3;
+		filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#e3e3e3', endColorstr='#b2b2b2');
+		background: -webkit-linear-gradient(top, #e3e3e3, #fff, #e3e3e3);
+		background: -moz-linear-gradient(top, #e3e3e3,  #fff,  #e3e3e3);
+		border-radius: 10px;
+		border: 1px inset #999;
 		margin-left:5px;
 		padding-left:5px;
-		color: #DCDCDC;
+		color: #999;
+		font-style:italic;
 	}
 	
 	h1 {
 		font-size: 100%;
 		font-weight:bold;
-		color: #FF1A1A;
+		color: #717171;
 		margin: 2px;
 		margin-top:10px;
 		text-shadow: rgba(255,255,255,0.5) 0 1px;
@@ -72,15 +81,13 @@ div.sidebar {
 		-moz-binding:url(/ellipsis-xbl.xml#ellipsis);
 		color: #000;
 		text-decoration: none;
-		$endColorstr:#000;
-		$startColorstr:#7F8284;
+		
 		&:hover {
-			background: $startColorstr;
-			filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr=$startColorstr, endColorstr=$endColorstr);
-			background: -webkit-linear-gradient(top, $startColorstr, $endColorstr);
-			background: -moz-linear-gradient(top,  $startColorstr,  $endColorstr);
-			border:1px solid $endColorstr;
-			color:#fff;
+			background: #c4cdcf;
+			filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#c4cdcf', endColorstr='#93a1bd');
+			background: -webkit-linear-gradient(top, #c4cdcf, #93a1bd);
+			background: -moz-linear-gradient(top,  #c4cdcf,  #93a1bd);
+			border:1px solid #93a1bd;
 			width:230px;
 			margin-left: -6px;
 			padding-left: 12px;
@@ -88,25 +95,25 @@ div.sidebar {
 			margin-top:-1px;
 			margin-bottom:-1px;
 			font-weight:bold;
+			color: #fff;
 			text-shadow: rgba(0,0,0,0.5) 0 1px;
 			cursor: pointer;
 		}
 		
 		&:active {
 			background: #93a1bd;
-			filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr=$endColorstr, endColorstr=$startColorstr);
-			background: -webkit-linear-gradient(top, $endColorstr, $startColorstr);
-			background: -moz-linear-gradient(top,  $endColorstr,  $startColorstr);
-			color:#fff;
+			filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#93a1bd', endColorstr='#c4cdcf');
+			background: -webkit-linear-gradient(top, #93a1bd, #c4cdcf);
+			background: -moz-linear-gradient(top,  #93a1bd,  #c4cdcf);
 		}
-		
-		&.highlight {
-		background: $startColorstr;
-		filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr=$startColorstr, endColorstr=$endColorstr);
-		background: -webkit-linear-gradient(top, $startColorstr, $endColorstr);
-		background: -moz-linear-gradient(top,  $startColorstr,  $endColorstr);
-		border:1px solid $endColorstr;
-					color:#fff;
+	}
+	
+	a.highlight {
+		background: #93a1bd;
+		filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#c4cdcf', endColorstr='#93a1bd');
+		background: -webkit-linear-gradient(top, #c4cdcf, #93a1bd);
+		background: -moz-linear-gradient(top,  #c4cdcf,  #93a1bd);
+		border:1px solid #93a1bd;
 		width:230px;
 		margin-left: -6px;
 		padding-left: 12px;
@@ -114,6 +121,7 @@ div.sidebar {
 		margin-top:-1px;
 		margin-bottom:-1px;
 		font-weight:bold;
+		color: #fff;
 		text-shadow: rgba(0,0,0,0.5) 0 1px;
 		overflow:hidden;
 		white-space:nowrap;
@@ -123,9 +131,6 @@ div.sidebar {
 		-moz-binding:url(/ellipsis-xbl.xml#ellipsis);
 		text-decoration: none;
 	}
-	}
-	
-	
 }
 
 
@@ -135,23 +140,29 @@ div.descbar {
 	position:absolute;
 	top:0px;
 	height:150px;
-	left:270px;
+	left:300px;
 	right:0px;
-	border:0;
-	background: #f6f2e3;
+	border:1px solid #bbb;
+	background: #e3e3e3;
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#e3e3e3', endColorstr='#b2b2b2');
+	background: -webkit-linear-gradient(top, #e3e3e3, #b2b2b2);
+	background: -moz-linear-gradient(top,  #e3e3e3,  #b2b2b2);
 	margin:0;
 	padding:0;
 	h1 {
 		font-size: 100%;
 		font-weight:bold;
-		color: #FF1A1A;	 
+		color: #000;
 		margin: 0;
 		text-shadow: rgba(255,255,255,0.5) 0 1px;
 	}
 }
 
 div.catimage {
-	background: #fff;
+	background: #edf0e1;
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#edf0e1', endColorstr='#edf1d5');
+	background: -webkit-linear-gradient(top, #edf0e1, #dfe4c8, #edf1d5);
+	background: -moz-linear-gradient(top,  #edf0e1,#dfe4c8,  #edf1d5);
 	border:1px inset #bbb;
 	border-radius: 5px;
 	width:200px;
@@ -218,20 +229,20 @@ div.dright {
 	top:5px;
 	bottom:5px;
 	left:5px;
-	right:0px;
+	right:5px;
 	overflow:auto;
 }
 
 /* Exercise List */
 
 div.exercises {
-	border:0;
-	background: #f6f2e3;
+	border:1px solid #bbb;
+	background: #fff;
 	overflow: auto;
 	position:absolute;
 	top:150px;
 	bottom:0px;
-	left:270px;
+	left:300px;
 	right:0px;
 	div.results {
 		ul li {

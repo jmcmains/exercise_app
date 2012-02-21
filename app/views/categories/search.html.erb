@@ -3,8 +3,10 @@
 <div class="exercises" style="top:0px">
 	<table class="exercises"></table>
 	<div class="results">
+	<ul>
 		<%= pluralize @results["matches"], "match" %><br />
 		<% @results["results"].each do |r| %>
+		<li>
 			<% if r["__type"] == "Exercise" %>
 				<%= link_to r["name"], exercise_path(r["__id"]) %> <br/>
 			<% elsif r["__type"] == "GeneralTip" %>
@@ -14,7 +16,7 @@
 			<% elsif r["__type"] == "OptionalAccessory" %>
 				<%= link_to r["name"], optional_accessory_path(r["__id"]) %> <br/>
 			<% end %>
-				<p><%= raw r["snippet___any"] %></p>
+				<p><%= raw r["snippet___any"] %></p></li>
 		<% end %>
 	</div>
 </div>

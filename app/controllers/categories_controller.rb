@@ -16,7 +16,7 @@ class CategoriesController < ApplicationController
 			q2 << q + "*" << " OR "
 		end
 		q3=q2[0..-2].join
-		query="__any:#{q3}"
+		query="__any:(#{q3})"
 		@results= exerciseApp.search(query, :fetch => '__id,__type,name,term',:len => 200,:snippet => "__any")
 	end
 	

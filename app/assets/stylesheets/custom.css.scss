@@ -9,7 +9,7 @@ body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, 
 body {
 	background: #fff;
 	height:100%;
-	font-size:75%;
+	/*font-size:100%;*/
 	color:#222;
 	background:#fff;
 	font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;
@@ -33,7 +33,7 @@ tbody tr:nth-child(even) td, tbody tr.even td {background:#f2f5f9;}
 /* Sidebar */
 
 div.sidebar {
-	width: 230px;
+	width: 300px;
 	border:1px solid #bbb;
 	overflow:hidden;
 	white-space:nowrap;
@@ -140,7 +140,7 @@ div.descbar {
 	position:absolute;
 	top:0px;
 	height:150px;
-	left:230px;
+	left:300px;
 	right:0px;
 	border:1px solid #bbb;
 	background: #e3e3e3;
@@ -242,8 +242,21 @@ div.exercises {
 	position:absolute;
 	top:150px;
 	bottom:0px;
-	left:230px;
+	left:300px;
 	right:0px;
+	div.results {
+		ul li {
+			margin-left: 10px;
+			padding-bottom:10px;
+			list-style-type: none;
+		}
+		a {
+			font-size:110%;
+		}
+		p {
+			max-width: 600px;
+		}
+	}
 }
 
 td.exercise {

@@ -81,10 +81,8 @@ $("div.forward").hover(
 			$("div.forward").css("opacity","1.0");
   }
 );
-$(function() {
-	changeColors()
-	if (parseInt("<%= category.category_pictures.count %>") > 0) {
-		$("div.dright").css("left","210px");
-	}
-}); 
+changeColors()
+if (parseInt("<%= category.category_pictures.count %>") > 0) {
+	$("div.dright").css("left","210px");
+}
 </script>

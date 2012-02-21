@@ -34,7 +34,7 @@ end
 
 
 puts "Importing exercises..."
-CSV.foreach(Rails.root.join('csv/exercises.csv'), headers: true, col_sep: ';') do |row|
+CSV.foreach(Rails.root.join('csv/exercises.csv'), headers: true, col_sep: '|') do |row|
   Exercise.create! do |exercise|
     exercise.name = row[0]
     exercise.description = row[1].force_encoding 'utf-8'

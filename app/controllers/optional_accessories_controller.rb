@@ -1,10 +1,5 @@
 class OptionalAccessoriesController < ApplicationController
   
-  def index
-    @title = "All Optional Accessories"
-    @optional_accessories = OptionalAccessory.all
-  end
-  
   def export_disp
   	@title = "exercise accessory"
   end

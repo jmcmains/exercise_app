@@ -1,2 +1,13 @@
-
-
+<div class="descbar">
+	<%= render('categories/title', :category => @category) %>
+</div>
+<div class="exercises" style="top:150px">
+	<table class="exercises"><%= render @category.exercises %></table>
+</div>
+		<div class="results">
+		</div>
+<script>
+$("div.sidebar a").removeClass("highlight");
+$("a#<%= @category.name %>").addClass("highlight");
+window.location("<%= category_path(@category) %>");
+</script>

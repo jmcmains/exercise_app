@@ -1,12 +1,5 @@
 class ExercisesController < ApplicationController
-  def index
-    @title = "All Categories"
-		@sel="All"
-		@clickex=false
-		@results=Exercise.all
-		render 'categories/index'
-  end
-  
+
   def expand
   	@exercise = Exercise.find(params[:id])
   	respond_to do |format|
@@ -23,13 +16,7 @@ class ExercisesController < ApplicationController
   end
   
   def show
-  	@title = "All Categories"
-  	exercise = Exercise.find(params[:id])
-		@id = exercise.id;
-		@sel=	exercise.categories.first.name
-		@clickex=true
-		@results=Exercise.all
-		render 'categories/index'
+  	@exercise = Exercise.find(params[:id])
   end
 
   def edit

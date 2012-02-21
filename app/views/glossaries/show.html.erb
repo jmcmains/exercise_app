@@ -1,11 +1,11 @@
 <div class="descbar" style="display:none">
 </div>
 <div class="exercises" style="top:0px">
-	<table class="exercises"><%= render OptionalAccessory.all %></table>
+	<table class="exercises"><%= render Glossary.all %></table>
 			<div class="results"></div>
 </div>
 <script>
 $("div.sidebar a").removeClass("highlight");
-$("a#Accessory").addClass("highlight");
-$("a#bu<%= @optional_accessory.id %>").click();
+$("a#Glossary").addClass("highlight");
+$("a#bu<%= @glossary.id %>").click();
 </script>

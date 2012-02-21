@@ -1,17 +1,7 @@
-<div class="sidebar">
-	<h1> CATEGORY </h1>
-		<%= link_to "All", displayall_categories_path, :remote => true, :id => "All", :class => "highlight" %><br/>
-		<%= render Category.all %>
-	<h1> WORKOUT </h1>
-		<%= render Workout.all %>
-	<h1> EXTRA INFORMATION </h1>
-		<%= link_to "Accessory Descriptions", display_optional_accessories_path, :remote => true, :id => "Accessory" %><br/>
-		<%= link_to "Glossary", display_glossaries_path, :remote => true, :id => "Glossary" %><br/>
-		<%= link_to "General Tips", display_general_tips_path, :remote => true, :id => "GT" %><br/>
-</div>
 <div class="descbar" style="display:none">
 </div>
 <div class="exercises" style="top:0px">
-	<table class="exercises"><%= render @exercises %></table>
+	<table class="exercises"><%= render Exercise.all %></table>
+		<div class="results">
+		</div>
 </div>
-

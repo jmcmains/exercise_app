@@ -13,8 +13,31 @@
   <body>
 		<div id="fb-root"></div>
   	<div class="container">
-    		<%= yield %>
+    		<div class="sidebar">
+					<h1> SEARCH </h1>
+    				<%= form_tag(search_path, :method => "get") do %>
+							<%= text_field_tag :query, "Search", :class => "search" %>
+						<% end %>
+					<h1> CATEGORY </h1>
+						<%= link_to "All", root_path, :remote => true, :id => "All", :class => "highlight" %><br/>
+						<%= render Category.all %>
+					<h1> WORKOUT </h1>
+						<%= render Workout.all %>
+					<h1> EXTRA INFORMATION </h1>
+						<%= link_to "Accessory Descriptions", optional_accessories_path, :remote => true, :id => "Accessory" %><br/>
+						<%= link_to "Glossary", glossaries_path, :remote => true, :id => "Glossary" %><br/>
+						<%= link_to "General Tips", general_tips_path, :remote => true, :id => "GT" %><br/>
+						
+				</div>
+				<%= yield %>
     </div>
+    <script>
+    $("input.search").focus( function() {
+    	$("input.search").attr("value","");
+    	$("input.search").css("color","#000");
+    	$("input.search").css("font-style","normal");
+    });
+    </script>
   </body>
 </html>
 

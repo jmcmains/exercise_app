@@ -1,0 +1,11 @@
+<div class="descbar" style="display:none">
+</div>
+<div class="exercises" style="top:0px">
+	<table class="exercises"><%= render GeneralTip.all %></table>
+				<div class="results"></div>
+</div>
+<script>
+$("div.sidebar a").removeClass("highlight");
+$("a#GT").addClass("highlight");
+$("a#bu<%= @general_tip.id %>").click();
+</script>

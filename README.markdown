@@ -3,12 +3,9 @@
 this is the repository for the currently unnamed exercise app which will become a library for all rubberband type exercises. 
 
 todo:
+search
 
-create Categories
-create create,edit,show
-
-create Exercises
-create create,edit,show
+Facebook like/share/comment integration
 
 Ideas for the future:
 
@@ -21,9 +18,6 @@ Space for ads (monetized this way)
 
 This could be a platform for fitness experts and trainers to give their students workouts (possible public/private sharing, could trainers sell workouts, and obviously we would take a small percentage)
 
-Space for pictures/videos of the exercise
-
-Each exercise would include the type of band and accessory that you could use
 Creating a workout should be easy (drag and drop, copy old workouts)
 
 Section for badges (keeps people coming back to the app to say that they did the exercise)

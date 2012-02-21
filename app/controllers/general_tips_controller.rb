@@ -12,4 +12,8 @@ class GeneralTipsController < ApplicationController
 			format.js
 		end
   end
+  
+  def show
+		@general_tip = GeneralTip.find(params[:id])
+  end
 end

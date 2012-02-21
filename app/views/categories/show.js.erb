@@ -1,6 +1,9 @@
-$("div.sidebar h2").removeClass("highlight");
-$("h2#<%= @name %>").addClass("highlight");
+$("div.sidebar a").removeClass("highlight");
+$("a#<%= @name %>").addClass("highlight");
 $("div.descbar").show();
+$("div.results").hide();
 $("div.exercises").css("top","150px");
 $("div.descbar").html("<%= escape_javascript(render('categories/title', :category => @category)) %>");
-$("table.exercises").html("<%= escape_javascript(render(@exercises)) %>");
+$("table.exercises").html("<%= escape_javascript(render(@category.exercises)) %>");
+window.history.replaceState("","","<%= category_path(@category) %>");
+

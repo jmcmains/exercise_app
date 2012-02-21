@@ -1,0 +1,9 @@
+$("div.sidebar a").removeClass("highlight");
+$("a#<%= @exercise.categories.first.name %>").addClass("highlight");
+$("div.descbar").show();
+$("div.exercises").css("top","150px");
+$("div.descbar").html("<%= escape_javascript(render('categories/title', :category => @exercise.categories.first)) %>");
+$("table.exercises").html("<%= escape_javascript(render(@exercise.categories.first.exercises)) %>");
+$("a#bu<%= @exercise.id %>").click();
+window.history.replaceState("","","<%= category_path(@category) %>");
+

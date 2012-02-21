@@ -1,0 +1,21 @@
+<div class="descbar" style="display:none">
+</div>
+<div class="exercises" style="top:0px">
+	<table class="exercises"></table>
+	<div class="results">
+		<%= pluralize @results["matches"], "match" %><br />
+		<% @results["results"].each do |r| %>
+			<% if r["__type"] == "Exercise" %>
+				<%= link_to r["name"], exercise_path(r["__id"]) %> <br/>
+			<% elsif r["__type"] == "GeneralTip" %>
+				<%= link_to r["name"], general_tip_path(r["__id"]) %> <br/>
+			<% elsif r["__type"] == "Glossary" %>
+				<%= link_to r["term"], glossary_path(r["__id"]) %><br/>
+			<% elsif r["__type"] == "OptionalAccessory" %>
+				<%= link_to r["name"], optional_accessory_path(r["__id"]) %> <br/>
+			<% end %>
+				<p><%= raw r["snippet___any"] %></p>
+		<% end %>
+	</div>
+</div>
+

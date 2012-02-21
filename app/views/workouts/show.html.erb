@@ -1,8 +1,12 @@
-< meta property="fb:app_id" content="299584876770579"/>
-< meta property="fb:admins" content="JasonMcMains"/ > 
-< meta property="og:title" content="<%= @workout.name %>"/>
-< meta property="og:type" content="website"/>
-< meta property="og:site_name" content="Rubberbanditz Exercise App"/ >
-< meta property="og:url" content="<%= root_path %>"/>
-< meta property="og:image" content="Vectoredlogo.png"/>
-< meta property="og:description" content="This is one of Rubberbanditz great workouts!"/>
+<div class="descbar">
+	<%= render('workouts/title', :workout => @workout) %>
+</div>
+<div class="exercises" style="top:150px">
+	<table class="exercises"><%= render @workout.exercises %></table>
+		<div class="results"></div>
+</div>
+
+<script>
+$("div.sidebar a").removeClass("highlight");
+$("a#wo<%= @workout.id %>").addClass("highlight");
+</script>

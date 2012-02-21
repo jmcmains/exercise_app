@@ -1,0 +1,9 @@
+$("div.sidebar a").removeClass("highlight");
+$("a#Accessory").addClass("highlight");
+$("div.descbar").hide();
+$("div.results").hide();
+$("div.exercises").css("top","0px");
+$("div.descbar").html("");
+$("table.exercises").html("<%= escape_javascript(render(OptionalAccessory.all)) %>");
+window.history.replaceState("","","<%= optional_accessory_path(@optional_accessory) %>");
+$("a#bu<%= @optional_accessory.id %>").click();

@@ -42,7 +42,42 @@ class Exercise < ActiveRecord::Base
   
   has_many :exercise_pictures, :foreign_key => "exercise_id",
                            		 :dependent => :destroy
- 
+                           		 
+  include Tanker
+  after_save :update_tank_indexes
+  after_destroy :delete_tank_indexes
+  tankit 'ExerciseApp' do
+    indexes :name
+		indexes :description
+    indexes :category do
+     	categories.map(&:name)
+    end
+    indexes :accessory do
+    	accessories.map(&:name)
+    end
+    indexes :position do
+    	positions.map(&:name)
+    end
+    indexes :height do
+    	heights.map(&:name)
+    end
+    indexes :muscle do
+    	muscles.map(&:name)
+    end
+    indexes :force do
+    	forces.map(&:name)
+    end
+    indexes :post do
+    	posts.map(&:name)
+    end
+    indexes :variations do
+    	variations.map(&:content)
+    end
+    indexes :tips do
+    	tips.map(&:content)
+    end
+ 	end
+ 	
   #Categories
   def included_category?(category)
     exercise_categories.find_by_category_id(category)

@@ -1,0 +1,4 @@
+<% if object.class.name == "Exercise" %>
+	<%= link_to object.name, exercise_path(object) %>
+	<p> <%= object.description %> </p>
+<% end %>

@@ -12,4 +12,8 @@ class GlossariesController < ApplicationController
 			format.js
 		end
   end
+  
+  def show
+  	@glossary = Glossary.find(params[:id])
+  end
 end

@@ -1,38 +1,34 @@
 class CategoriesController < ApplicationController
-  
+
   def index
-    @title = "All Categories"
-    @sel="All"
-    @exercises=Exercise.all;
+		respond_to do |format|
+			format.html
+			format.js
+		end
   end
-  
-  def display
-		@category = Category.find(params[:id])
+
+	def search
+		api_client = IndexTank::Client.new 'http://:ugQl2q6LHYQ5BQ@d7rbf.api.searchify.com'
+		exerciseApp = api_client.indexes 'ExerciseApp'
+		q1=params[:query].split
+		q2 = []
+		q1.each do |q|
+			q2 << q + "*" << " OR "
+		end
+		q3=q2[0..-2].join
+		query="__any:#{q3}"
+		@results= exerciseApp.search(query, :fetch => '__id,__type,name,term',:len => 200,:snippet => "__any")
+	end
+	
+  def show
+  	@category = Category.find(params[:id])
 		@exercises = @category.exercises
 		@name = @category.name
 		@showDesc = true
 		respond_to do |format|
+			format.html
 			format.js
 		end
-  end
-  
-  def displayall
-		@name = "All"
-		@category = Category.find(1)
-		@exercises = Exercise.all
-		@showDesc = false
-		respond_to do |format|
-			format.js { render 'display' }
-		end
-  end
-  
-  def show
-  	@category = Category.find(params[:id])
-  	@sel = @category.name
-  	@title = "All Categories"
-    @clickex=false
-    render categories_path
-    redirect_to display_category_path
   end
   
   def edit

@@ -1,6 +1,5 @@
-<h1>All Exercises</h1>
-<table>
-  <%= render @exercises %>
-</table>
-
-<%= link_to 'New Exercise', new_exercise_path %>
+<div class="descbar" style="display:none">
+</div>
+<div class="exercises" style="top:0px">
+	<table class="exercises"><%= render Exercise.all %></table>
+</div>

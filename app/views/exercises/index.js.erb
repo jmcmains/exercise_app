@@ -1,0 +1,7 @@
+$("div.sidebar a").removeClass("highlight");
+$("a#All").addClass("highlight");
+$("div.descbar").hide();
+$("div.exercises").css("top","0px");
+$("div.descbar").html("");
+$("table.exercises").html("<%= escape_javascript(render(Exercise.all)) %>");
+window.history.replaceState("","","<%= root_path %>");

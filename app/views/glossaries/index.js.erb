@@ -1,0 +1,8 @@
+$("div.sidebar a").removeClass("highlight");
+$("a#Glossary").addClass("highlight");
+$("div.descbar").hide();
+$("div.results").hide();
+$("div.exercises").css("top","0px");
+$("div.descbar").html("");
+$("table.exercises").html("<%= escape_javascript(render(Glossary.all)) %>");
+window.history.replaceState("","","<%= glossaries_path %>");

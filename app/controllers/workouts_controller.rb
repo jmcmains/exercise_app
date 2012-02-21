@@ -1,25 +1,13 @@
 class WorkoutsController < ApplicationController
   
   def index
-    @title = "All Workouts"
-    @workouts = Workout.all
+    render 'categories/index'
   end
   
   def show
-		@title = "All Categories"
-		workout = Workout.find(params[:id])
-		id= workout.id;
-		@sel="wo#{id}"
-		@clickex=false
-		render 'categories/index'
-  end
-  
-  def display
 		@workout = Workout.find(params[:id])
-		@exercises = @workout.exercises
-		@name = @workout.name
-		@showDesc = true
 		respond_to do |format|
+			format.html
 			format.js
 		end
   end

@@ -8,9 +8,7 @@
 	<%= workout.duration %> <br />
 	tempo: <%= workout.tempo %><br />
 -If you do 20 reps and don’t feel fatigued, its too light.<br />
+<div class="fb-like" data-href="<%= likepage_workout_url(workout) %>" data-send="true" data-width="450" data-show-faces="true"></div>
+
 </div>
-<script>
-$(function() {
-$("div.dright").append('<div class="fb-like" data-href="<%= likepage_workout_url(workout) %>" data-send="true" data-width="450" data-show-faces="true"></div>')
-});
-</script>
+

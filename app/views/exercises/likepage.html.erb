@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:og="http://ogp.me/ns#">
   <head>
-    <title><%= @workout.name %></title>
+    <title><%= @exercise.name %></title>
 		<meta property="fb:app_id" content="299584876770579"/>
 		<meta property="fb:admins" content="JasonMcMains"/ > 
-		<meta property="og:title" content="<%= @workout.name %>"/>
+		<meta property="og:title" content="<%= @exercise.name %>"/>
 		<meta property="og:type" content="website"/>
 		<meta property="og:site_name" content="Rubberbanditz Exercise App"/ >
-		<meta property="og:url" content="<%= likepage_workout_path(@workout) %>"/>
-		<meta property="og:image" content="<%= 'assets/Vectoredlogo.png' %>" />
+		<meta property="og:url" content="<%= likepage_exercise_url(@exercise) %>"/>
+		<meta property="og:image" content="<%= @exercise.exercise_pictures.first.get_site %>" />
 		<meta property="og:description" content="This is one of Rubberbanditz great workouts!"/>
   </head>
   <body>
 <script>
-$(location).attr('href',"<%= workout_path(@workout) %>");
+$(location).attr('href',"<%= exercise_path(@exercise) %>");
 </script>
 
   </body>
 </html>
-
-
 

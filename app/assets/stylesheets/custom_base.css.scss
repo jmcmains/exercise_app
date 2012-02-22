@@ -229,8 +229,10 @@ div.dright {
 	top:5px;
 	bottom:5px;
 	left:5px;
-	right:5px;
+	right:0px;
 	overflow:auto;
+	padding:0;
+	margin:0;
 }
 
 /* Exercise List */

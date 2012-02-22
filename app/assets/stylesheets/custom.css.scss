@@ -217,7 +217,7 @@ div.dright {
 	position:absolute;
 	top:5px;
 	bottom:5px;
-	left:5px;
+	left:0px;
 	right:0px;
 	overflow:auto;
 }
@@ -283,7 +283,11 @@ table tr td.exercise {
 		border-radius:2px;
 	}
 }
-
+div.fbex {
+	.fb-like, fb-comments {
+		width:30px;
+	}
+}
 table tr td.exercise div.text {
 	float:left;
 	margin-left: 10px;

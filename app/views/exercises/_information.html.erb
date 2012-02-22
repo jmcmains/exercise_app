@@ -23,12 +23,12 @@ Info:
 	<tr class="titles">
 		<td>FORCE</td>
 		<td>POSITIONS</td>
-		<td title="BOLD GRIP OPTIONS signify our recommendation, ALL = any grip option can function">GRIP OPTIONS</td>
+		<td title="BOLD ACCESSORIES signify our recommendation, ALL = any option can function">OPTIONAL ACCESSORIES</td>
 	</tr>
 	<tr class="values">
 		<td><% exercise.forces.each do |force| %><%= force.name %><br /><% end %></td>
 		<td><% exercise.positions.each do |position| %><%= position.name %><br /><% end %></td>
-		<td title="BOLD GRIP OPTIONS signify our recommendation, ALL = any grip option can function">
+		<td title="BOLD ACCESSORIES signify our recommendation, ALL = any option can function">
 		<% exercise.accessories.each do |accessory| %>
 				<% if exercise.primary_accessory?(accessory) %>
 					<strong><%= accessory.name.upcase %></strong>

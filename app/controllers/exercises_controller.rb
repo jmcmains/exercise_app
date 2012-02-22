@@ -15,6 +15,11 @@ class ExercisesController < ApplicationController
 		end
   end
   
+  def likepage
+		@exercise = Exercise.find(params[:id])
+		render :action => 'likepage', :layout => false
+  end
+  
   def show
   	@exercise = Exercise.find(params[:id])
   end

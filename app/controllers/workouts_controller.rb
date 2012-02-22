@@ -14,7 +14,6 @@ class WorkoutsController < ApplicationController
   
   def likepage
 		@workout = Workout.find(params[:id])
-		@title = @workout.name
 		render :action => 'likepage', :layout => false
   end
   

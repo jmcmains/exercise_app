@@ -3,6 +3,9 @@ ExerciseApp::Application.routes.draw do
 		collection do
 			get :picture
 		end
+		member do
+      get :likepage
+    end
 	end
 	match '/search' => 'categories#search'
 	
@@ -31,6 +34,7 @@ ExerciseApp::Application.routes.draw do
 		member do
 			get :expand
 			get :collapse
+      get :likepage
 		end
 	end
 

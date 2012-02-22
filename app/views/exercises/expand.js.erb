@@ -3,3 +3,4 @@ $("#ex<%= @exercise.id %>").show('fast');
 $("#bu<%= @exercise.id %>").attr("href","<%= collapse_exercise_path(@exercise) %>");
 $("#txt<%= @exercise.id %>").attr("href","<%= collapse_exercise_path(@exercise) %>");
 $("#bu<%= @exercise.id %>").html("-");
+FB.XFBML.parse($("#fb<%= @exercise.id %>")[0]);

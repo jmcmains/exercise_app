@@ -4,7 +4,7 @@
 	<% end %>
 </span>
 <table class="allinfo" color="white">
-	<tr>
+	<tr id="left">
 		<td>
 			<span class="description">Description:<br />
 			<%= exercise.description %></span><br />
@@ -25,6 +25,10 @@
 					<% end %>
 				</ol></span>
 			<% end %><br/>
+			<div class="exfb" id="fb<%= exercise.id %>" %>
+				<div class="fb-like" data-href="<%= likepage_exercise_path(exercise) %>" data-send="true" data-show-faces="true"></div><br />
+				<div class="fb-comments" data-href="<%= likepage_exercise_path(exercise) %>" data-num-posts="2"></div>
+				</div>
 		</td>
 		<td class="tright">
 			<%= render('exercises/media', :exercise => exercise) %>
@@ -32,3 +36,13 @@
 		</td>
 	</tr>
 </table>
+<script>
+$(function() {
+	var w = ($(window).width()-750);
+	if (w > 450) {
+		w = 450;
+	}
+	$('div.fb-like').attr("data-width",w);
+	$('div.fb-comments').attr("data-width",w);
+});
+</script>

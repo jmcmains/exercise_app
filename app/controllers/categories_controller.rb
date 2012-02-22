@@ -6,7 +6,12 @@ class CategoriesController < ApplicationController
 			format.js
 		end
   end
-
+  
+  def likepage
+		@category = Category.find(params[:id])
+		render :action => 'likepage', :layout => false
+  end
+  
 	def search
 		api_client = IndexTank::Client.new 'http://:ugQl2q6LHYQ5BQ@d7rbf.api.searchify.com'
 		exerciseApp = api_client.indexes 'ExerciseApp'

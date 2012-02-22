@@ -6,4 +6,5 @@ $("div.exercises").css("top","150px");
 $("div.descbar").html("<%= escape_javascript(render('workouts/title', :workout => @workout)) %>");
 $("table.exercises").html("<%= escape_javascript(render(@workout.exercises)) %>");
 window.history.replaceState("","","<%= workout_path(@workout) %>");
+FB.XFBML.parse($(".dright")[0]);
 

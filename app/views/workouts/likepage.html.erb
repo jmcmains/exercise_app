@@ -13,9 +13,8 @@
   </head>
   <body>
 <script>
-$(location).attr('href',"<%= workout_path(@workout) %>");
+  window.location = "<%= workout_path(@workout) %>";
 </script>
-
   </body>
 </html>
 

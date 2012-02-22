@@ -7,13 +7,13 @@
 		<meta property="og:title" content="<%= @category.name %>"/>
 		<meta property="og:type" content="website"/>
 		<meta property="og:site_name" content="Rubberbanditz Exercise App"/ >
-		<meta property="og:url" content="<%= likepage_category_url(@category) %>"/>
+		<meta property="og:url" content="<%= likepage_category_path(@category) %>"/>
 		<meta property="og:image" content="<%= @category.category_pictures.first.get_site %>" />
 		<meta property="og:description" content="This is one of Rubberbanditz great workouts!"/>
   </head>
   <body>
 <script>
-$(location).attr('href',"<%= category_path(@category) %>");
+  window.location = "<%= category_path(@category) %>";
 </script>
 
   </body>

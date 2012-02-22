@@ -7,13 +7,13 @@
 		<meta property="og:title" content="<%= @exercise.name %>"/>
 		<meta property="og:type" content="website"/>
 		<meta property="og:site_name" content="Rubberbanditz Exercise App"/ >
-		<meta property="og:url" content="<%= likepage_exercise_url(@exercise) %>"/>
+		<meta property="og:url" content="<%= likepage_exercise_path(@exercise) %>"/>
 		<meta property="og:image" content="<%= @exercise.exercise_pictures.first.get_site %>" />
 		<meta property="og:description" content="This is one of Rubberbanditz great workouts!"/>
   </head>
   <body>
 <script>
-$(location).attr('href',"<%= exercise_path(@exercise) %>");
+  window.location = "<%= exercise_path(@exercise) %>";
 </script>
 
   </body>

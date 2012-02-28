@@ -31,9 +31,9 @@ Info:
 		<td title="BOLD ACCESSORIES signify our recommendation, ALL = any option can function">
 		<% exercise.accessories.each do |accessory| %>
 				<% if exercise.primary_accessory?(accessory) %>
-					<strong><%= accessory.name.upcase %></strong>
+					<strong><%= link_to accessory.name.upcase, accessory.store_link, :target => "_top" %></strong>
 				<% else %>
-					<%= accessory.name %>
+					<%= link_to accessory.name, accessory.store_link, :target => "_top" %>
 				<% end %>
 				<br />
 		<% end %>

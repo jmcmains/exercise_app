@@ -14,7 +14,17 @@
 
   </head>
   <body>
-	<iframe src="<%= root_path %>" width="780" height="600"></iframe>
+	<iframe src="<%= root_path %>" width="780" height="600" id="exapp"></iframe>
+	<div class="hash"></div>
   </body>
+  <script>
+	$(function() {
+		theLocation = window.location.hash;
+		if (theLocation.length != 0) {
+			theLocation = theLocation.replace(/#/,"https://rbzexercise.herokuapp.com/");
+			$('iframe#exapp').attr("src",theLocation);
+		}
+	});
+</script>
 </html>
 

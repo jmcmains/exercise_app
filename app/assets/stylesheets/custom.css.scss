@@ -9,11 +9,10 @@ body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, 
 body {
 	background: #fff;
 	height:100%;
-	font-size:85%;
 	color:#222;
 	background:#fff;
-	font-family: Helvetica,Arial,sans-serif;;
 }
+
 
 table {
 	width:100%;border-collapse:separate;border-spacing:0;
@@ -28,37 +27,28 @@ h1, h2, h3, h4, h5, h6 {
 	color:#111;
 }
 
-tbody tr:nth-child(even) td, tbody tr.even td {background:#fff;}
-
 /* Sidebar */
 
 div.sidebar {
-	width: 270px;
-	border:0;
 	overflow:hidden;
 	white-space:nowrap;
 	text-overflow: ellipsis-word;
-	background: #f6f2e3;
-		position:absolute;
+	position:absolute;
 	top:0px;
 	bottom:0px;
 	left:0px;
 	.search {
-		border: 1px solid #DCDCDC;
 		margin-left:5px;
 		padding-left:5px;
-		color: #DCDCDC;
 	}
 	
 	h1 {
 		font-size: 100%;
 		font-weight:bold;
-		color: #FF1A1A;
 		margin: 2px;
 		margin-top:10px;
 		text-shadow: rgba(255,255,255,0.5) 0 1px;
 	}
-	
 	a {
 		font-size: 100%;
 		margin: 2px;
@@ -72,15 +62,8 @@ div.sidebar {
 		-moz-binding:url(/ellipsis-xbl.xml#ellipsis);
 		color: #000;
 		text-decoration: none;
-		$endColorstr:#000;
-		$startColorstr:#7F8284;
 		&:hover {
-			background: $startColorstr;
-			filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr=$startColorstr, endColorstr=$endColorstr);
-			background: -webkit-linear-gradient(top, $startColorstr, $endColorstr);
-			background: -moz-linear-gradient(top,  $startColorstr,  $endColorstr);
-			border:1px solid $endColorstr;
-			color:#fff;
+			color: #fff;
 			width:230px;
 			margin-left: -6px;
 			padding-left: 12px;
@@ -91,43 +74,26 @@ div.sidebar {
 			text-shadow: rgba(0,0,0,0.5) 0 1px;
 			cursor: pointer;
 		}
-		
-		&:active {
-			background: #93a1bd;
-			filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr=$endColorstr, endColorstr=$startColorstr);
-			background: -webkit-linear-gradient(top, $endColorstr, $startColorstr);
-			background: -moz-linear-gradient(top,  $endColorstr,  $startColorstr);
-			color:#fff;
-		}
-		
 		&.highlight {
-		background: $startColorstr;
-		filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr=$startColorstr, endColorstr=$endColorstr);
-		background: -webkit-linear-gradient(top, $startColorstr, $endColorstr);
-		background: -moz-linear-gradient(top,  $startColorstr,  $endColorstr);
-		border:1px solid $endColorstr;
-					color:#fff;
-		width:230px;
-		margin-left: -6px;
-		padding-left: 12px;
-		padding-right: 300px;
-		margin-top:-1px;
-		margin-bottom:-1px;
-		font-weight:bold;
-		text-shadow: rgba(0,0,0,0.5) 0 1px;
-		overflow:hidden;
-		white-space:nowrap;
-		text-overflow:ellipsis;
-		-o-text-overflow:ellipsis;
-		-ms-text-overflow:ellipsis;
-		-moz-binding:url(/ellipsis-xbl.xml#ellipsis);
-		text-decoration: none;
+			color: #fff;
+			width:230px;
+			margin-left: -6px;
+			padding-left: 12px;
+			padding-right: 300px;
+			margin-top:-1px;
+			margin-bottom:-1px;
+			font-weight:bold;
+			text-shadow: rgba(0,0,0,0.5) 0 1px;
+			overflow:hidden;
+			white-space:nowrap;
+			text-overflow:ellipsis;
+			-o-text-overflow:ellipsis;
+			-ms-text-overflow:ellipsis;
+			-moz-binding:url(/ellipsis-xbl.xml#ellipsis);
+			text-decoration: none;
+		}
 	}
-	}
-	
-	
 }
-
 
 /* Description Bar */
 
@@ -135,23 +101,18 @@ div.descbar {
 	position:absolute;
 	top:0px;
 	height:150px;
-	left:270px;
 	right:0px;
-	border:0;
-	background: #f6f2e3;
 	margin:0;
 	padding:0;
 	h1 {
 		font-size: 100%;
 		font-weight:bold;
-		color: #FF1A1A;	 
 		margin: 0;
 		text-shadow: rgba(255,255,255,0.5) 0 1px;
 	}
 }
 
 div.catimage {
-	background: #fff;
 	border:1px inset #bbb;
 	border-radius: 5px;
 	width:200px;
@@ -159,7 +120,6 @@ div.catimage {
 	margin:3px;
 	overflow:hidden;
 	position:relative;
-	
 	img {
 		height:140px;
 		z-index:0;
@@ -167,14 +127,12 @@ div.catimage {
 		margin-left:auto; 
 		margin-right:auto; 
 	}
-	
 	table {
 		position:absolute;
 		table-layout:fixed;
-	}
-	
-	table.img tr td {
-		width:200px;
+		&.img tr td {
+			width:200px;
+		}
 	}
 }
 
@@ -225,19 +183,16 @@ div.dright {
 /* Exercise List */
 
 div.exercises {
-	border:0;
-	background: #f6f2e3;
 	overflow: auto;
 	position:absolute;
 	top:150px;
 	bottom:0px;
-	left:270px;
 	right:0px;
 	div.results {
 		ul li {
 			margin-left: 10px;
 			padding-bottom:10px;
-		list-style-type: none;
+			list-style-type: none;
 		}
 		a {
 			font-size:110%;
@@ -254,40 +209,34 @@ td.exercise {
 	position:relative;
 }
 
-
 span.category {
 	color: #888;
 	margin:35px;
 }
 
 table tr td.exercise {
-	a.text {
-		color: #000;
-		text-decoration: none;
-		padding-left:5px;
-	}
-	
-	a.expand {
-		color: #000;
-		text-decoration: none;
-		width: 10px;
-		height: 10px;
-		margin-left:10px;
-		margin-top:2px;
-		line-height:10px;
-		vertical-align:middle;
-		text-align:center;
-		padding:0px;
-		background-color: #d9ece0;
-		float:left;
-		border-radius:2px;
-	}
-}
-div.fbex {
-	.fb-like, fb-comments {
-		width:30px;
+	a {
+		&.text {
+			color: #000;
+			text-decoration: none;
+			padding-left:5px;
+		}
+		&.expand {
+			text-decoration: none;
+			width: 10px;
+			height: 10px;
+			margin-left:10px;
+			margin-top:2px;
+			line-height:10px;
+			vertical-align:middle;
+			text-align:center;
+			padding:0px;
+			float:left;
+			border-radius:2px;
+		}
 	}
 }
+
 table tr td.exercise div.text {
 	float:left;
 	margin-left: 10px;
@@ -298,18 +247,18 @@ table tr td.exercise div.text {
 table.information {
 	width: 350px;
 	border:1px solid #999;
-	
 	tr.titles td {
 		text-align: center;
 		font-weight: bold;
-			color: #717171;
+		color: #717171;
 		text-shadow: rgba(255,255,255,0.5) 0 1px;
-		background: #e7eaef;
-		filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#e7eaef', endColorstr='#d1d8df');
-		background: -webkit-linear-gradient(top, from(#e7eaef), to(#d1d8df));
-		background: -moz-linear-gradient(top,  #e7eaef,  #d1d8df);
+		$startColorstr:#e7eaef;
+		$endColorstr:#d1d8df;
+		background: $startColorstr;
+		filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr=$startColorstr, endColorstr=$endColorstr);
+		background: -webkit-linear-gradient(top, $startColorstr, $endColorstr);
+		background: -moz-linear-gradient(top,  $startColorstr, $endColorstr);
 	}
-	
 	tr.values td {
 		text-align: center;
 		vertical-align: top;
@@ -354,8 +303,6 @@ div.mediadisplay {
 	}
 }
 
-
-
 div.inforight {
 	position:absolute;
 	right:10px;
@@ -363,22 +310,24 @@ div.inforight {
 	top:5px;
 	left:360px;
 }
-/* Exercise display table */
 
-table.allinfo tr td{
-	vertical-align: top;
-}
+/* Exercise display table */
 
 table.allinfo {
 	width:100%;
 	margin-bottom: 5px;
 	padding-left:40px;
+	tr td{
+		vertical-align: top;
+		&.accimage {
+			width: 150px;
+			padding-right:5px;
+		}
+		&.tright {
+			width:350px;
+			margin:0;
+			padding:0;
+			padding-right:10px;
+		}
+	}
 }
-
-td.tright {
-	width:350px;
-	margin:0;
-	padding:0;
-	padding-right:10px;
-}
-

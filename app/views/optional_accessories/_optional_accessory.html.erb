@@ -5,11 +5,11 @@
 		<div class="data" id="ex<%= optional_accessory.id %>" style="display:none">
 			<table class="allinfo">
 				<tr>
-					<td>
-							<%= image_tag(optional_accessory.get_site, :height => "100") %>
+					<td class="accimage">
+							<%= image_tag(optional_accessory.get_site, :width => "150") %>
 					</td>
 					<td>
-						<%= optional_accessory.description %><br />
+						<%= raw optional_accessory.description %><br /><br />
 						For more information and purchasing details, please visit <a href="<%= optional_accessory.store_link %>" target=_top>the store </a>
 					</td>
 				</tr>

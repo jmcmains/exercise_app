@@ -1,0 +1,91 @@
+body {
+	font-size:85%;
+	font-family: Helvetica,Arial,sans-serif;;
+}
+
+tbody tr:nth-child(even) td, tbody tr.even td {background:#fff;}
+
+/* Sidebar */
+
+div.sidebar {
+	width: 270px;
+	border:0;
+	background: #f6f2e3;
+
+	.search {
+		border: 1px solid #DCDCDC;
+		color: #DCDCDC;
+	}
+	
+	h1 {
+		color: #FF1A1A;
+	}
+	
+	a {
+		$startColorstr:#7F8284;
+		$endColorstr:#000;
+		&:hover {
+			background: $startColorstr;
+			filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr=$startColorstr, endColorstr=$endColorstr);
+			background: -webkit-linear-gradient(top, $startColorstr, $endColorstr);
+			background: -moz-linear-gradient(top,  $startColorstr,  $endColorstr);
+			border:1px solid $endColorstr;
+		}
+		
+		&:active {
+			background: #93a1bd;
+			filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr=$endColorstr, endColorstr=$startColorstr);
+			background: -webkit-linear-gradient(top, $endColorstr, $startColorstr);
+			background: -moz-linear-gradient(top,  $endColorstr,  $startColorstr);
+			color:#fff;
+		}
+		
+		&.highlight {
+			background: $startColorstr;
+			filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr=$startColorstr, endColorstr=$endColorstr);
+			background: -webkit-linear-gradient(top, $startColorstr, $endColorstr);
+			background: -moz-linear-gradient(top,  $startColorstr,  $endColorstr);
+			border:1px solid $endColorstr;
+		}
+	}
+}
+
+/* Description Bar */
+
+div.descbar {
+	position:absolute;
+	top:0px;
+	height:150px;
+	left:270px;
+	right:0px;
+	border:0;
+	background: #f6f2e3;
+	h1 {
+		color: #FF1A1A;	 
+	}
+}
+
+div.catimage {
+	background: #fff;	
+}
+
+/* Exercise List */
+
+div.exercises {
+	border:0;
+	background: #f6f2e3;
+	left:270px;
+}
+
+table tr td.exercise {
+	a.expand {
+		color: #fff;
+		$endColorstr:#000;
+		$startColorstr:#7F8284;
+		background: $startColorstr;
+		filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr=$startColorstr, endColorstr=$endColorstr);
+		background: -webkit-linear-gradient(top, $startColorstr, $endColorstr);
+		background: -moz-linear-gradient(top,  $startColorstr,  $endColorstr);
+		font-weight:bold;
+	}
+}

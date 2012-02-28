@@ -8,10 +8,11 @@
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->    
     <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
+    <%= stylesheet_link_tag "custom", :media => "screen" %>
     <script>
     if (window.top!=window.self)
 		{
-			$('head').append('<%= stylesheet_link_tag "custom", :media => "screen" %>');
+			$('head').append('<%= stylesheet_link_tag "custom_embed", :media => "screen" %>');
 		}
 		else
 		{
@@ -53,8 +54,6 @@
     	$("input.search").css("color","#000");
     	$("input.search").css("font-style","normal");
     });
-    
-    
 		</script>
   </body>
 </html>

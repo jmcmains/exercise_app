@@ -6,4 +6,5 @@ class ExerciseWorkout < ActiveRecord::Base
   
   validates :exercise_id, :presence => true
   validates :workout_id, :presence => true
+  default_scope order: 'exercise_workouts.id ASC'
 end

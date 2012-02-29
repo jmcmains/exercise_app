@@ -284,9 +284,8 @@ div.mediadisplay {
 			vertical-align:middle;
 		}
 	}
-	
 	div.scroll {
-		height: 80px;
+		height: 85px;
 		width: 350px;
 		overflow: auto;
 		white-space: nowrap;
@@ -305,7 +304,7 @@ div.mediadisplay {
 
 div.inforight {
 	position:absolute;
-	right:10px;
+	right:20px;
 	bottom:5px;
 	top:5px;
 	left:360px;
@@ -317,6 +316,7 @@ table.allinfo {
 	width:100%;
 	margin-bottom: 5px;
 	padding-left:40px;
+	padding-right:20px;
 	tr td{
 		vertical-align: top;
 		&.accimage {
@@ -327,7 +327,9 @@ table.allinfo {
 			width:350px;
 			margin:0;
 			padding:0;
-			padding-right:10px;
+			margin-right:10px;
+			margin-left:5px;
+			padding-left:5px;
 		}
 	}
 }

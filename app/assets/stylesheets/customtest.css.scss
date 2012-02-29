@@ -1,11 +1,9 @@
 body{
 background-image:url('background.png');
 }
-
+.container {width:960px;margin:0 auto;margin-top:130px;}
 iframe {
-	position: absolute;
 	top:130px;
-	left:280px;
-	width: 1020px;
+	margin:0 auto;
 	border:0;
 }

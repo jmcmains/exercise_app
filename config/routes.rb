@@ -1,4 +1,6 @@
 ExerciseApp::Application.routes.draw do
+  get "users/new"
+
 	resources :categories do
 		collection do
 			get :picture
@@ -55,7 +57,7 @@ ExerciseApp::Application.routes.draw do
       get :likepage
     end
 	end
-	
-  match '/home', :to => 'pages#home'
-	root :to => 'categories#index'
+	match '/signup',  to: 'users#new'
+  match '/home', to: 'pages#home'
+	root to: 'categories#index'
 end

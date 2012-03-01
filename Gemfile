@@ -4,9 +4,9 @@ gem 'rails'
 
 gem 'will_paginate'
 gem 'activemodel'
-	gem 'sunspot_rails' 
-	gem 'sunspot_solr' 
-	
+gem 'sunspot_rails' 
+gem 'sunspot_solr' 
+gem 'bcrypt-ruby', '3.0.1'
 gem 'indextank'
 gem 'tanker'
 group :assets do

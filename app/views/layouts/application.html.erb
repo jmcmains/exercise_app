@@ -44,13 +44,21 @@
 						<%= link_to "Accessory Descriptions", optional_accessories_path, :remote => true, :id => "Accessory" %><br/>
 						<%= link_to "Glossary", glossaries_path, :remote => true, :id => "Glossary" %><br/>
 						<%= link_to "General Tips", general_tips_path, :remote => true, :id => "GT" %><br/>
-
+<%
+=begin %>	
+					<h1> USERS </h1>
+						<% if signed_in? %>
+							<%= link_to "Profile", current_user, :id => "profile" %><br/>
+							<%= link_to "Sign out", signout_path, method: :delete, :id => "signout" %>
+						<% else %>
+							<%= link_to "Sign up!", signup_path, :remote => true, :id => "signup" %><br/>
+							<%= link_to "Sign in", signin_path, :remote => true, :id => "signin" %>
+						<% end %>
+<%
+=end %>	
 				</div>
 				<%= yield %>
     </div>
-		<script type='text/javascript'> 
-			
-		</script> 
     <script>
     $("input.search").focus( function() {
     	$("input.search").attr("value","");

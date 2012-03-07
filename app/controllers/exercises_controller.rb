@@ -7,7 +7,7 @@ class ExercisesController < ApplicationController
 		end
   end
   
-   def collapse
+  def collapse
   	@exercise = Exercise.find(params[:id])
   	respond_to do |format|
 			format.html { redirect_to @exercise }
@@ -28,7 +28,7 @@ class ExercisesController < ApplicationController
   	@exercise = Exercise.find(params[:id])
   	@title = "Edit Exercise"
   end
-  
+
   def update
   	@exercise = Exercise.find(params[:id])
   	@categories = params[:exercise][:categories]
@@ -36,6 +36,7 @@ class ExercisesController < ApplicationController
   	@positions = params[:exercise][:positions]
   	@heights = params[:exercise][:heights]
   	@muscles = params[:exercise][:muscles]
+  	@primary_muscle = params[:exercise][:exercise_muscles]
   	@forces = params[:exercise][:forces]
   	@posts = params[:exercise][:posts]
     if @exercise.update_attributes(:name => params[:exercise][:name], :description => params[:exercise][:description])
@@ -57,7 +58,11 @@ class ExercisesController < ApplicationController
 
 		  @exercise.posts.map { |post| @exercise.exclude_post!(post) }
 		  @posts.each {|post| @exercise.include_post_id!(post.to_f) unless post.blank? }
-		  	
+		  
+		  @exercise.muscles.map { |muscle| @exercise.exclude_muscle!(muscle) }
+		  @muscles.each {|muscle| @exercise.include_muscle_id!(muscle.to_f) unless muscle.blank? }
+		  @exercise.toggle_primary!(@primary_muscle)
+		  
       redirect_to exercises_path
     else
       @title = "Error"
@@ -72,29 +77,23 @@ class ExercisesController < ApplicationController
   end
   
   def create
-  	@exercise = Exercise.new(:name => params[:exercise][:name], :description => params[:exercise][:description])
-  	@categories = params[:exercise][:categories]
-  	@accessories = params[:exercise][:accessories]
-  	@positions = params[:exercise][:positions]
-  	@heights = params[:exercise][:heights]
-  	@forces = params[:exercise][:forces]
-  	@posts = params[:exercise][:posts]
+  	@exercise = Exercise.new(params[:exercise])
     if @exercise.save
-		  @categories.each {|category| @exercise.include_category_id!(category.to_f) unless category.blank? }
-		  @accessories.each {|accessory| @exercise.include_accessory_id!(accessory.to_f) unless accessory.blank? }
-		  @positions.each {|position| @exercise.include_position_id!(position.to_f) unless position.blank? }
-		  @heights.each {|height| @exercise.include_height_id!(height.to_f) unless height.blank? }
-			@forces.each {|force| @exercise.include_force_id!(force.to_f) unless force.blank? }
-			@posts.each {|post| @exercise.include_post_id!(post.to_f) unless post.blank? }
       redirect_to categories_path
     else
-      @title = "Error"
-      render 'new'
+      render 'new', :layout => false
     end
   end
   
   def new
   	@exercise = Exercise.new
-  	@title = "New Exercise"
+  	@exercise_categories = @exercise.exercise_categories.build
+  	@exercise_muscles = @exercise.exercise_muscles.build
+  	@exercise_posts = @exercise.exercise_posts.build
+  	@exercise_heights = @exercise.exercise_heights.build
+  	@exercise_forces = @exercise.exercise_forces.build
+  	@exercise_positions = @exercise.exercise_positions.build
+  	@exercise_accessories = @exercise.exercise_accessories.build
+  	render :layout => false
   end
 end

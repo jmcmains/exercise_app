@@ -1,55 +1,223 @@
-<h1>New Exercise</h1>
-
-<%= form_for(@exercise) do |f| %>
-<div class="field">
-	<%= f.label :name %><br />
-	<%= f.text_field :name %>
-</div>
-<div class="field">
-	<%= f.label :description %><br />
-	<%= f.text_area :description, :size => "60x12" %>
-</div>
-<div class="field">
-	<%= f.label :video %><br />
-	<%= f.text_field :video %>
-</div>
-<div class="field">
-	<%= f.label :categories %><br />
-	<%= f.collection_select(:categories, Category.all, :id, :name, { :selected => "" }, 
-	{ :multiple => true, :size => 5 }) %>
-</div>
-<div class="field">
-	<%= f.label :accessories %><br />
-	<%= f.collection_select(:accessories, OptionalAccessory.all, :id, :name, { :selected => "" }, 
-	{ :multiple => true, :size => 5 }) %>
-</div>
-<div class="field">
-	<%= f.label :positions %><br />
-	<%= f.collection_select(:positions, Position.all, :id, :name, { :selected => "" }, 
-	{ :multiple => true, :size => 5 }) %>
-</div>
-<div class="field">
-	<%= f.label :heights %><br />
-	<%= f.collection_select(:heights, AnchorPointHeight.all, :id, :name, { :selected => "" }, 
-	{ :multiple => true, :size => 5 }) %>
-</div>
-<div class="field">
-	<%= f.label :muscles %><br />
-	<%= f.collection_select(:muscles, TargetMuscle.all, :id, :name, { :selected => "" }, 
-	{ :multiple => true, :size => 5 }) %>
-</div>
-<div class="field">
-	<%= f.label :forces %><br />
-	<%= f.collection_select(:forces, Force.all, :id, :name, { :selected => "" }, 
-	{ :multiple => true, :size => 5 }) %>
-</div>
-<div class="field">
-	<%= f.label :posts %><br />
-	<%= f.collection_select(:posts, Post.all, :id, :name, { :selected => "" }, 
-	{ :multiple => true, :size => 5 }) %>
-</div>
-<div class="actions">
-	<%= f.submit "Save" %>
-</div>
+<!DOCTYPE html>
+<html xmlns:og="http://ogp.me/ns#">
+  <head>
+    <title>Rubberbanditz Exercise App</title>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tag %>
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->    
+    <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
+    <%= stylesheet_link_tag "custom", :media => "screen" %>
+    <script>
+    if (window.top!=window.self)
+		{
+			$('head').append('<%= stylesheet_link_tag "custom_embed", :media => "screen" %>');
+		}
+		else
+		{
+			$('head').append('<%= stylesheet_link_tag "custom_base", :media => "screen" %>');
+		} 
+		</script>
+  </head>
+  <body>
+  <%= form_for(@exercise) do |f| %>
+	<div class="field">
+		<%= f.label :name %> : <%= f.text_field :name %><br />
+	</div>
+	<div class="field">
+	<%= f.fields_for :exercise_categories do |fff| %>
+			Categories: <br />
+			<%= fff.collection_select(:category_id, Category.all, :id, :name, { :selected => "" }, { :multiple => true, :size => 5 }) %>
+	<% end %>
+	</div>
+	<table class="allinfo" color="white">
+			<tr id="left">
+				<td>
+					<div class="field">
+						<%= f.label :description %>: <br />
+						<%= f.text_area :description, :size => "60x12" %>
+					</div>
+					<div class="field">
+					Tips:
+					<ul>
+					<%= f.fields_for :tips do |builder| %>
+    				<%= render "tip_fields", :f => builder %>
+					<% end %>
+					</ul>
+					<p><%= link_to_add_fields "Add Tip", f, :tips %></p>
+					</div>
+					<div class="field">
+					Variations:
+					<ol>
+					<%= f.fields_for :variations do |builder| %>
+    				<%= render "variation_fields", :f => builder %>
+					<% end %>
+					</ol>
+					<p><%= link_to_add_fields "Add Variation", f, :variations %></p>
+					</div>
+				</td>
+				<td class="tright">
+				Info:
+				<table class="information">
+					<tr class="titles">
+						<td title="bold signifies primary muscle(s) used; others signify secondary muscle(s) used">TARGET MUSCLES</td>
+						<td>POST</td>
+						<td title="Roughly, how high the band should be fixed relative to your body A.P. = Anchor Point)">A.P. HEIGHT</td>
+					</tr>
+					<tr class="values">
+						<td title="bold signifies primary muscle(s) used; others signify secondary muscle(s) used">
+							<%= f.fields_for :exercise_muscles do |fff| %>
+									<%= fff.collection_select(:muscle_id, TargetMuscle.all, :id, :name, { :selected => "" }, { :multiple => true, :size => 5 }) %>
+							<% end %>
+						</td>
+						<td>
+							<%= f.fields_for :exercise_posts do |fff| %>
+									<%= fff.collection_select(:post_id, Post.all, :id, :name, { :selected => "" }, { :multiple => true, :size => 5 }) %>
+							<% end %>
+						<td title="Roughly, how high the band should be fixed relative to your body A.P. = Anchor Point (Please note that many glossary terms are italicized.)">
+							<%= f.fields_for :exercise_heights do |fff| %>
+									<%= fff.collection_select(:height_id, AnchorPointHeight.all, :id, :name, { :selected => "" }, { :multiple => true, :size => 5 }) %>
+							<% end %>
+						</td>
+					</tr>
+					<tr class="titles">
+						<td>FORCE</td>
+						<td>POSITIONS</td>
+						<td title="BOLD ACCESSORIES signify our recommendation, ALL = any option can function">OPTIONAL ACCESSORIES</td>
+					</tr>
+					<tr class="values">
+						<td>
+							<%= f.fields_for :exercise_forces do |fff| %>
+									<%= fff.collection_select(:force_id, Force.all, :id, :name, { :selected => "" }, { :multiple => true, :size => 5 }) %>
+							<% end %>
+						</td>
+						<td>
+							<%= f.fields_for :exercise_positions do |fff| %>
+									<%= fff.collection_select(:position_id, Position.all, :id, :name, { :selected => "" }, { :multiple => true, :size => 5 }) %>
+							<% end %>
+						</td>
+						<td title="BOLD ACCESSORIES signify our recommendation, ALL = any option can function">
+							<%= f.fields_for :exercise_accessories do |fff| %>
+									<%= fff.collection_select(:accessory_id, OptionalAccessory.all, :id, :name, { :selected => "" }, { :multiple => true, :size => 5 }) %>
+							<% end %>
+					</tr>
+				</table>
+				</td>
+			</tr>
+		</table>
+	<div class="actions">
+			<%= f.submit "Save" %>
+		</div>
+		<% if @exercise.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@exercise.errors.count, "error") %> 
+        prohibited this exercise from being saved:</h2>
+    <p>There were problems with the following fields:</p>
+    <ul>
+    <% @exercise.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 <% end %>
 
+</body>
+</html>
+<%
+=begin %>	
+		
+		</div>
+		<table class="allinfo" color="white">
+			<tr id="left">
+				<td>
+					<span class="description">Description:<br />
+					<%= exercise.description %></span><br />
+					<br />
+					<% if exercise.tips.count > 0 %>
+						<span class="tips">Tips:
+						<ul>
+							<% exercise.tips.each do |tip| %>
+								<li><%= tip.content %></li>
+							<% end %>
+						</ul></span>
+					<% end %>
+					<% if exercise.variations.count > 0 %>
+						<span class="variations">Variations:
+						<ol>
+							<% exercise.variations.each do |variations| %>
+								<li><%= variations.content %></li>
+							<% end %>
+						</ol></span>
+					<% end %><br/>
+					<div class="exfb" id="fb<%= exercise.id %>" %>
+						<div class="fb-like" data-href="<%= likepage_exercise_path(exercise) %>" data-send="true" data-show-faces="true"></div><br />
+						<div class="fb-comments" data-href="<%= likepage_exercise_path(exercise) %>" data-num-posts="2"></div>
+						</div>
+				</td>
+				<td class="tright">
+					<%= render('exercises/media', :exercise => exercise) %>
+					<%= render('exercises/information', :exercise => exercise) %>
+				</td>
+			</tr>
+		</table>
+	
+		
+		
+
+		
+		
+		
+		
+		
+		<% end %>
+
+
+<div class="field">
+			<%= f.label :videos %><br />
+			<%= f.text_field :videos %>
+		</div>
+
+		<div class="field">
+			<%= f.label :accessories %><br />
+			<%= f.collection_select(:accessories, OptionalAccessory.all, :id, :name, { :selected => "" }, 
+			{ :multiple => true, :size => 5 }) %>
+		</div>
+		<div class="field">
+			<%= f.label :positions %><br />
+			<%= f.collection_select(:positions, Position.all, :id, :name, { :selected => "" }, 
+			{ :multiple => true, :size => 5 }) %>
+		</div>
+		<div class="field">
+			<%= f.label :heights %><br />
+			<%= f.collection_select(:heights, AnchorPointHeight.all, :id, :name, { :selected => "" }, 
+			{ :multiple => true, :size => 5 }) %>
+		</div>
+		<div class="field">
+			<%= f.label :muscles %><br />
+			<%= f.collection_select(:muscles, TargetMuscle.all, :id, :name, { :selected => "" }, 
+			{:multiple => true, :size => 5, :class => "tmcs"}) %><br/>
+		</div>
+		<script>	
+			$('.tmcs').change(function() {
+					$("#exercise_exercise_muscles option").remove()
+					$('#exercise_exercise_muscles').append($("<option></option>").attr("value",0).text("none")); 
+          $(".tmcs option:selected").each(function () {
+             $('#exercise_exercise_muscles').append($("<option></option>").attr("value",$(this).val()).text($(this).text())); 
+          });
+        });
+		</script>
+		<div class="tm2">Primary muscle:<br/><%= f.select :exercise_muscles, ["none"], :class => "tm" %></div>
+		<div class="field">
+			<%= f.label :forces %><br />
+			<%= f.collection_select(:forces, Force.all, :id, :name, { :selected => "" }, 
+			{ :multiple => true, :size => 5 }) %>
+		</div>
+		<div class="field">
+			<%= f.label :posts %><br />
+			<%= f.collection_select(:posts, Post.all, :id, :name, { :selected => "" }, 
+			{ :multiple => true, :size => 5 }) %>
+		</div>
+<%
+=end %>

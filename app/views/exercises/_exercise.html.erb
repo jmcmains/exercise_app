@@ -1,7 +1,8 @@
 <tr>
-	<td class="exercise <%= exercise.id %>" id="<%= exercise.id %>">
-		<%= link_to "+", expand_exercise_path(exercise), :remote => true, :class => "expand", :id => "bu#{exercise.id}" %></div>
-		<%= link_to exercise.name, expand_exercise_path(exercise), :remote => true, :class => "text", :id => "txt#{exercise.id}"  %></div>
+	<td class="exercise <%= exercise.id %>" id="<%= exercise.id %>" draggable="true">
+		<%= link_to "+", expand_exercise_path(exercise), :remote => true, :class => "expand", :id => "bu#{exercise.id}" %>
+		<%= link_to exercise.name, expand_exercise_path(exercise), :remote => true, :class => "text", :id => "txt#{exercise.id}"  %>
+		<!-- <%= link_to "delete", exercise, :method => :delete, :confirm => "You sure?", :title => "Delete #{exercise.name}" %> -->
 		<div class="data" id="ex<%= exercise.id %>" style="display:none">
 		</div>
 	</td>

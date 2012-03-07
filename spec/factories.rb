@@ -4,5 +4,5 @@ Factory.define :exercise do |exercise|
 end
 
 Factory.define :category do |category|
-  category.name                  "Legs"
+  category.name                  "Fake Category"
 end

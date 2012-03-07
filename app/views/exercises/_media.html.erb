@@ -3,21 +3,23 @@
 		<% if exercise.videos.count > 0 %>
 			<iframe class="youtube" width="350" height="267" src="<%= exercise.videos.first.get_embed %>" frameborder="0" allowfullscreen></iframe>
 		<% else %>
-			<%= image_tag exercise.exercise_pictures.first.get_site %>
+			<% if exercise.exercise_pictures.count > 0 %>
+				<%= image_tag exercise.exercise_pictures.first.get_site %>
+			<% end %>
 		<% end %>
 	</div>
 	Other Media: <br/>
 	<div class="scroll">
 		<% exercise.videos.each do |v| %>
-			<%= link_to image_tag(v.get_image, :class => "v#{v.id}"), display_video_path(v), :remote => true %>
+			<span><%= link_to image_tag(v.get_image, :class => "v#{v.id}"), display_video_path(v), :remote => true %></span>
 		<% end %>
 		<% exercise.exercise_pictures.each do |ep| %>
-			<%= link_to image_tag(ep.get_site, :class => "i#{ep.id}"), display_exercise_picture_path(ep), :remote => true  %>
+			<span><%= link_to image_tag(ep.get_site, :class => "i#{ep.id}"), display_exercise_picture_path(ep), :remote => true  %></span>
 		<% end %>
 	</div>
 </div>
 <script>
 $(function() {
-	$("div.scroll img.v<%= exercise.videos.first.id %>").addClass("highlight");
+	$("div.scroll img:first_child").addClass("highlight");
 });
 </script>

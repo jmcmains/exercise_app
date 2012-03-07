@@ -2,46 +2,50 @@ class Exercise < ActiveRecord::Base
 
 	validates :name, :presence => true
 	
-  has_many :exercise_categories, :foreign_key => "exercise_id",
-                                 :dependent => :destroy
+  has_many :exercise_categories, :foreign_key => "exercise_id", :dependent => :destroy
   has_many :categories, :through => :exercise_categories
-  
+  accepts_nested_attributes_for :exercise_categories, :reject_if => :all_blank, :allow_destroy => true
+    
   has_many :exercise_accessories, :foreign_key => "exercise_id",
                                  :dependent => :destroy
   has_many :accessories, :through => :exercise_accessories
+  accepts_nested_attributes_for :exercise_accessories, :reject_if => :all_blank, :allow_destroy => true
   
   has_many :exercise_positions, :foreign_key => "exercise_id",
                                  :dependent => :destroy
-                                 
   has_many :positions, :through => :exercise_positions
+  accepts_nested_attributes_for :exercise_positions, :reject_if => :all_blank, :allow_destroy => true
   
  	has_many :exercise_heights, :foreign_key => "exercise_id",
                                  :dependent => :destroy
   has_many :heights, :through => :exercise_heights
+  accepts_nested_attributes_for :exercise_heights, :reject_if => :all_blank, :allow_destroy => true
   
   has_many :exercise_muscles, :foreign_key => "exercise_id",
                                  :dependent => :destroy
-                                 
   has_many :muscles, :through => :exercise_muscles
+  accepts_nested_attributes_for :exercise_muscles, :reject_if => :all_blank, :allow_destroy => true
   
   has_many :exercise_forces, :foreign_key => "exercise_id",
                                  :dependent => :destroy
-                                 
   has_many :forces, :through => :exercise_forces
+ 	accepts_nested_attributes_for :exercise_forces, :reject_if => :all_blank, :allow_destroy => true
   
   has_many :exercise_posts, :foreign_key => "exercise_id",
                                  :dependent => :destroy
-                                 
   has_many :posts, :through => :exercise_posts
+  accepts_nested_attributes_for :exercise_posts, :reject_if => :all_blank, :allow_destroy => true
   
-  has_many :videos, :dependent => :destroy
-  
+
   has_many :tips, :dependent => :destroy
+  accepts_nested_attributes_for :tips, :reject_if => :all_blank, :allow_destroy => true
   
   has_many :variations, :dependent => :destroy
+  accepts_nested_attributes_for :variations, :reject_if => :all_blank, :allow_destroy => true
   
   has_many :exercise_pictures, :foreign_key => "exercise_id",
                            		 :dependent => :destroy
+  has_many :videos, :dependent => :destroy
                            		 
   include Tanker
   after_save :update_tank_indexes

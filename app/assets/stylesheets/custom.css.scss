@@ -30,7 +30,8 @@ h1, h2, h3, h4, h5, h6 {
 /* Sidebar */
 
 div.sidebar {
-	overflow:hidden;
+	overflow-x:hidden;
+	overflow-y:auto;
 	white-space:nowrap;
 	text-overflow: ellipsis-word;
 	position:absolute;
@@ -332,4 +333,74 @@ table.allinfo {
 			padding-left:5px;
 		}
 	}
+}
+
+/* signup form */
+
+div.background {
+	position:absolute;
+	z-index:5;	
+	width:100%;
+	height:100%;
+	background-color: #000;
+	opacity:0.6;
+  filter:alpha(opacity=60);
+}
+div.signup, div.signin {
+	position:absolute;
+	z-index:6;
+	background-color: #fff;
+	left: 50%;
+	width:500px;
+	padding:20px;
+	margin-left: -250px;
+	top:50%;
+	height:500px;
+	margin-top: -250px;
+	border-radius:10px;
+}
+
+/* signup form error */
+.field_with_errors {
+  background-color: red;
+  label {
+    color: #fff;
+    margin:0;
+    padding:0;
+    display:inline;
+  }
+  input {
+  	margin:0;
+    padding:0;
+  }
+}
+
+#error_explanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    background-color: #c00;
+    color: #fff;
+  }
+
+  p {
+    color: #333;
+    margin-bottom: 0;
+    padding: 5px;
+  }
+
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
 }

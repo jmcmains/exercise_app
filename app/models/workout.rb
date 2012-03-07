@@ -4,6 +4,7 @@ class Workout < ActiveRecord::Base
                                    			 :class_name => "ExerciseWorkout",
                                    			 :dependent => :destroy
   has_many :exercises, :through => :workout_exercises
+	default_scope order: 'workouts.id DESC'
 	
   def included_exercise?(exercise)
     workout_exercises.find_by_exercise_id(exercise)

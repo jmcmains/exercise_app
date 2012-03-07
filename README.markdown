@@ -3,9 +3,33 @@
 this is the repository for the currently unnamed exercise app which will become a library for all rubberband type exercises. 
 
 todo:
-search
-
-Facebook like/share/comment integration
+	exercise: 
+		edit/new
+			load images
+			youtube id extraction
+		favorite
+		star ratings
+		comments(non-facebook)
+	workouts:
+		add options to each exercise
+			weight/band
+			rep
+			sets
+			accessories used
+		edit/new
+		drag and drop add exercise
+		list personal workouts
+			copy from other users
+		most recent/most popular to show (current display not sustainable with increasing workouts)
+	user:
+		improve sign in/out/up look
+		profile needs:
+			user exercises
+			user workouts
+			user accessories
+			status
+			comments
+			recent exercises completed (reps/weight/accessories)
 
 Ideas for the future:
 
@@ -17,8 +41,6 @@ Users can share their exercises and workouts to their friends in the app or on t
 Space for ads (monetized this way)
 
 This could be a platform for fitness experts and trainers to give their students workouts (possible public/private sharing, could trainers sell workouts, and obviously we would take a small percentage)
-
-Creating a workout should be easy (drag and drop, copy old workouts)
 
 Section for badges (keeps people coming back to the app to say that they did the exercise)
 

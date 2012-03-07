@@ -9,6 +9,8 @@ gem 'sunspot_solr'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'indextank'
 gem 'tanker'
+gem 'omniauth'
+gem 'omniauth-facebook'
 group :assets do
   gem 'sass-rails',   '3.2.3'
   gem 'coffee-rails', '3.2.2'
@@ -35,5 +37,7 @@ group :test do
   gem 'rspec-rails'
   gem 'webrat'
   gem 'spork'
+  gem "autotest"
+	gem "autotest-rails"
   gem 'factory_girl_rails'
 end

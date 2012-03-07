@@ -1,6 +1,14 @@
 ExerciseApp::Application.routes.draw do
-  get "users/new"
-
+	resources :users
+	
+	resources :sessions, only: [:new, :create, :destroy]
+	
+	match '/signup', to: 'users#new'
+	match '/signin',  to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy'
+	get   '/login', :to => 'sessions#new', :as => :login
+	match '/auth/:provider/callback', :to => 'sessions#create'
+	match '/auth/failure', :to => 'sessions#failure'
 	resources :categories do
 		collection do
 			get :picture

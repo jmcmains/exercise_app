@@ -1,0 +1,10 @@
+<div class="descbar" style="display:none">
+</div>
+<div class="exercises" style="top:0px">
+	<table class="exercises"></table>
+	<div class="results">
+		<% @users.each do |user| %>
+			<%= user.name %>, <%= user.email %><br/>
+		<% end %>
+	</div>
+</div>

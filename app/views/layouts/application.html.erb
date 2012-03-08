@@ -10,7 +10,7 @@
     <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
     <%= stylesheet_link_tag "custom", :media => "screen" %>
     <script>
-    if  (window.location.pathname == "http://rubberbanditz.com/exercise-library/")
+    if  ($(location).attr('href'); == "http://rubberbanditz.com/exercise-library/")
 		{
 			$('head').append('<%= stylesheet_link_tag "custom_embed", :media => "screen" %>');
 		}
@@ -46,7 +46,7 @@
 						<%= link_to "General Tips", general_tips_path, :remote => true, :id => "GT" %><br/>
 						<span class="path">hello</span>
 						<script>
-						$('span.path').html(window.location.pathname);
+						$('span.path').html($(location).attr('href'));
 						</script>
 <%
 =begin %>	

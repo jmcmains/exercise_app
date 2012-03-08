@@ -31,7 +31,29 @@
 			<%= fff.collection_select(:category_id, Category.all, :id, :name, { :selected => "" }, { :multiple => true, :size => 5 }) %>
 	<% end %>
 	</div>
-	<table class="allinfo" color="white">
+	
+	<div class="actions">
+			<%= f.submit "Save" %>
+		</div>
+		<% if @exercise.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@exercise.errors.count, "error") %> 
+        prohibited this exercise from being saved:</h2>
+    <p>There were problems with the following fields:</p>
+    <ul>
+    <% @exercise.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<% end %>
+
+</body>
+</html>
+<%
+=begin %>	
+		<table class="allinfo" color="white">
 			<tr id="left">
 				<td>
 					<div class="field">
@@ -106,28 +128,6 @@
 				</td>
 			</tr>
 		</table>
-	<div class="actions">
-			<%= f.submit "Save" %>
-		</div>
-		<% if @exercise.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@exercise.errors.count, "error") %> 
-        prohibited this exercise from being saved:</h2>
-    <p>There were problems with the following fields:</p>
-    <ul>
-    <% @exercise.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
-<% end %>
-
-</body>
-</html>
-<%
-=begin %>	
-		
 		</div>
 		<table class="allinfo" color="white">
 			<tr id="left">

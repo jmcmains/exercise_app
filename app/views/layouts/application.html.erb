@@ -10,7 +10,7 @@
     <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
     <%= stylesheet_link_tag "custom", :media => "screen" %>
     <script>
-    if (window.top!=window.self)
+    if  (window.location.pathname == "http://http://rubberbanditz.com/exercise-library/")
 		{
 			$('head').append('<%= stylesheet_link_tag "custom_embed", :media => "screen" %>');
 		}

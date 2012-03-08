@@ -10,7 +10,7 @@
     <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
     <%= stylesheet_link_tag "custom", :media => "screen" %>
     <script>
-    if  (window.top.location.pathname == "/exercise-library")
+    if  ($(window).width() == 960)
 		{
 			$('head').append('<%= stylesheet_link_tag "custom_embed", :media => "screen" %>');
 		}
@@ -44,10 +44,6 @@
 						<%= link_to "Accessory Descriptions", optional_accessories_path, :remote => true, :id => "Accessory" %><br/>
 						<%= link_to "Glossary", glossaries_path, :remote => true, :id => "Glossary" %><br/>
 						<%= link_to "General Tips", general_tips_path, :remote => true, :id => "GT" %><br/>
-						<span class="path">hello</span>
-						<script>
-						$('span.path').html(window.top.location.pathname);
-						</script>
 <%
 =begin %>	
 					<h1> USERS </h1>

@@ -24,7 +24,7 @@
 						<li><%= variations.content %></li>
 					<% end %>
 				</ol></span>
-			<% end %><br/>
+			<% end %>
 			<div class="exfb" id="fb<%= exercise.id %>" %>
 				<div class="fb-like" data-href="<%= likepage_exercise_path(exercise) %>" data-send="true" data-show-faces="true"></div><br />
 				<div class="fb-comments" data-href="<%= likepage_exercise_path(exercise) %>" data-num-posts="2"></div>
@@ -38,11 +38,15 @@
 </table>
 <script>
 $(function() {
-	var w = ($(window).width()-700);
+	var w = ($(window).width()-750);
 	if (w > 450) {
 		w = 450;
 	}
-	$('div.fb-like').attr("data-width",w);
-	$('div.fb-comments').attr("data-width",w);
+	else {
+		$('div.fb-comments').remove();
+		$('div.fb-like').attr('data-width',w);
+		$('div.fb-like').attr('data-layout','button_count');
+		
+	}
 });
 </script>

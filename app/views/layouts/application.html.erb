@@ -17,6 +17,10 @@
 		else
 		{
 			$('head').append('<%= stylesheet_link_tag "custom_base", :media => "screen" %>');
+			if ($(window).width() == 810)
+			{
+				$('head').append('<%= stylesheet_link_tag "custom_facebook", :media => "screen" %>');
+			}
 		} 
 		</script>
   </head>

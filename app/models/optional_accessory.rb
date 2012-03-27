@@ -25,11 +25,4 @@ class OptionalAccessory < ActiveRecord::Base
   	"https://s3.amazonaws.com/ExerciseApp/images/" + self.picture
   end
   
-  include Tanker
-  after_save :update_tank_indexes
-  after_destroy :delete_tank_indexes
-  tankit 'ExerciseApp' do
-    indexes :name
-		indexes :description
-  end
 end

@@ -35,10 +35,6 @@
 		}(document, 'script', 'facebook-jssdk'));</script>
   	<div class="container">
     		<div class="sidebar">
-					<h1> SEARCH </h1>
-    				<%= form_tag search_path, :id => "myform", :method => :get do %>
-							<%= text_field_tag :query, "Search", :class => "search" %>
-						<% end %>
 					<h1> CATEGORY </h1>
 						<%= link_to "All", root_path, :remote => true, :id => "All", :class => "highlight" %><br/>
 						<%= render Category.all %>
@@ -63,13 +59,6 @@
 				</div>
 				<%= yield %>
     </div>
-    <script>
-    $("input.search").focus( function() {
-    	$("input.search").attr("value","");
-    	$("input.search").css("color","#000");
-    	$("input.search").css("font-style","normal");
-    });
-		</script>
   </body>
 </html>
 

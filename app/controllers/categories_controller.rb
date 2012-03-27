@@ -12,18 +12,7 @@ class CategoriesController < ApplicationController
 		render :action => 'likepage', :layout => false
   end
   
-	def search
-		api_client = IndexTank::Client.new 'http://:ugQl2q6LHYQ5BQ@d7rbf.api.searchify.com'
-		exerciseApp = api_client.indexes 'ExerciseApp'
-		q1=params[:query].split
-		q2 = []
-		q1.each do |q|
-			q2 << q + "*" << " OR "
-		end
-		q3=q2[0..-2].join
-		query="__any:(#{q3})"
-		@results= exerciseApp.search(query, :fetch => '__id,__type,name,term',:len => 200,:snippet => "__any")
-	end
+	
 	
   def show
   	@category = Category.find(params[:id])

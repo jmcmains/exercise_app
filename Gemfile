@@ -3,12 +3,9 @@ source 'http://rubygems.org'
 gem 'rails'
 
 gem 'will_paginate'
-gem 'activemodel'
-gem 'sunspot_rails' 
-gem 'sunspot_solr' 
+gem 'activemodel' 
 gem 'bcrypt-ruby', '3.0.1'
-gem 'indextank'
-gem 'tanker'
+
 gem 'omniauth'
 gem 'omniauth-facebook'
 group :assets do

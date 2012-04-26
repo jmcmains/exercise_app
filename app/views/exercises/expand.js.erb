@@ -1,4 +1,4 @@
-
+$("#ex<%= @exercise.id %> table tr td.tright").html('<%= escape_javascript render('exercises/media', :exercise => @exercise) %><%= escape_javascript render('exercises/information', :exercise => @exercise) %>');
 $("#ex<%= @exercise.id %>").show('fast');
 $("#bu<%= @exercise.id %>").attr("href","<%= collapse_exercise_path(@exercise) %>");
 $("#txt<%= @exercise.id %>").attr("href","<%= collapse_exercise_path(@exercise) %>");

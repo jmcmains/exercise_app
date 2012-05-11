@@ -4,6 +4,10 @@ class OptionalAccessoriesController < ApplicationController
   	@title = "exercise accessory"
   end
   
+  def index
+  	@title = "Accessory Descriptions | Rubberbanditz Exercise Library"
+  end
+  
   def expand
   	@optional_accessory = OptionalAccessory.find(params[:id])
   	respond_to do |format|

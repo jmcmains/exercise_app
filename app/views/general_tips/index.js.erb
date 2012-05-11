@@ -6,3 +6,4 @@ $("div.exercises").css("top","0px");
 $("div.descbar").html("");
 $("table.exercises").html("<%= escape_javascript(render(GeneralTip.all)) %>");
 window.history.replaceState("","","<%= general_tips_path %>");
+document.title = "<%= @title %>"

@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
 
   def index
+  	@title = "All Exercises | Rubberbanditz Exercise Library"
 		respond_to do |format|
 			format.html
 			format.js
@@ -11,13 +12,13 @@ class CategoriesController < ApplicationController
 		@category = Category.find(params[:id])
 		render :action => 'likepage', :layout => false
   end
-  
 	
 	
   def show
   	@category = Category.find(params[:id])
 		@exercises = @category.exercises
 		@name = @category.name
+		@title = @name + " | Rubberbanditz Exercise Library"
 		@showDesc = true
 		respond_to do |format|
 			format.html

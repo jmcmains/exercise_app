@@ -5,5 +5,6 @@ $("div.exercises").css("top","150px");
 $("div.descbar").html("<%= escape_javascript(render('categories/title', :category => @category)) %>");
 $("table.exercises").html("<%= escape_javascript(render(@category.exercises)) %>");
 window.history.replaceState("","","<%= category_path(@category) %>");
+document.title = "<%= @title %>"
 $("div.results").hide();
 FB.XFBML.parse($(".dright")[0]);

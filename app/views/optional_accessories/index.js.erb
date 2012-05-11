@@ -6,3 +6,4 @@ $("div.exercises").css("top","0px");
 $("div.descbar").html("");
 $("table.exercises").html("<%= escape_javascript(render(OptionalAccessory.all)) %>");
 window.history.replaceState("","","<%= optional_accessories_path %>");
+document.title = "<%= @title %>"

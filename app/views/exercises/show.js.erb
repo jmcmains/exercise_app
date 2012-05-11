@@ -6,4 +6,5 @@ $("div.descbar").html("<%= escape_javascript(render('categories/title', :categor
 $("table.exercises").html("<%= escape_javascript(render(@exercise.categories.first.exercises)) %>");
 $("a#bu<%= @exercise.id %>").click();
 window.history.replaceState("","","<%= category_path(@category) %>");
+document.title = "<%= @title %>"
 

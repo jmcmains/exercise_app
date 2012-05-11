@@ -5,4 +5,5 @@ $("div.results").hide();
 $("div.exercises").css("top","0px");
 $("div.descbar").html("");
 $("table.exercises").html("<%= escape_javascript(render(Exercise.all)) %>");
+document.title = "<%= @title %>"
 window.history.replaceState("","","<%= root_path %>");

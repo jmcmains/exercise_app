@@ -6,3 +6,4 @@ $("div.exercises").css("top","0px");
 $("div.descbar").html("");
 $("table.exercises").html("<%= escape_javascript(render(Glossary.all)) %>");
 window.history.replaceState("","","<%= glossaries_path %>");
+document.title = "<%= @title %>"

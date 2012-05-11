@@ -22,6 +22,7 @@ class ExercisesController < ApplicationController
   
   def show
   	@exercise = Exercise.find(params[:id])
+  	@title = @exercise.name + " | Rubberbanditz Exercise Library"
   end
 
   def edit

@@ -16,4 +16,8 @@ class GlossariesController < ApplicationController
   def show
   	@glossary = Glossary.find(params[:id])
   end
+  
+  def index
+  	@title = "Glossary | Rubberbanditz Exercise Library"
+  end
 end

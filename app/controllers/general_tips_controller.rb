@@ -16,4 +16,8 @@ class GeneralTipsController < ApplicationController
   def show
 		@general_tip = GeneralTip.find(params[:id])
   end
+  
+  def index
+  	@title = "General Tips | Rubberbanditz Exercise Library"
+  end
 end

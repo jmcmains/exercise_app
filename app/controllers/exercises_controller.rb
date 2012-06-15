@@ -61,12 +61,14 @@ class ExercisesController < ApplicationController
   	@title = "Edit Exercise"
   	@exercise.videos.build
   	@exercise.exercise_pictures.build
+  	@exercise.tips.build
+ 		@exercise.variations.build
   end
 
   def update
   	@exercise = Exercise.find(params[:id])
   	if @exercise.update_attributes(params[:exercise])
-      redirect_to root_path
+      redirect_to @exercise
     else
       @title = "Error"
       render 'new'
@@ -76,13 +78,13 @@ class ExercisesController < ApplicationController
 	def destroy
 		Exercise.find(params[:id]).destroy
     flash[:success] = "Exercise destroyed."
-    redirect_to categories_path
+    redirect_to root_path
   end
   
   def create
   	@exercise = Exercise.new(params[:exercise])
     if @exercise.save
-      redirect_to categories_path
+      redirect_to @exercise
     else
       render 'new'
     end

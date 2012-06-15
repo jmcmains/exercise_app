@@ -90,14 +90,14 @@
 						<td>
 							<div style ="height: 100px;width:150px;overflow: auto;text-align:left">
 								<% Position.all.each do |position| %>
-									<%= check_box_tag "exercise[position_ids][]", position, @exercise.position_ids.include?(position.id) %> <%= position.name %><br>
+									<%= check_box_tag "exercise[position_ids][]", position.id, @exercise.position_ids.include?(position.id) %> <%= position.name %><br>
 		 						<% end %>
 	 						</div>
 						</td>
 						<td title="BOLD ACCESSORIES signify our recommendation, ALL = any option can function">
 							<div style ="height: 100px;width:150px;overflow: auto;text-align:left">
 							<% OptionalAccessory.all.each do |accessory| %>
-									<%= check_box_tag "exercise[accessory_ids][]", accessory, @exercise.accessory_ids.include?(accessory.id) %> <%= accessory.name %><br>
+									<%= check_box_tag "exercise[accessory_ids][]", accessory.id, @exercise.accessory_ids.include?(accessory.id) %> <%= accessory.name %><br>
 		 						<% end %>
 	 						</div>
 						</td>

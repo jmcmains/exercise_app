@@ -1,8 +1,5 @@
 <span class="category">
-	Category: 
-	<% exercise.categories.each do |category| %>
-		<%= category.name %>
-	<% end %>
+	Category: exercise.categories.map(&:name).to_sentence
 </span>
 <table class="allinfo" color="white">
 	<tr id="left">

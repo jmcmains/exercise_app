@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120301151931) do
+ActiveRecord::Schema.define(:version => 20120615142641) do
 
   create_table "anchor_point_heights", :force => true do |t|
     t.string   "name"
@@ -137,8 +137,9 @@ ActiveRecord::Schema.define(:version => 20120301151931) do
   create_table "exercises", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "display",     :default => true
   end
 
   create_table "forces", :force => true do |t|

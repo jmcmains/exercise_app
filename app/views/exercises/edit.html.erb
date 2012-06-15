@@ -1,63 +1,125 @@
 <div class="descbar" style="display:none">
 </div>
 <div class="exercises" style="top:0px">
-	<table class="exercises"></table>
-	<div class="results">
-	<h1>Edit Exercise</h1>
-
-	<%= form_for(@exercise) do |f| %>
-
-	
+<%= form_for(@exercise) do |f| %>
 	<div class="field">
-		<%= f.label :name %><br />
-		<%= f.text_field :name %>
+		<%= f.label :name %> : <%= f.text_field :name %><br />
 	</div>
-	<div class="field">
-		<%= f.label :description %><br />
-		<%= f.text_area :description, :size => "60x12" %>
-	</div>
-	<div class="field">
-		<%= f.label :video %><br />
-		<%= f.text_field :video %>
-	</div>
-	<div class="field">
-		<%= f.label :categories %><br />
-		<%= f.collection_select(:categories, Category.all, :id, :name, { :selected => @exercise.categories.map {|category| category.id} }, 
-		{ :multiple => true, :size => 5 }) %>
-	</div>
-	<div class="field">
-		<%= f.label :optional_accessories %><br />
-		<%= f.collection_select(:accessories, OptionalAccessory.all, :id, :name, { :selected => @exercise.accessories.map {|accessory| accessory.id} }, 
-		{ :multiple => true, :size => 5 }) %>
-	</div>
-	<div class="field">
-		<%= f.label :positions %><br />
-		<%= f.collection_select(:positions, Position.all, :id, :name, { :selected => @exercise.positions.map {|position| position.id} }, 
-		{ :multiple => true, :size => 5 }) %>
-	</div>
-	<div class="field">
-		<%= f.label :heights %><br />
-		<%= f.collection_select(:heights, AnchorPointHeight.all, :id, :name, { :selected => @exercise.heights.map {|height| height.id} }, 
-		{ :multiple => true, :size => 5 }) %>
-	</div>
-	<div class="field">
-		<%= f.label :muscles %><br />
-		<%= f.collection_select(:muscles, TargetMuscle.all, :id, :name, { :selected => @exercise.muscles.map {|height| height.id} }, 
-		{ :multiple => true, :size => 5 }) %>
-	</div>
-	<div class="field">
-		<%= f.label :forces %><br />
-		<%= f.collection_select(:forces, Force.all, :id, :name, { :selected => @exercise.forces.map {|force| force.id} }, 
-		{ :multiple => true, :size => 5 }) %>
-	</div>
-	<div class="field">
-		<%= f.label :posts %><br />
-		<%= f.collection_select(:posts, Post.all, :id, :name, { :selected => @exercise.posts.map {|post| post.id} }, 
-		{ :multiple => true, :size => 5 }) %>
-	</div>
-	<div class="actions">
-		<%= f.submit "Save" %>
-	</div>
+	<span class="category">
+	Categories: 
+	<% Category.all.each do |cat| %>
+		<%= check_box_tag "exercise[category_ids][]", cat.id, @exercise.category_ids.include?(cat.id) %> <%= cat.name %>
 	<% end %>
-	</div>
+	<br>
+	<%= f.check_box :display %> display<br>
+	</span>
+
+	<table class="allinfo" color="white">
+	<tr id="left">
+		<td>
+			<span class="description">Description:<br />
+			<%= f.text_area :description, size: "60x12" %><br /></span><br />
+			<br />
+				<span class="tips">Tips:
+				<%= f.fields_for :tips do |builder| %>
+					<%= render "tip_fields", :f => builder %>
+				<% end %>
+				<p><%= link_to_add_fields "Add Tip", f, :tips %></p>
+				</span>
+				<span class="variations">Variations:
+				<%= f.fields_for :variations do |builder| %>
+					<%= render "variation_fields", :f => builder %>
+				<% end %>
+				<p><%= link_to_add_fields "Add Variation", f, :variations %></p></span>
+		</td>
+		<td class="tright">
+		<span class="videos">Videos:
+		<%= f.fields_for :videos do |builder| %>
+			<%= render "video_fields", :f => builder %>
+		<% end %>
+		<p><%= link_to_add_fields "Add Video", f, :videos %></p>
+		<span class="images">Images:
+		<%= f.fields_for :exercise_pictures do |builder| %>
+			<%= render "exercise_picture_fields", :f => builder %>
+		<% end %>
+		<p><%= link_to_add_fields "Add Image", f, :exercise_pictures %></p>
+		</span>
+		Info:
+				<table class="information">
+					<tr class="titles">
+						<td title="bold signifies primary muscle(s) used; others signify secondary muscle(s) used">TARGET MUSCLES</td>
+						<td>POST</td>
+						<td title="Roughly, how high the band should be fixed relative to your body A.P. = Anchor Point)">A.P. HEIGHT</td>
+					</tr>
+					<tr class="values">
+						<td title="bold signifies primary muscle(s) used; others signify secondary muscle(s) used">
+							<div style ="height: 100px;width:150px;overflow: auto;text-align:left">
+								<% TargetMuscle.all.each do |tm| %>
+									<%= check_box_tag "exercise[muscle_ids][]", tm.id, @exercise.muscle_ids.include?(tm.id) %> <%= tm.name %><br>
+		 						<% end %>
+	 						</div>
+						</td>
+						<td>
+							<div style ="height: 100px;width:150px;overflow: auto;text-align:left">
+								<% Post.all.each do |post| %>
+									<%= check_box_tag "exercise[post_ids][]", post.id, @exercise.post_ids.include?(post.id) %> <%= post.name %><br>
+		 						<% end %>
+	 						</div>
+						</td>
+						<td title="Roughly, how high the band should be fixed relative to your body A.P. = Anchor Point (Please note that many glossary terms are italicized.)">
+							<div style ="height: 100px;width:150px;overflow: auto;text-align:left">
+								<% AnchorPointHeight.all.each do |anchor| %>
+									<%= check_box_tag "exercise[height_ids][]", anchor.id, @exercise.height_ids.include?(anchor.id) %> <%= anchor.name %><br>
+		 						<% end %>
+	 						</div>
+						</td>
+					</tr>
+					<tr class="titles">
+						<td>FORCE</td>
+						<td>POSITIONS</td>
+						<td title="BOLD ACCESSORIES signify our recommendation, ALL = any option can function">OPTIONAL ACCESSORIES</td>
+					</tr>
+					<tr class="values">
+						<td>
+							<div style ="height: 100px;width:150px;overflow: auto;text-align:left">
+								<% Force.all.each do |force| %>
+									<%= check_box_tag "exercise[force_ids][]", force.id, @exercise.force_ids.include?(force.id) %> <%= force.name %><br>
+		 						<% end %>
+							</div>
+						</td>
+						<td>
+							<div style ="height: 100px;width:150px;overflow: auto;text-align:left">
+								<% Position.all.each do |position| %>
+									<%= check_box_tag "exercise[position_ids][]", position, @exercise.position_ids.include?(position.id) %> <%= position.name %><br>
+		 						<% end %>
+	 						</div>
+						</td>
+						<td title="BOLD ACCESSORIES signify our recommendation, ALL = any option can function">
+							<div style ="height: 100px;width:150px;overflow: auto;text-align:left">
+							<% OptionalAccessory.all.each do |accessory| %>
+									<%= check_box_tag "exercise[accessory_ids][]", accessory, @exercise.accessory_ids.include?(accessory.id) %> <%= accessory.name %><br>
+		 						<% end %>
+	 						</div>
+						</td>
+					</tr>
+				</table>
+		</td>
+	</tr>
+</table>
+	<div class="actions">
+			<%= f.submit "Save" %>
+		</div>
+		<% if @exercise.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@exercise.errors.count, "error") %> 
+        prohibited this exercise from being saved:</h2>
+    <p>There were problems with the following fields:</p>
+    <ul>
+    <% @exercise.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<% end %>
 </div>

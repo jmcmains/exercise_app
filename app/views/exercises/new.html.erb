@@ -1,37 +1,110 @@
-<!DOCTYPE html>
-<html xmlns:og="http://ogp.me/ns#">
-  <head>
-    <title>Rubberbanditz Exercise App</title>
-    <%= javascript_include_tag "application" %>
-    <%= csrf_meta_tag %>
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->    
-    <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
-    <%= stylesheet_link_tag "custom", :media => "screen" %>
-    <script>
-    if (window.top!=window.self)
-		{
-			$('head').append('<%= stylesheet_link_tag "custom_embed", :media => "screen" %>');
-		}
-		else
-		{
-			$('head').append('<%= stylesheet_link_tag "custom_base", :media => "screen" %>');
-		} 
-		</script>
-  </head>
-  <body>
-  <%= form_for(@exercise) do |f| %>
+<div class="descbar" style="display:none">
+</div>
+<div class="exercises" style="top:0px">
+<%= form_for(@exercise) do |f| %>
 	<div class="field">
 		<%= f.label :name %> : <%= f.text_field :name %><br />
 	</div>
-	<div class="field">
-	<%= f.fields_for :exercise_categories do |fff| %>
-			Categories: <br />
-			<%= fff.collection_select(:category_id, Category.all, :id, :name, { :selected => "" }, { :multiple => true, :size => 5 }) %>
+	<span class="category">
+	Categories: 
+	<% Category.all.each do |cat| %>
+		<%= check_box_tag "exercise[category_ids][]", cat.id %> <%= cat.name %>
 	<% end %>
-	</div>
-	
+		<br>
+	<%= f.check_box :display %> display<br>
+	</span>
+	<table class="allinfo" color="white">
+	<tr id="left">
+		<td>
+			<span class="description">Description:<br />
+			<%= f.text_area :description, size: "60x12" %><br /></span><br />
+			<br />
+				<span class="tips">Tips:
+				<%= f.fields_for :tips do |builder| %>
+					<%= render "tip_fields", :f => builder %>
+				<% end %>
+				<p><%= link_to_add_fields "Add Tip", f, :tips %></p>
+				</span>
+				<span class="variations">Variations:
+				<%= f.fields_for :variations do |builder| %>
+					<%= render "variation_fields", :f => builder %>
+				<% end %>
+				<p><%= link_to_add_fields "Add Variation", f, :variations %></p></span>
+		</td>
+		<td class="tright">
+		<span class="videos">Videos:
+		<%= f.fields_for :videos do |builder| %>
+			<%= render "video_fields", :f => builder %>
+		<% end %>
+		<p><%= link_to_add_fields "Add Video", f, :videos %></p>
+		<span class="images">Images:
+		<%= f.fields_for :exercise_pictures do |builder| %>
+			<%= render "exercise_picture_fields", :f => builder %>
+		<% end %>
+		<p><%= link_to_add_fields "Add Image", f, :exercise_pictures %></p>
+		</span>
+		Info:
+				<table class="information">
+					<tr class="titles">
+						<td title="bold signifies primary muscle(s) used; others signify secondary muscle(s) used">TARGET MUSCLES</td>
+						<td>POST</td>
+						<td title="Roughly, how high the band should be fixed relative to your body A.P. = Anchor Point)">A.P. HEIGHT</td>
+					</tr>
+					<tr class="values">
+						<td title="bold signifies primary muscle(s) used; others signify secondary muscle(s) used">
+							<div style ="height: 100px;width:150px;overflow: auto;text-align:left">
+								<% TargetMuscle.all.each do |tm| %>
+									<%= check_box_tag "exercise[muscle_ids][]", tm.id %> <%= tm.name %><br>
+		 						<% end %>
+	 						</div>
+						</td>
+						<td>
+							<div style ="height: 100px;width:150px;overflow: auto;text-align:left">
+								<% Post.all.each do |post| %>
+									<%= check_box_tag "exercise[post_ids][]", post.id %> <%= post.name %><br>
+		 						<% end %>
+	 						</div>
+						</td>
+						<td title="Roughly, how high the band should be fixed relative to your body A.P. = Anchor Point (Please note that many glossary terms are italicized.)">
+							<div style ="height: 100px;width:150px;overflow: auto;text-align:left">
+								<% AnchorPointHeight.all.each do |anchor| %>
+									<%= check_box_tag "exercise[height_ids][]", anchor.id %> <%= anchor.name %><br>
+		 						<% end %>
+	 						</div>
+						</td>
+					</tr>
+					<tr class="titles">
+						<td>FORCE</td>
+						<td>POSITIONS</td>
+						<td title="BOLD ACCESSORIES signify our recommendation, ALL = any option can function">OPTIONAL ACCESSORIES</td>
+					</tr>
+					<tr class="values">
+						<td>
+							<div style ="height: 100px;width:150px;overflow: auto;text-align:left">
+								<% Force.all.each do |force| %>
+									<%= check_box_tag "exercise[force_ids][]", force.id %> <%= force.name %><br>
+		 						<% end %>
+							</div>
+						</td>
+						<td>
+							<div style ="height: 100px;width:150px;overflow: auto;text-align:left">
+								<% Position.all.each do |position| %>
+									<%= check_box_tag "exercise[position_ids][]", position.id %> <%= position.name %><br>
+		 						<% end %>
+	 						</div>
+						</td>
+						<td title="BOLD ACCESSORIES signify our recommendation, ALL = any option can function">
+							<div style ="height: 100px;width:150px;overflow: auto;text-align:left">
+							<% OptionalAccessory.all.each do |accessory| %>
+									<%= check_box_tag "exercise[accessory_ids][]", accessory.id %> <%= accessory.name %><br>
+		 						<% end %>
+	 						</div>
+						</td>
+					</tr>
+				</table>
+		</td>
+	</tr>
+</table>
 	<div class="actions">
 			<%= f.submit "Save" %>
 		</div>
@@ -49,175 +122,5 @@
 <% end %>
 <% end %>
 
-</body>
-</html>
-<%
-=begin %>	
-		<table class="allinfo" color="white">
-			<tr id="left">
-				<td>
-					<div class="field">
-						<%= f.label :description %>: <br />
-						<%= f.text_area :description, :size => "60x12" %>
-					</div>
-					<div class="field">
-					Tips:
-					<ul>
-					<%= f.fields_for :tips do |builder| %>
-    				<%= render "tip_fields", :f => builder %>
-					<% end %>
-					</ul>
-					<p><%= link_to_add_fields "Add Tip", f, :tips %></p>
-					</div>
-					<div class="field">
-					Variations:
-					<ol>
-					<%= f.fields_for :variations do |builder| %>
-    				<%= render "variation_fields", :f => builder %>
-					<% end %>
-					</ol>
-					<p><%= link_to_add_fields "Add Variation", f, :variations %></p>
-					</div>
-				</td>
-				<td class="tright">
-				Info:
-				<table class="information">
-					<tr class="titles">
-						<td title="bold signifies primary muscle(s) used; others signify secondary muscle(s) used">TARGET MUSCLES</td>
-						<td>POST</td>
-						<td title="Roughly, how high the band should be fixed relative to your body A.P. = Anchor Point)">A.P. HEIGHT</td>
-					</tr>
-					<tr class="values">
-						<td title="bold signifies primary muscle(s) used; others signify secondary muscle(s) used">
-							<%= f.fields_for :exercise_muscles do |fff| %>
-									<%= fff.collection_select(:muscle_id, TargetMuscle.all, :id, :name, { :selected => "" }, { :multiple => true, :size => 5 }) %>
-							<% end %>
-						</td>
-						<td>
-							<%= f.fields_for :exercise_posts do |fff| %>
-									<%= fff.collection_select(:post_id, Post.all, :id, :name, { :selected => "" }, { :multiple => true, :size => 5 }) %>
-							<% end %>
-						<td title="Roughly, how high the band should be fixed relative to your body A.P. = Anchor Point (Please note that many glossary terms are italicized.)">
-							<%= f.fields_for :exercise_heights do |fff| %>
-									<%= fff.collection_select(:height_id, AnchorPointHeight.all, :id, :name, { :selected => "" }, { :multiple => true, :size => 5 }) %>
-							<% end %>
-						</td>
-					</tr>
-					<tr class="titles">
-						<td>FORCE</td>
-						<td>POSITIONS</td>
-						<td title="BOLD ACCESSORIES signify our recommendation, ALL = any option can function">OPTIONAL ACCESSORIES</td>
-					</tr>
-					<tr class="values">
-						<td>
-							<%= f.fields_for :exercise_forces do |fff| %>
-									<%= fff.collection_select(:force_id, Force.all, :id, :name, { :selected => "" }, { :multiple => true, :size => 5 }) %>
-							<% end %>
-						</td>
-						<td>
-							<%= f.fields_for :exercise_positions do |fff| %>
-									<%= fff.collection_select(:position_id, Position.all, :id, :name, { :selected => "" }, { :multiple => true, :size => 5 }) %>
-							<% end %>
-						</td>
-						<td title="BOLD ACCESSORIES signify our recommendation, ALL = any option can function">
-							<%= f.fields_for :exercise_accessories do |fff| %>
-									<%= fff.collection_select(:accessory_id, OptionalAccessory.all, :id, :name, { :selected => "" }, { :multiple => true, :size => 5 }) %>
-							<% end %>
-					</tr>
-				</table>
-				</td>
-			</tr>
-		</table>
-		</div>
-		<table class="allinfo" color="white">
-			<tr id="left">
-				<td>
-					<span class="description">Description:<br />
-					<%= exercise.description %></span><br />
-					<br />
-					<% if exercise.tips.count > 0 %>
-						<span class="tips">Tips:
-						<ul>
-							<% exercise.tips.each do |tip| %>
-								<li><%= tip.content %></li>
-							<% end %>
-						</ul></span>
-					<% end %>
-					<% if exercise.variations.count > 0 %>
-						<span class="variations">Variations:
-						<ol>
-							<% exercise.variations.each do |variations| %>
-								<li><%= variations.content %></li>
-							<% end %>
-						</ol></span>
-					<% end %><br/>
-					<div class="exfb" id="fb<%= exercise.id %>" %>
-						<div class="fb-like" data-href="<%= likepage_exercise_path(exercise) %>" data-send="true" data-show-faces="true"></div><br />
-						<div class="fb-comments" data-href="<%= likepage_exercise_path(exercise) %>" data-num-posts="2"></div>
-						</div>
-				</td>
-				<td class="tright">
-					<%= render('exercises/media', :exercise => exercise) %>
-					<%= render('exercises/information', :exercise => exercise) %>
-				</td>
-			</tr>
-		</table>
-	
-		
-		
+</div>
 
-		
-		
-		
-		
-		
-		<% end %>
-
-
-<div class="field">
-			<%= f.label :videos %><br />
-			<%= f.text_field :videos %>
-		</div>
-
-		<div class="field">
-			<%= f.label :accessories %><br />
-			<%= f.collection_select(:accessories, OptionalAccessory.all, :id, :name, { :selected => "" }, 
-			{ :multiple => true, :size => 5 }) %>
-		</div>
-		<div class="field">
-			<%= f.label :positions %><br />
-			<%= f.collection_select(:positions, Position.all, :id, :name, { :selected => "" }, 
-			{ :multiple => true, :size => 5 }) %>
-		</div>
-		<div class="field">
-			<%= f.label :heights %><br />
-			<%= f.collection_select(:heights, AnchorPointHeight.all, :id, :name, { :selected => "" }, 
-			{ :multiple => true, :size => 5 }) %>
-		</div>
-		<div class="field">
-			<%= f.label :muscles %><br />
-			<%= f.collection_select(:muscles, TargetMuscle.all, :id, :name, { :selected => "" }, 
-			{:multiple => true, :size => 5, :class => "tmcs"}) %><br/>
-		</div>
-		<script>	
-			$('.tmcs').change(function() {
-					$("#exercise_exercise_muscles option").remove()
-					$('#exercise_exercise_muscles').append($("<option></option>").attr("value",0).text("none")); 
-          $(".tmcs option:selected").each(function () {
-             $('#exercise_exercise_muscles').append($("<option></option>").attr("value",$(this).val()).text($(this).text())); 
-          });
-        });
-		</script>
-		<div class="tm2">Primary muscle:<br/><%= f.select :exercise_muscles, ["none"], :class => "tm" %></div>
-		<div class="field">
-			<%= f.label :forces %><br />
-			<%= f.collection_select(:forces, Force.all, :id, :name, { :selected => "" }, 
-			{ :multiple => true, :size => 5 }) %>
-		</div>
-		<div class="field">
-			<%= f.label :posts %><br />
-			<%= f.collection_select(:posts, Post.all, :id, :name, { :selected => "" }, 
-			{ :multiple => true, :size => 5 }) %>
-		</div>
-<%
-=end %>

@@ -6,6 +6,11 @@ class Exercise < ActiveRecord::Base
   has_many :categories, :through => :exercise_categories
   accepts_nested_attributes_for :exercise_categories, :reject_if => :all_blank, :allow_destroy => true
     
+	has_many :exercise_muscles, :foreign_key => "exercise_id", :dependent => :destroy
+  has_many :muscles, :through => :exercise_muscles
+  accepts_nested_attributes_for :exercise_muscles, :reject_if => :all_blank, :allow_destroy => true
+    
+    
   has_many :exercise_accessories, :foreign_key => "exercise_id",
                                  :dependent => :destroy
   has_many :accessories, :through => :exercise_accessories
@@ -21,11 +26,6 @@ class Exercise < ActiveRecord::Base
   has_many :heights, :through => :exercise_heights
   accepts_nested_attributes_for :exercise_heights, :reject_if => :all_blank, :allow_destroy => true
   
-  has_many :exercise_muscles, :foreign_key => "exercise_id",
-                                 :dependent => :destroy
-  has_many :muscles, :through => :exercise_muscles
-  accepts_nested_attributes_for :exercise_muscles, :reject_if => :all_blank, :allow_destroy => true
-  
   has_many :exercise_forces, :foreign_key => "exercise_id",
                                  :dependent => :destroy
   has_many :forces, :through => :exercise_forces
@@ -36,17 +36,17 @@ class Exercise < ActiveRecord::Base
   has_many :posts, :through => :exercise_posts
   accepts_nested_attributes_for :exercise_posts, :reject_if => :all_blank, :allow_destroy => true
   
-
   has_many :tips, :dependent => :destroy
-  accepts_nested_attributes_for :tips, :reject_if => :all_blank, :allow_destroy => true
+  accepts_nested_attributes_for :tips, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
   
   has_many :variations, :dependent => :destroy
   accepts_nested_attributes_for :variations, :reject_if => :all_blank, :allow_destroy => true
   
   has_many :exercise_pictures, :foreign_key => "exercise_id",
                            		 :dependent => :destroy
+  accepts_nested_attributes_for :exercise_pictures, :reject_if => :all_blank, :allow_destroy => true
   has_many :videos, :dependent => :destroy
-                           		 
+  accepts_nested_attributes_for :videos, :reject_if => :all_blank, :allow_destroy => true
  	
   #Categories
   def included_category?(category)

@@ -1,9 +1,116 @@
-<h1>Edit Position</h1>
-
-<%= form_for(@position) do |f| %>
+<h1>Rubberbanditz Inventory Form</h1>
+<p>This is the form where you can enter the quantity of each Rubberbanditz Product</p>
+<%= form_for(@inventory_entry) do |f| %>
 <div class="field">
-	<%= f.label :name %><br />
-	<%= f.text_field :name %>
+	<%= f.label :date %><br/>
+	<%= f.text_field :date %> 
+</div>
+<div class="field">
+	<%= f.label :entry_type %><br/>
+	Taking Inventory, Recording a Shipment Received, or Making a Product Order?<br>
+	<%= f.radio_button :entry_type, "Inventory" %><%= f.label :entry_type, "Inventory" %><br/>
+	<%= f.radio_button :entry_type, "Shipment Received" %><%= f.label :entry_type, "Shipment Received" %><br/>
+	<%= f.radio_button :entry_type, "Making a Product Order" %><%= f.label :entry_type, "Making a Product Order" %><br/>
+</div>
+<div class="field">
+	<%= f.label :light_count %><br/>
+	<%= f.text_field :light_count %> <br/>
+	<%= f.check_box :light_box, checked: true %>Count was number of boxes
+</div>
+<div class="field">
+	<%= f.label :medium_count %><br/>
+	<%= f.text_field :medium_count %> <br/>
+	<%= f.check_box :medium_box, checked: true %>Count was number of boxes
+</div>
+<div class="field">
+	<%= f.label :heavy_count %><br/>
+	<%= f.text_field :heavy_count %> <br/>
+	<%= f.check_box :heavy_box, checked: true %>Count was number of boxes
+</div>
+<div class="field">
+	<%= f.label :robust_count %><br/>
+	<%= f.text_field :robust_count %> <br/>
+	<%= f.check_box :robust_box, checked: true %>Count was number of boxes
+</div>
+<div class="field">
+	<%= f.label :power_count %><br/>
+	<%= f.text_field :power_count %> <br/>
+	<%= f.check_box :power_box, checked: true %>Count was number of boxes
+</div>
+<div class="field">
+	<%= f.label :strong_count %><br/>
+	<%= f.text_field :strong_count %> <br/>
+	<%= f.check_box :strong_box, checked: true %>Count was number of boxes
+</div>
+<div class="field">
+	<%= f.label :monster_count %><br/>
+	<%= f.text_field :monster_count %> <br/>
+	<%= f.check_box :monster_box, checked: true %>Count was number of boxes
+</div>
+<div class="field">
+	<%= f.label :agility_count %><br/>
+	<%= f.text_field :agility_count %> <br/>
+	<%= f.check_box :agility_box, checked: true %>Count was number of boxes
+</div>
+<div class="field">
+	<%= f.label :explosive_count %><br/>
+	<%= f.text_field :explosive_count %> <br/>
+	<%= f.check_box :explosive_box, checked: true %>Count was number of boxes
+</div>
+<div class="field">
+	<%= f.label :hand_grip_count %><br/>
+	<%= f.text_field :hand_grip_count %> <br/>
+	<%= f.check_box :hand_grip_box, checked: true %>Count was number of boxes
+</div>
+<div class="field">
+	<%= f.label :ankle_grip_count %><br/>
+	<%= f.text_field :ankle_grip_count %> <br/>
+	<%= f.check_box :ankle_grip_box, checked: true %>Count was number of boxes
+</div>
+<div class="field">
+	<%= f.label :door_strap_count %><br/>
+	<%= f.text_field :door_strap_count %> <br/>
+	<%= f.check_box :door_strap_box, checked: true %>Count was number of boxes
+</div>
+<div class="field">
+	<%= f.label :small_metal_biner_count %><br/>
+	<%= f.text_field :small_metal_biner_count %> <br/>
+	<%= f.check_box :small_metal_biner_box, checked: true %>Count was number of boxes
+</div>
+<div class="field">
+	<%= f.label :small_rb_biner_count %><br/>
+	<%= f.text_field :small_rb_biner_count %> <br/>
+	<%= f.check_box :small_rb_biner_box, checked: true %>Count was number of boxes
+</div>
+<div class="field">
+	<%= f.label :large_biner_count %><br/>
+	<%= f.text_field :large_biner_count %> <br/>
+	<%= f.check_box :large_biner_box, checked: true %>Count was number of boxes
+</div>
+<div class="field">
+	<%= f.label :hand_strap_count %><br/>
+	<%= f.text_field :hand_strap_count %> <br/>
+	<%= f.check_box :hand_strap_box, checked: true %>Count was number of boxes
+</div>
+<div class="field">
+	<%= f.label :travel_bag_count %><br/>
+	<%= f.text_field :travel_bag_count %> <br/>
+	<%= f.check_box :travel_bag_box, checked: true %>Count was number of boxes
+</div>
+<div class="field">
+	<%= f.label :dvd_count %><br/>
+	<%= f.text_field :dvd_count %> <br/>
+	<%= f.check_box :dvd_box, checked: true %>Count was number of boxes
+</div>
+<div class="field">
+	<%= f.label :sleeve_count %><br/>
+	<%= f.text_field :sleeve_count %> <br/>
+	<%= f.check_box :sleeve_box, checked: true %>Count was number of boxes
+</div>
+<div class="field">
+	<%= f.label :manual_count %><br/>
+	<%= f.text_field :manual_count %> <br/>
+	<%= f.check_box :manual_box, checked: true %>Count was number of boxes
 </div>
 <div class="actions">
 	<%= f.submit "Save" %>

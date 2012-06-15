@@ -1,7 +1,14 @@
 <div class="descbar" style="display:none">
 </div>
 <div class="exercises" style="top:0px">
-	<table class="exercises"><%= render Exercise.all %></table>
+	<table class="exercises"><%= render Exercise.all %>
+	<tr>
+		<td>
+		<% if signed_in? %>
+			<%= link_to "New Exercise", new_exercise_path %>
+		<% end %>
+		</td>
+	</tr></table>
 		<div class="results">
 		</div>
 </div>

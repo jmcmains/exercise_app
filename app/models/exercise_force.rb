@@ -3,7 +3,5 @@ class ExerciseForce < ActiveRecord::Base
 	
 	belongs_to :exercise, :class_name => "Exercise"
   belongs_to :force, :class_name => "Force"
-  
-  validates :exercise_id, :presence => true
-  validates :force_id, :presence => true
+
 end

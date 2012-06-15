@@ -1,5 +1,5 @@
 class TargetMuscle < ActiveRecord::Base
-	attr_accessible :name
+
 	has_many :muscle_exercises, :foreign_key => "muscle_id",
                                    			 :class_name => "ExerciseMuscle",
                                    			 :dependent => :destroy

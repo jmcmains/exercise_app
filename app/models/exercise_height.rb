@@ -3,7 +3,5 @@ class ExerciseHeight < ActiveRecord::Base
 	
 	belongs_to :exercise, :class_name => "Exercise"
   belongs_to :height, :class_name => "AnchorPointHeight"
-  
-  validates :exercise_id, :presence => true
-  validates :height_id, :presence => true
+
 end

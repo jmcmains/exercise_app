@@ -15,14 +15,13 @@
 		<tr id="left">
 			<td>
 				<span class="description">Description:<br />
-				<%= f.text_area :description, size: "60x12" %><br /></span><br />
-				<br />
+				<%= f.text_area :description, size: "60x12" %><br /><br /></span>
 					<span class="tips">Tips:
 					<%= f.fields_for :tips do |builder| %>
 						<%= render "tip_fields", :f => builder %>
 					<% end %>
 					<p><%= link_to_add_fields "Add Tip", f, :tips %></p>
-					</span>
+					</span><br>
 					<span class="variations">Variations:
 					<%= f.fields_for :variations do |builder| %>
 						<%= render "variation_fields", :f => builder %>
@@ -34,12 +33,12 @@
 			<%= f.fields_for :videos do |builder| %>
 				<%= render "video_fields", :f => builder %>
 			<% end %>
-			<p><%= link_to_add_fields "Add Video", f, :videos %></p>
+			<p><%= link_to_add_fields "Add Video", f, :videos %></p><br>
 			<span class="images">Images:
 			<%= f.fields_for :exercise_pictures do |builder| %>
 				<%= render "exercise_picture_fields", :f => builder %>
 			<% end %>
-			<p><%= link_to_add_fields "Add Image", f, :exercise_pictures %></p>
+			<p><%= link_to_add_fields "Add Image", f, :exercise_pictures %></p><br>
 			</span>
 			Info:
 					<table class="information">

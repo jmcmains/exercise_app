@@ -3,5 +3,12 @@
 <div class="exercises" style="top:0px">
 	<table class="exercises">
 		<%= render @exercises %>
+	<tr>
+		<td>
+		<% if signed_in? %>
+			<%= link_to "New Exercise", new_exercise_path %>
+		<% end %>
+		</td>
+	</tr>
 	</table>
 </div>

@@ -2,15 +2,6 @@
 </div>
 <div class="exercises" style="top:0px">
 	<table class="exercises">
-		<%= render Exercise.all %>
-		<tr>
-			<td class="exercise new" id="new" draggable="true">
-				<%= link_to "+", expand_exercise_path(Exercise.new), :remote => true, :class => "expand", :id => "bu#new" %>
-				<%= link_to "Add Exercise", expand_exercise_path(Exercise.new), :remote => true, :class => "text", :id => "txt#new"  %>
-				<div class="data" id="exnew" style="display:none">
-					<%= render('exercises/data', :exercise => exercise) %>
-				</div>
-			</td>
-		</tr>
+		<%= render @exercises %>
 	</table>
 </div>

@@ -3,5 +3,5 @@ $("a#All").addClass("highlight");
 $("div.descbar").hide();
 $("div.exercises").css("top","0px");
 $("div.descbar").html("");
-$("table.exercises").html("<%= escape_javascript(render(Exercise.all)) %>");
+$("table.exercises").html("<%= escape_javascript(render(@exercises)) %>");
 window.history.replaceState("","","<%= root_path %>");

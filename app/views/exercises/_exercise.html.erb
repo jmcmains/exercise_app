@@ -5,7 +5,7 @@
 		<%= link_to exercise.name, expand_exercise_path(exercise), :remote => true, :class => "text", :id => "txt#{exercise.id}"  %>
 		<% if signed_in? %>
 		<%= raw("<i>hidden</i>") if !exercise.display %>
-		<%= link_to "edit", edit_exercise_path(exercise) %> | <%= link_to "delete", exercise, :method => :delete, :confirm => "You sure?", :title => "Delete #{exercise.name}" %>
+		<%= link_to "edit", edit_exercise_path(exercise), :remote => true %> | <%= link_to "delete", exercise, :method => :delete, :confirm => "You sure?", :title => "Delete #{exercise.name}" %>
 		<% end %>
 		<div class="data" id="ex<%= exercise.id %>" style="display:none">
 			<%= render('exercises/data', :exercise => exercise) %>

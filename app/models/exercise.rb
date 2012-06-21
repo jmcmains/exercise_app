@@ -178,6 +178,14 @@ class Exercise < ActiveRecord::Base
 	def exclude_post!(post)
     exercise_posts.find_by_post_id(post).destroy
   end
+  
+  def self.search(search)
+  	if search
+  		all(include: [:categories, :tips, :variations, :muscles, :posts, :heights, :forces, :positions, :accessories], conditions: ['(exercises.name LIKE ? OR exercises.description LIKE ? OR categories.name LIKE ? OR tips.content LIKE ? OR variations.content LIKE ? OR target_muscles.name LIKE ? OR posts.name LIKE ? OR anchor_point_heights.name LIKE ? OR forces.name LIKE ? OR positions.name LIKE ? OR optional_accessories.name LIKE ?) AND exercises.display = "t"',"%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%"])
+  	else
+  		return find(:all)
+  	end
+  end
 end
 
 

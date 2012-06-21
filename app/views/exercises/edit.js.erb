@@ -1,0 +1,5 @@
+$('div#ex<%= @exercise.id %>').html("<%= escape_javascript render('exercises/edit', exercise: @exercise) %>")
+$("#ex<%= @exercise.id %>").show('fast');
+$("#bu<%= @exercise.id %>").attr("href","<%= category_path(@exercise.categories.first) %>");
+$("#txt<%= @exercise.id %>").attr("href","<%= category_path(@exercise.categories.first) %>");
+$("#bu<%= @exercise.id %>").html("-");

@@ -63,6 +63,10 @@ class ExercisesController < ApplicationController
   	@exercise.exercise_pictures.build
   	@exercise.tips.build
  		@exercise.variations.build
+ 		respond_to do |format|
+			format.html
+			format.js
+		end
   end
 
   def update
@@ -102,4 +106,12 @@ class ExercisesController < ApplicationController
   	@exercise.exercise_pictures.build
   end
   
+  def index
+  	@title = "Exercise Search"
+  	@exercises = Exercise.search(params[:search])
+  	respond_to do |format|
+			format.html
+			format.js
+		end
+  end
 end

@@ -35,6 +35,12 @@
 		}(document, 'script', 'facebook-jssdk'));</script>
   	<div class="container">
     		<div class="sidebar">
+    		<h1> SEARCH </h1>
+    		<%= form_tag exercises_path, :remote => true, method: :get do %>
+    			<p>
+    			<%= image_tag "search.png", class: "add-on" %><%= text_field_tag :search, params[:search], placeholder: "search exercises...", class: "search" %>
+    			</p>
+    		<% end %>
 					<h1> CATEGORY </h1>
 						<%= link_to "All", root_path, :remote => true, :id => "All", :class => "highlight" %><br/>
 						<%= render Category.all %>

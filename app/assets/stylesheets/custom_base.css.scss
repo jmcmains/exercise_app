@@ -16,13 +16,6 @@ div.sidebar {
 	background: -webkit-linear-gradient(top, $startColorstr, $endColorstr);
 	background: -moz-linear-gradient(top,  $startColorstr, $endColorstr);
 	.search {
-		$startColorstr:#e3e3e3;
-		$midColorstr:#fff;
-		$endColorstr:#b2b2b2;
-		background: #e3e3e3;
-		filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr=$startColorstr, endColorstr=$endColorstr);
-		background: -webkit-linear-gradient(top, $startColorstr, $midColorstr, $startColorstr);
-		background: -moz-linear-gradient(top, $startColorstr,  $midColorstr,  $startColorstr);
 		border-radius: 10px;
 		border: 1px inset #999;
 	}

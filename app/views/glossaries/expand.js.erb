@@ -1,4 +1,4 @@
 $("#ex<%= @glossary.id %>").toggle('fast');
-$("#bu<%= @glossary.id %>").attr("href","<%= collapse_glossary_path(@exercise) %>");
-$("#txt<%= @glossary.id %>").attr("href","<%= collapse_glossary_path(@exercise) %>");
+$("#bu<%= @glossary.id %>").attr("href","<%= collapse_glossary_path(@glossary) %>");
+$("#txt<%= @glossary.id %>").attr("href","<%= collapse_glossary_path(@glossary) %>");
 $("#bu<%= @glossary.id %>").html("-");

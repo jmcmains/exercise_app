@@ -1,4 +1,4 @@
 $("#ex<%= @general_tip.id %>").toggle('fast');
-$("#bu<%= @general_tip.id %>").attr("href","<%= collapse_general_tip_path(@exercise) %>");
-$("#txt<%= @general_tip.id %>").attr("href","<%= collapse_general_tip_path(@exercise) %>");
+$("#bu<%= @general_tip.id %>").attr("href","<%= collapse_general_tip_path(@general_tip) %>");
+$("#txt<%= @general_tip.id %>").attr("href","<%= collapse_general_tip_path(@general_tip) %>");
 $("#bu<%= @general_tip.id %>").html("-");

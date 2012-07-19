@@ -1,4 +1,5 @@
 class GeneralTipsController < ApplicationController
+	
 	def expand
   	@general_tip = GeneralTip.find(params[:id])
   	respond_to do |format|

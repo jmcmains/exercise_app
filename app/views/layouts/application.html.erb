@@ -66,6 +66,17 @@
 				
 				<%= yield %>
     </div>
+    <div class="modal"><!-- Place at bottom of page --></div>
+    <script>
+    $("body").on({
+			ajaxStart: function() { 
+				$(this).addClass("loading"); 
+			},
+			ajaxStop: function() { 
+				$(this).removeClass("loading"); 
+			}    
+		});
+    </script>
   </body>
 </html>
 

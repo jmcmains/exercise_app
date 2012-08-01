@@ -87,3 +87,10 @@ table tr td.exercise {
 		font-weight:bold;
 	}
 }
+
+.modal {
+    background: rgba( 255, 255, 255, .8 ) 
+                url('/assets/ajax-loader-embed.gif') 
+                50% 50% 
+                no-repeat;
+}

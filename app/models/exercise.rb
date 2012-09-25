@@ -36,6 +36,11 @@ class Exercise < ActiveRecord::Base
   has_many :posts, :through => :exercise_posts
   accepts_nested_attributes_for :exercise_posts, :reject_if => :all_blank, :allow_destroy => true
   
+  has_many :exercise_workouts, :foreign_key => "exercise_id",
+                                 :dependent => :destroy
+  has_many :workouts, :through => :exercise_workouts
+  accepts_nested_attributes_for :exercise_workouts, :reject_if => :all_blank, :allow_destroy => true
+  
   has_many :tips, :dependent => :destroy
   accepts_nested_attributes_for :tips, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
   
@@ -177,6 +182,30 @@ class Exercise < ActiveRecord::Base
   
 	def exclude_post!(post)
     exercise_posts.find_by_post_id(post).destroy
+  end
+  
+  require 'csv'
+  def self.export_to_csv
+  	csv = CSV.generate(col_sep: "\t") do |csv|
+			csv << ["Name","Description","Category","workouts","Tips","Variations","Target Muscles","Post","Anchor Point Height","force","Positions"]
+			Exercise.all.each do |ex|
+				if ex.display
+					name = ex.name
+					desc = ex.description
+					cats = ex.categories.map(&:name).join("|")
+					workouts = ex.workouts.map(&:name).join("|")
+					tips = ex.tips.map(&:content).join("|")
+					variations = ex.variations.map(&:content).join("|")
+					muscles = ex.muscles.map(&:name).join("|")
+					posts = ex.posts.map(&:name).join("|")
+					heights = ex.heights.map(&:name).join("|")
+					forces = ex.forces.map(&:name).join("|")
+					positions = ex.positions.map(&:name).join("|")
+					csv << [name,desc,cats,workouts,tips,variations,muscles,posts,heights,forces,positions]
+				end
+			end
+		end
+		send_data csv, type: 'text/csv', filename: "exercise_data.csv"
   end
   
   def self.search(search)

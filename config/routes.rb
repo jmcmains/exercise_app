@@ -46,6 +46,9 @@ ExerciseApp::Application.routes.draw do
 			get :collapse
       get :likepage
 		end
+		collection do
+			get :data
+		end
 	end
 
 	resources :videos do

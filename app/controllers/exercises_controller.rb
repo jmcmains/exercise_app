@@ -46,6 +46,30 @@ class ExercisesController < ApplicationController
 		end
   end
   
+  require 'csv'
+  def data
+  	csv = CSV.generate(col_sep: "\t") do |csv|
+			csv << ["Name","Description","Category","workouts","Tips","Variations","Target Muscles","Post","Anchor Point Height","force","Positions"]
+			Exercise.all.each do |ex|
+				if ex.display
+					name = ex.name
+					desc = ex.description
+					cats = ex.categories.map(&:name).join("|")
+					workouts = ex.workouts.map(&:name).join("|")
+					tips = ex.tips.map(&:content).join("|")
+					variations = ex.variations.map(&:content).join("|")
+					muscles = ex.muscles.map(&:name).join("|")
+					posts = ex.posts.map(&:name).join("|")
+					heights = ex.heights.map(&:name).join("|")
+					forces = ex.forces.map(&:name).join("|")
+					positions = ex.positions.map(&:name).join("|")
+					csv << [name,desc,cats,workouts,tips,variations,muscles,posts,heights,forces,positions]
+				end
+			end
+		end
+		send_data csv,:type => 'text/csv; charset=iso-8859-1; header=present', :disposition => "attachment; filename=exercise_data.csv"
+  end
+  
   def likepage
 		@exercise = Exercise.find(params[:id])
 		render :action => 'likepage', :layout => false

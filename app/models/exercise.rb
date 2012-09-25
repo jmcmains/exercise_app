@@ -184,30 +184,6 @@ class Exercise < ActiveRecord::Base
     exercise_posts.find_by_post_id(post).destroy
   end
   
-  require 'csv'
-  def self.export_to_csv
-  	csv = CSV.generate(col_sep: "\t") do |csv|
-			csv << ["Name","Description","Category","workouts","Tips","Variations","Target Muscles","Post","Anchor Point Height","force","Positions"]
-			Exercise.all.each do |ex|
-				if ex.display
-					name = ex.name
-					desc = ex.description
-					cats = ex.categories.map(&:name).join("|")
-					workouts = ex.workouts.map(&:name).join("|")
-					tips = ex.tips.map(&:content).join("|")
-					variations = ex.variations.map(&:content).join("|")
-					muscles = ex.muscles.map(&:name).join("|")
-					posts = ex.posts.map(&:name).join("|")
-					heights = ex.heights.map(&:name).join("|")
-					forces = ex.forces.map(&:name).join("|")
-					positions = ex.positions.map(&:name).join("|")
-					csv << [name,desc,cats,workouts,tips,variations,muscles,posts,heights,forces,positions]
-				end
-			end
-		end
-		send_data csv, type: 'text/csv', filename: "exercise_data.csv"
-  end
-  
   def self.search(search)
   	if search
   		all(include: [:categories, :tips, :variations, :muscles, :posts, :heights, :forces, :positions, :accessories], conditions: ['(exercises.name LIKE ? OR exercises.description LIKE ? OR categories.name LIKE ? OR tips.content LIKE ? OR variations.content LIKE ? OR target_muscles.name LIKE ? OR posts.name LIKE ? OR anchor_point_heights.name LIKE ? OR forces.name LIKE ? OR positions.name LIKE ? OR optional_accessories.name LIKE ?) AND exercises.display = ?',"%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%", true])

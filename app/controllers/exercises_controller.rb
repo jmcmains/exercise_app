@@ -48,8 +48,8 @@ class ExercisesController < ApplicationController
   
   require 'csv'
   def data
-  	csv = CSV.generate(col_sep: "\t") do |csv|
-			csv << ["Name","Description","Category","workouts","Tips","Variations","Target Muscles","Post","Anchor Point Height","force","Positions"]
+		csv = CSV.generate(col_sep: "\t") do |csv|
+			csv << ["Name", "Description", "Category", "workouts", "Tips", "Variations", "Target Muscles", "Post", "Anchor Point Height", "force", "Positions"]
 			Exercise.all.each do |ex|
 				if ex.display
 					name = ex.name
@@ -67,7 +67,9 @@ class ExercisesController < ApplicationController
 				end
 			end
 		end
-		send_data csv,:type => 'text/csv; charset=iso-8859-1; header=present', :disposition => "attachment; filename=exercise_data.csv"
+		send_data csv, type: 'text/csv', filename: "Shipping_data_#{DateTime.now.strftime("%Y%m%d%H%M%S")}.csv"
+		flash[:success] = "Orders Loaded"
+		redirect_to root_path
   end
   
   def likepage

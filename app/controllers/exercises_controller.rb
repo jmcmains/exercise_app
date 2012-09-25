@@ -68,8 +68,6 @@ class ExercisesController < ApplicationController
 			end
 		end
 		send_data csv, type: 'text/csv', filename: "Shipping_data_#{DateTime.now.strftime("%Y%m%d%H%M%S")}.csv"
-		flash[:success] = "Orders Loaded"
-		redirect_to root_path
   end
   
   def likepage

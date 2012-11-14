@@ -48,6 +48,7 @@ ExerciseApp::Application.routes.draw do
 		end
 		collection do
 			get :data
+			get :media_display
 		end
 	end
 

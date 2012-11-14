@@ -1,0 +1,15 @@
+<ul>
+<% @exercises.each do |ex| %>
+<li><%= ex.name %>
+	<ul>
+		<% ex.videos.each do |v| %>
+			<li>Video Embed: <%= link_to v.get_embed %></li>
+		<% end %>
+		<% ex.exercise_pictures.each do |p| %>
+			<li>Image: <%= link_to p.get_site %></li>
+		<% end %>
+	</ul>
+</li>
+<% end %>
+</ul>
+

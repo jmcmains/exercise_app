@@ -1,5 +1,9 @@
 class ExercisesController < ApplicationController
-
+	def media_display
+		@exercises = Exercise.all
+		render layout: false
+	end
+	
   def expand
   	if params[:id].blank?
   		@exercise = Exercise.new
@@ -49,7 +53,7 @@ class ExercisesController < ApplicationController
   require 'csv'
   def data
 		csv = CSV.generate(col_sep: "\t") do |csv|
-			csv << ["Name", "Description", "Category", "workouts", "Tips", "Variations", "Target Muscles", "Post", "Anchor Point Height", "force", "Positions"]
+			csv << ["Name", "Description", "Category", "workouts", "Tips", "Variations", "Target Muscles", "Post", "Anchor Point Height", "force", "Positions","videos","pictures"]
 			Exercise.all.each do |ex|
 				if ex.display
 					name = ex.name
@@ -63,11 +67,13 @@ class ExercisesController < ApplicationController
 					heights = ex.heights.map(&:name).join("|")
 					forces = ex.forces.map(&:name).join("|")
 					positions = ex.positions.map(&:name).join("|")
-					csv << [name,desc,cats,workouts,tips,variations,muscles,posts,heights,forces,positions]
+					videos = ex.videos.map(&:get_embed).join("|")
+					pics = ex.exercise_pictures.map(&:get_site).join("|")
+					csv << [name,desc,cats,workouts,tips,variations,muscles,posts,heights,forces,positions,videos,pics]
 				end
 			end
 		end
-		send_data csv, type: 'text/csv', filename: "Shipping_data_#{DateTime.now.strftime("%Y%m%d%H%M%S")}.csv"
+		send_data csv, type: 'text/csv', filename: "exercise_data.csv"
   end
   
   def likepage

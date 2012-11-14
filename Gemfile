@@ -4,17 +4,17 @@ gem 'rails'
 
 gem 'will_paginate'
 gem 'activemodel' 
-gem 'bcrypt-ruby', '3.0.1'
+gem 'bcrypt-ruby'
 
 gem 'omniauth'
 gem 'omniauth-facebook'
 group :assets do
-  gem 'sass-rails',   '3.2.3'
-  gem 'coffee-rails', '3.2.2'
-  gem 'uglifier', '1.0.3'
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
 end
 
-gem 'jquery-rails', '2.0.0'
+gem 'jquery-rails'
 
 group :production do
   gem 'pg'
